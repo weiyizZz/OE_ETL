@@ -1,0 +1,243 @@
+# Database Schema Metadata for the first extraction
+# Tables: participants, oral_questions, oral_answers
+# Last updated: 2026-04-20
+
+tables:
+
+  participants:
+    description: "participant information records"
+    columns:
+
+      participantID:
+        type: INTEGER
+        primary_key: true
+        nullable: false
+        example_value: 123
+        description: "Integer ID, assigned sequentially increasing for each row"
+
+      initials:
+        type: Text
+        nullable: true
+        example_value: "A.B."
+        description: "Name initials of the participant"
+
+      gender:
+        type: Text
+        nullable: true
+        example_values: ["Male", "Female", "Man", "Woman", "Non-binary", "Unknown"]
+        description: "Gender of the participant"
+
+      age:
+        type: INTEGER
+        nullable: true
+        example_value: 33
+        description: "Age of the participant"
+
+      learning_route:
+        type: Text
+        nullable: true
+        example_values: ["O-route", "Onderwijsroute", "B1-route", "Z-route", "Unknown", "Unknown yet"]
+        description: >-
+          The learning pathway of the participant. Three options:
+          education pathway (O-route), B1-route, or self-reliance
+          pathway (Z-route)
+
+      participant_group:
+        type: Text
+        nullable: true
+        example_values: ["Asylum seeker", "Labor migrant", "Permit holder", "Family migrant", "Undocumented", "Ukranian displaced"]
+        description: "The group that the participant belongs to"
+
+      status:
+        type: Text
+        nullable: true
+        example_values: ["A", "B", ""]
+        description: "The status subject to participant_group"
+
+      place_of_origin:
+        type: Text
+        nullable: true
+        example_value: "Turkey"
+        description: "The country that the participant comes from"
+
+      language_group:
+        type: JSONB
+        json_schema_type: "array"
+        nullable: true
+        example_value: '["Turkish", "Arabic"]'
+        description: "The list of languages that the participant acquires"
+
+      first_arrival_date:
+        type: Date
+        nullable: true
+        example_value: "2013-01-01"
+        description: "The approximate date the participant first arrived in the country they currently stay in. If only year is known, use 01 as placeholder for both month and day (YYYY-01-01). If month is known, use the actual month (YYYY-MM-01)."
+
+      municipality:
+        type: Text
+        nullable: true
+        example_values: ["Aa en Hunze", "Aalsmeer", "Aalten", "Achtkarspelen", "Alblasserdam", "Albrandswaard", "Alkmaar", "Almelo", "Almere", "Alphen aan den Rijn", "Alphen-Chaam", "Altena", "Ameland", "Amersfoort", "Amstelveen", "Amsterdam", "Apeldoorn", "Arnhem", "Assen", "Asten", "Baarle-Nassau", "Baarn", "Barendrecht", "Barneveld", "Beek", "Beekdaelen", "Beesel", "Berg en Dal", "Bergeijk", "Bergen (L)", "Bergen (NH)", "Bergen op Zoom", "Berkelland", "Bernheze", "Best", "Beuningen", "Beverwijk", "Bladel", "Blaricum", "Bloemendaal", "Bodegraven-Reeuwijk", "Boekel", "Borger-Odoorn", "Borne", "Borsele", "Boxtel", "Breda", "Bronckhorst", "Brummen", "Brunssum", "Bunnik", "Bunschoten", "Buren", "Capelle aan den IJssel", "Castricum", "Coevorden", "Cranendonck", "Culemborg", "Dalfsen", "Dantumadiel", "De Bilt", "De Fryske Marren", "De Ronde Venen", "De Wolden", "Delft", "Den Haag", "Den Helder", "Deurne", "Deventer", "Diemen", "Dijk en Waard", "Dinkelland", "Doesburg", "Doetinchem", "Dongen", "Dordrecht", "Drechterland", "Drimmelen", "Dronten", "Druten", "Duiven", "Echt-Susteren", "Edam-Volendam", "Ede", "Eemnes", "Eemsdelta", "Eersel", "Eijsden-Margraten", "Eindhoven", "Elburg", "Emmen", "Enkhuizen", "Enschede", "Epe", "Ermelo", "Etten-Leur", "Geertruidenberg", "Geldrop-Mierlo", "Gemert-Bakel", "Gennep", "Gilze en Rijen", "Goeree-Overflakkee", "Goes", "Goirle", "Gooise Meren", "Gorinchem", "Gouda", "Groningen", "Gulpen-Wittem", "Haaksbergen", "Haarlem", "Haarlemmermeer", "Halderberge", "Hardenberg", "Harderwijk", "Hardinxveld-Giessendam", "Harlingen", "Hattem", "Heemskerk", "Heemstede", "Heerde", "Heerenveen", "Heerlen", "Heeze-Leende", "Heiloo", "Hellendoorn", "Helmond", "Hendrik-Ido-Ambacht", "Hengelo", "'s-Hertogenbosch", "Het Hogeland", "Heumen", "Heusden", "Hillegom", "Hilvarenbeek", "Hilversum", "Hoeksche Waard", "Hof van Twente", "Hollands Kroon", "Hoogeveen", "Hoorn", "Horst aan de Maas", "Houten", "Huizen", "Hulst", "IJsselstein", "Kaag en Braassem", "Kampen", "Kapelle", "Katwijk", "Kerkrade", "Koggenland", "Krimpen aan den IJssel", "Krimpenerwaard", "Laarbeek", "Land van Cuijk", "Landgraaf", "Landsmeer", "Lansingerland", "Laren", "Leeuwarden", "Leiden", "Leiderdorp", "Leidschendam-Voorburg", "Lelystad", "Leudal", "Leusden", "Lingewaard", "Lisse", "Lochem", "Loon op Zand", "Lopik", "Losser", "Maasdriel", "Maasgouw", "Maashorst", "Maassluis", "Maastricht", "Medemblik", "Meerssen", "Meierijstad", "Meppel", "Middelburg", "Midden-Delfland", "Midden-Drenthe", "Midden-Groningen", "Moerdijk", "Molenlanden", "Montferland", "Montfoort", "Mook en Middelaar", "Neder-Betuwe", "Nederweert", "Nieuwegein", "Nieuwkoop", "Nijkerk", "Nijmegen", "Nissewaard", "Noardeast-Fryslân", "Noord-Beveland", "Noordenveld", "Noordoostpolder", "Noordwijk", "Nuenen c.a.", "Nunspeet", "Oegstgeest", "Oirschot", "Oisterwijk", "Oldambt", "Oldebroek", "Oldenzaal", "Olst-Wijhe", "Ommen", "Oost Gelre", "Oosterhout", "Ooststellingwerf", "Oostzaan", "Opmeer", "Opsterland", "Oss", "Oude IJsselstreek", "Ouder-Amstel", "Oudewater", "Overbetuwe", "Papendrecht", "Peel en Maas", "Pekela", "Pijnacker-Nootdorp", "Purmerend", "Putten", "Raalte", "Reimerswaal", "Renkum", "Renswoude", "Reusel-De Mierden", "Rheden", "Rhenen", "Ridderkerk", "Rijssen-Holten", "Rijswijk", "Roerdalen", "Roermond", "Roosendaal", "Rotterdam", "Rozendaal", "Rucphen", "Schagen", "Scherpenzeel", "Schiedam", "Schiermonnikoog", "Schouwen-Duiveland", "Simpelveld", "Sint-Michielsgestel", "Sittard-Geleen", "Sliedrecht", "Sluis", "Smallingerland", "Soest", "Someren", "Son en Breugel", "Stadskanaal", "Staphorst", "Stede Broec", "Steenbergen", "Steenwijkerland", "Stein", "Stichtse Vecht", "Súdwest-Fryslân", "Terneuzen", "Terschelling", "Texel", "Teylingen", "Tholen", "Tiel", "Tilburg", "Tubbergen", "Twenterand", "Tynaarlo", "Tytsjerksteradiel", "Uitgeest", "Uithoorn", "Urk", "Utrecht", "Utrechtse Heuvelrug", "Vaals", "Valkenburg aan de Geul", "Valkenswaard", "Veendam", "Veenendaal", "Veere", "Veldhoven", "Velsen", "Venlo", "Venray", "Vijfheerenlanden", "Vlaardingen", "Vlieland", "Vlissingen", "Voerendaal", "Voorne aan Zee", "Voorschoten", "Voorst", "Vught", "Waadhoeke", "Waalre", "Waalwijk", "Waddinxveen", "Wageningen", "Wassenaar", "Waterland", "Weert", "West Betuwe", "West Maas en Waal", "Westerkwartier", "Westerveld", "Westervoort", "Westerwolde", "Westland", "Weststellingwerf", "Wierden", "Wijchen", "Wijdemeren", "Wijk bij Duurstede", "Winterswijk", "Woensdrecht", "Woerden", "Wormerland", "Woudenberg", "Zaanstad", "Zaltbommel", "Zandvoort", "Zeewolde", "Zeist", "Zevenaar", "Zoetermeer", "Zoeterwoude", "Zuidplas", "Zundert", "Zutphen", "Zwartewaterland", "Zwijndrecht", "Zwolle"]
+        description: >-
+          The municipality (gemeente) that the participant stays in.
+          A value from the 342 gemeenten in the Netherlands
+
+      other_information:
+        type: JSONB
+        nullable: true
+        example_value: '{"Dutch language level": "A2"}'
+        description: >-
+          Extra information from the source transcript not covered by
+          other fields. Stored as a JSONB object with field names as
+          keys and their corresponding values
+
+
+  questions:
+    description: "Questions asked to participants"
+    columns:
+
+      questionID:
+        type: INTEGER
+        primary_key: true
+        nullable: false
+        example_value: 45
+        description: "Integer ID, assigned sequentially increasing for each row"
+
+      question_content:
+        type: Text
+        nullable: false
+        example_value: "Do you do any paid work or volunteer work?"
+        description: "The content of the question used to ask participants"
+
+      main_indicator:
+        type: Text
+        nullable: true
+        example_values: ["work", "education", "housing", "health", "leisure", "bonds", "bridges", "links", "language", "culture", "digital skills", "safety", "stability", "rights and responsibilities"]
+        description: "The main indicator that this question can be classified into."
+
+      followed_questionID:
+        type: Text
+        nullable: true
+        foreign_key:
+          references_table: oral_questions
+          references_column: questionID
+          on_delete: RESTRICT
+        example:
+          independent_question:
+            questionID: "00134689"
+            question_content: "Do you do any paid work or volunteer work?"
+            followed_questionID: null
+            following_trigger: null
+          following_question:
+            questionID: "00134690"
+            question_content: "How did you get this work?"
+            followed_questionID: "00134689"
+            following_trigger: "yes"
+        description: >-
+          The questionID of the parent question that this question
+          follows up on. For example, "How did you get this work?"
+          (00134690) follows "Do you do any paid work?" (00134689)
+          when the participant answered "yes". Empty if this is an
+          independent question
+
+      following_trigger:
+        type: Text
+        nullable: true
+        example:
+          independent_question:
+            questionID: "00134689"
+            question_content: "Do you do any paid work or volunteer work?"
+            followed_questionID: null
+            following_trigger: null
+          following_question:
+            questionID: "00134690"
+            question_content: "How did you get this work?"
+            followed_questionID: "00134689"
+            following_trigger: "yes"
+        description: >-
+          The answer to the parent question that triggers this
+          follow-up question. For example, a participant answering
+          "yes" to "Do you do any paid work?" triggers the follow-up
+          "How did you get this work?". Empty if this is an
+          independent question
+
+
+  answers:
+    description: "Participant responses to questions, linked to projects"
+    columns:
+
+      answerID:
+        type: INTEGER
+        primary_key: true
+        nullable: false
+        example_value: 6789
+        description: "Integer ID, assigned sequentially increasing for each row"
+
+      questionID:
+        type: INTEGER
+        nullable: false
+        foreign_key:
+          references_table: oral_questions
+          references_column: questionID
+          on_delete: RESTRICT
+        example_value: "45"
+        description: "The questionID of the question this answer responds to"
+
+      participantID:
+        type: INTEGER
+        nullable: true
+        foreign_key:
+          references_table: participants
+          references_column: participantID
+          on_delete: RESTRICT
+        example_value: "123"
+        description: "The participantID of the participant who gave this answer"
+
+      answer_content_oriLAN:
+        type: Text
+        nullable: false
+        example_value: "Su anda calismiyorum ama daha once Jumbo da 1 ay ucretli olarak calistim."
+        description: "The original content of the answer in its original language"
+
+      date:
+        type: Date
+        nullable: true
+        example_value: "2025-12-03"
+        description: "The date of the session in which this answer was given"
+
+      data_source_category:
+        type: Text
+        nullable: true
+        example_values: ["expertpool", "survey", "focus group", "diepteinterview", "other"]
+        description: "The category that the data source belongs to"
+
+      data_source:
+        type: Text
+        nullable: true
+        example_value: "https://docs.google.com/document/d/1IMC2OpswPRnubdLWqNJStHWEjb9JTGhL/edit"
+        description: "The data source (a google drive url) where the answer content is extracted from"
+
+
+# ── Relationships ──────────────────────────────────────────────────────────────
+
+relationships:
+
+  - from_table: answers
+    from_column: participantID
+    to_table: participants
+    to_column: participantID
+    type: many_to_one
+    description: "Each answer belongs to one participant"
+
+  - from_table: answers
+    from_column: questionID
+    to_table: questions
+    to_column: questionID
+    type: many_to_one
+    description: "Each answer corresponds to one question"
+
+  - from_table: questions
+    from_column: followed_questionID
+    to_table: questions
+    to_column: questionID
+    type: many_to_one
+    description: "A follow-up question references its parent question"
