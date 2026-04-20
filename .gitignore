@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+
+# PyCharm
+.idea/
+
+# Sensitive / secrets
+.env
+config/service_account_key.json
