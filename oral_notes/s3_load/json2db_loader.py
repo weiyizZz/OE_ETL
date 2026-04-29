@@ -7,16 +7,20 @@ class JSON2DBLoader:
 
     TaskName = Literal["participants", "questions", "answers"]
 
-    def __init__(self, db_path: str, project_id: int):
+    def __init__(self, db_path: str, project_id: int, data_source: list[str]):
         self.db_path = db_path
         self.project_id = project_id
+        self.data_source = data_source
 
     @property
     def FIXED_VALUES(self) -> dict[str, dict]:
         return {
             "participants": {"country_staying_in": "Netherlands"},
             "questions": {},
-            "answers": {"projectID": self.project_id},
+            "answers": {
+            "projectID": self.project_id,
+            "data_source": self.data_source  # list → _serialize → json.dumps string
+        },
         }
 
     @staticmethod

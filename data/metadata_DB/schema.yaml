@@ -1,6 +1,6 @@
 # Database Schema Metadata for the first extraction
 # Tables: participants, oral_questions, oral_answers
-# Last updated: 2026-04-20
+# Last updated: 2026-04-29
 
 tables:
 
@@ -24,14 +24,14 @@ tables:
       gender:
         type: Text
         nullable: true
-        example_values: ["Male", "Female", "Man", "Woman", "Non-binary", "Unknown"]
+        example_values: ["Male", "Female", "Man", "Woman", "Non-binary", "Unknown", "Vrouw"]
         description: "Gender of the participant"
 
       age:
         type: INTEGER
         nullable: true
         example_value: 33
-        description: "Age of the participant"
+        description: "Age of the participant at the time of the project"
 
       learning_route:
         type: Text
@@ -76,7 +76,8 @@ tables:
       municipality:
         type: Text
         nullable: true
-        example_values: ["Aa en Hunze", "Aalsmeer", "Aalten", "Achtkarspelen", "Alblasserdam", "Albrandswaard", "Alkmaar", "Almelo", "Almere", "Alphen aan den Rijn", "Alphen-Chaam", "Altena", "Ameland", "Amersfoort", "Amstelveen", "Amsterdam", "Apeldoorn", "Arnhem", "Assen", "Asten", "Baarle-Nassau", "Baarn", "Barendrecht", "Barneveld", "Beek", "Beekdaelen", "Beesel", "Berg en Dal", "Bergeijk", "Bergen (L)", "Bergen (NH)", "Bergen op Zoom", "Berkelland", "Bernheze", "Best", "Beuningen", "Beverwijk", "Bladel", "Blaricum", "Bloemendaal", "Bodegraven-Reeuwijk", "Boekel", "Borger-Odoorn", "Borne", "Borsele", "Boxtel", "Breda", "Bronckhorst", "Brummen", "Brunssum", "Bunnik", "Bunschoten", "Buren", "Capelle aan den IJssel", "Castricum", "Coevorden", "Cranendonck", "Culemborg", "Dalfsen", "Dantumadiel", "De Bilt", "De Fryske Marren", "De Ronde Venen", "De Wolden", "Delft", "Den Haag", "Den Helder", "Deurne", "Deventer", "Diemen", "Dijk en Waard", "Dinkelland", "Doesburg", "Doetinchem", "Dongen", "Dordrecht", "Drechterland", "Drimmelen", "Dronten", "Druten", "Duiven", "Echt-Susteren", "Edam-Volendam", "Ede", "Eemnes", "Eemsdelta", "Eersel", "Eijsden-Margraten", "Eindhoven", "Elburg", "Emmen", "Enkhuizen", "Enschede", "Epe", "Ermelo", "Etten-Leur", "Geertruidenberg", "Geldrop-Mierlo", "Gemert-Bakel", "Gennep", "Gilze en Rijen", "Goeree-Overflakkee", "Goes", "Goirle", "Gooise Meren", "Gorinchem", "Gouda", "Groningen", "Gulpen-Wittem", "Haaksbergen", "Haarlem", "Haarlemmermeer", "Halderberge", "Hardenberg", "Harderwijk", "Hardinxveld-Giessendam", "Harlingen", "Hattem", "Heemskerk", "Heemstede", "Heerde", "Heerenveen", "Heerlen", "Heeze-Leende", "Heiloo", "Hellendoorn", "Helmond", "Hendrik-Ido-Ambacht", "Hengelo", "'s-Hertogenbosch", "Het Hogeland", "Heumen", "Heusden", "Hillegom", "Hilvarenbeek", "Hilversum", "Hoeksche Waard", "Hof van Twente", "Hollands Kroon", "Hoogeveen", "Hoorn", "Horst aan de Maas", "Houten", "Huizen", "Hulst", "IJsselstein", "Kaag en Braassem", "Kampen", "Kapelle", "Katwijk", "Kerkrade", "Koggenland", "Krimpen aan den IJssel", "Krimpenerwaard", "Laarbeek", "Land van Cuijk", "Landgraaf", "Landsmeer", "Lansingerland", "Laren", "Leeuwarden", "Leiden", "Leiderdorp", "Leidschendam-Voorburg", "Lelystad", "Leudal", "Leusden", "Lingewaard", "Lisse", "Lochem", "Loon op Zand", "Lopik", "Losser", "Maasdriel", "Maasgouw", "Maashorst", "Maassluis", "Maastricht", "Medemblik", "Meerssen", "Meierijstad", "Meppel", "Middelburg", "Midden-Delfland", "Midden-Drenthe", "Midden-Groningen", "Moerdijk", "Molenlanden", "Montferland", "Montfoort", "Mook en Middelaar", "Neder-Betuwe", "Nederweert", "Nieuwegein", "Nieuwkoop", "Nijkerk", "Nijmegen", "Nissewaard", "Noardeast-Fryslân", "Noord-Beveland", "Noordenveld", "Noordoostpolder", "Noordwijk", "Nuenen c.a.", "Nunspeet", "Oegstgeest", "Oirschot", "Oisterwijk", "Oldambt", "Oldebroek", "Oldenzaal", "Olst-Wijhe", "Ommen", "Oost Gelre", "Oosterhout", "Ooststellingwerf", "Oostzaan", "Opmeer", "Opsterland", "Oss", "Oude IJsselstreek", "Ouder-Amstel", "Oudewater", "Overbetuwe", "Papendrecht", "Peel en Maas", "Pekela", "Pijnacker-Nootdorp", "Purmerend", "Putten", "Raalte", "Reimerswaal", "Renkum", "Renswoude", "Reusel-De Mierden", "Rheden", "Rhenen", "Ridderkerk", "Rijssen-Holten", "Rijswijk", "Roerdalen", "Roermond", "Roosendaal", "Rotterdam", "Rozendaal", "Rucphen", "Schagen", "Scherpenzeel", "Schiedam", "Schiermonnikoog", "Schouwen-Duiveland", "Simpelveld", "Sint-Michielsgestel", "Sittard-Geleen", "Sliedrecht", "Sluis", "Smallingerland", "Soest", "Someren", "Son en Breugel", "Stadskanaal", "Staphorst", "Stede Broec", "Steenbergen", "Steenwijkerland", "Stein", "Stichtse Vecht", "Súdwest-Fryslân", "Terneuzen", "Terschelling", "Texel", "Teylingen", "Tholen", "Tiel", "Tilburg", "Tubbergen", "Twenterand", "Tynaarlo", "Tytsjerksteradiel", "Uitgeest", "Uithoorn", "Urk", "Utrecht", "Utrechtse Heuvelrug", "Vaals", "Valkenburg aan de Geul", "Valkenswaard", "Veendam", "Veenendaal", "Veere", "Veldhoven", "Velsen", "Venlo", "Venray", "Vijfheerenlanden", "Vlaardingen", "Vlieland", "Vlissingen", "Voerendaal", "Voorne aan Zee", "Voorschoten", "Voorst", "Vught", "Waadhoeke", "Waalre", "Waalwijk", "Waddinxveen", "Wageningen", "Wassenaar", "Waterland", "Weert", "West Betuwe", "West Maas en Waal", "Westerkwartier", "Westerveld", "Westervoort", "Westerwolde", "Westland", "Weststellingwerf", "Wierden", "Wijchen", "Wijdemeren", "Wijk bij Duurstede", "Winterswijk", "Woensdrecht", "Woerden", "Wormerland", "Woudenberg", "Zaanstad", "Zaltbommel", "Zandvoort", "Zeewolde", "Zeist", "Zevenaar", "Zoetermeer", "Zoeterwoude", "Zuidplas", "Zundert", "Zutphen", "Zwartewaterland", "Zwijndrecht", "Zwolle"]
+        example_values: ["Amsterdam", "Rotterdam", "Den Haag", "Utrecht", "Groningen"]
+        #example_values: ["Aa en Hunze", "Aalsmeer", "Aalten", "Achtkarspelen", "Alblasserdam", "Albrandswaard", "Alkmaar", "Almelo", "Almere", "Alphen aan den Rijn", "Alphen-Chaam", "Altena", "Ameland", "Amersfoort", "Amstelveen", "Amsterdam", "Apeldoorn", "Arnhem", "Assen", "Asten", "Baarle-Nassau", "Baarn", "Barendrecht", "Barneveld", "Beek", "Beekdaelen", "Beesel", "Berg en Dal", "Bergeijk", "Bergen (L)", "Bergen (NH)", "Bergen op Zoom", "Berkelland", "Bernheze", "Best", "Beuningen", "Beverwijk", "Bladel", "Blaricum", "Bloemendaal", "Bodegraven-Reeuwijk", "Boekel", "Borger-Odoorn", "Borne", "Borsele", "Boxtel", "Breda", "Bronckhorst", "Brummen", "Brunssum", "Bunnik", "Bunschoten", "Buren", "Capelle aan den IJssel", "Castricum", "Coevorden", "Cranendonck", "Culemborg", "Dalfsen", "Dantumadiel", "De Bilt", "De Fryske Marren", "De Ronde Venen", "De Wolden", "Delft", "Den Haag", "Den Helder", "Deurne", "Deventer", "Diemen", "Dijk en Waard", "Dinkelland", "Doesburg", "Doetinchem", "Dongen", "Dordrecht", "Drechterland", "Drimmelen", "Dronten", "Druten", "Duiven", "Echt-Susteren", "Edam-Volendam", "Ede", "Eemnes", "Eemsdelta", "Eersel", "Eijsden-Margraten", "Eindhoven", "Elburg", "Emmen", "Enkhuizen", "Enschede", "Epe", "Ermelo", "Etten-Leur", "Geertruidenberg", "Geldrop-Mierlo", "Gemert-Bakel", "Gennep", "Gilze en Rijen", "Goeree-Overflakkee", "Goes", "Goirle", "Gooise Meren", "Gorinchem", "Gouda", "Groningen", "Gulpen-Wittem", "Haaksbergen", "Haarlem", "Haarlemmermeer", "Halderberge", "Hardenberg", "Harderwijk", "Hardinxveld-Giessendam", "Harlingen", "Hattem", "Heemskerk", "Heemstede", "Heerde", "Heerenveen", "Heerlen", "Heeze-Leende", "Heiloo", "Hellendoorn", "Helmond", "Hendrik-Ido-Ambacht", "Hengelo", "'s-Hertogenbosch", "Het Hogeland", "Heumen", "Heusden", "Hillegom", "Hilvarenbeek", "Hilversum", "Hoeksche Waard", "Hof van Twente", "Hollands Kroon", "Hoogeveen", "Hoorn", "Horst aan de Maas", "Houten", "Huizen", "Hulst", "IJsselstein", "Kaag en Braassem", "Kampen", "Kapelle", "Katwijk", "Kerkrade", "Koggenland", "Krimpen aan den IJssel", "Krimpenerwaard", "Laarbeek", "Land van Cuijk", "Landgraaf", "Landsmeer", "Lansingerland", "Laren", "Leeuwarden", "Leiden", "Leiderdorp", "Leidschendam-Voorburg", "Lelystad", "Leudal", "Leusden", "Lingewaard", "Lisse", "Lochem", "Loon op Zand", "Lopik", "Losser", "Maasdriel", "Maasgouw", "Maashorst", "Maassluis", "Maastricht", "Medemblik", "Meerssen", "Meierijstad", "Meppel", "Middelburg", "Midden-Delfland", "Midden-Drenthe", "Midden-Groningen", "Moerdijk", "Molenlanden", "Montferland", "Montfoort", "Mook en Middelaar", "Neder-Betuwe", "Nederweert", "Nieuwegein", "Nieuwkoop", "Nijkerk", "Nijmegen", "Nissewaard", "Noardeast-Fryslân", "Noord-Beveland", "Noordenveld", "Noordoostpolder", "Noordwijk", "Nuenen c.a.", "Nunspeet", "Oegstgeest", "Oirschot", "Oisterwijk", "Oldambt", "Oldebroek", "Oldenzaal", "Olst-Wijhe", "Ommen", "Oost Gelre", "Oosterhout", "Ooststellingwerf", "Oostzaan", "Opmeer", "Opsterland", "Oss", "Oude IJsselstreek", "Ouder-Amstel", "Oudewater", "Overbetuwe", "Papendrecht", "Peel en Maas", "Pekela", "Pijnacker-Nootdorp", "Purmerend", "Putten", "Raalte", "Reimerswaal", "Renkum", "Renswoude", "Reusel-De Mierden", "Rheden", "Rhenen", "Ridderkerk", "Rijssen-Holten", "Rijswijk", "Roerdalen", "Roermond", "Roosendaal", "Rotterdam", "Rozendaal", "Rucphen", "Schagen", "Scherpenzeel", "Schiedam", "Schiermonnikoog", "Schouwen-Duiveland", "Simpelveld", "Sint-Michielsgestel", "Sittard-Geleen", "Sliedrecht", "Sluis", "Smallingerland", "Soest", "Someren", "Son en Breugel", "Stadskanaal", "Staphorst", "Stede Broec", "Steenbergen", "Steenwijkerland", "Stein", "Stichtse Vecht", "Súdwest-Fryslân", "Terneuzen", "Terschelling", "Texel", "Teylingen", "Tholen", "Tiel", "Tilburg", "Tubbergen", "Twenterand", "Tynaarlo", "Tytsjerksteradiel", "Uitgeest", "Uithoorn", "Urk", "Utrecht", "Utrechtse Heuvelrug", "Vaals", "Valkenburg aan de Geul", "Valkenswaard", "Veendam", "Veenendaal", "Veere", "Veldhoven", "Velsen", "Venlo", "Venray", "Vijfheerenlanden", "Vlaardingen", "Vlieland", "Vlissingen", "Voerendaal", "Voorne aan Zee", "Voorschoten", "Voorst", "Vught", "Waadhoeke", "Waalre", "Waalwijk", "Waddinxveen", "Wageningen", "Wassenaar", "Waterland", "Weert", "West Betuwe", "West Maas en Waal", "Westerkwartier", "Westerveld", "Westervoort", "Westerwolde", "Westland", "Weststellingwerf", "Wierden", "Wijchen", "Wijdemeren", "Wijk bij Duurstede", "Winterswijk", "Woensdrecht", "Woerden", "Wormerland", "Woudenberg", "Zaanstad", "Zaltbommel", "Zandvoort", "Zeewolde", "Zeist", "Zevenaar", "Zoetermeer", "Zoeterwoude", "Zuidplas", "Zundert", "Zutphen", "Zwartewaterland", "Zwijndrecht", "Zwolle"]
         description: >-
           The municipality (gemeente) that the participant stays in.
           A value from the 342 gemeenten in the Netherlands
@@ -106,13 +107,13 @@ tables:
         type: Text
         nullable: false
         example_value: "Do you do any paid work or volunteer work?"
-        description: "The content of the question used to ask participants"
+        description: "The exact question posed to participants, or the subtheme/topic if no explicit question is present"
 
       main_indicator:
         type: Text
         nullable: true
-        example_values: ["work", "education", "housing", "health", "leisure", "bonds", "bridges", "links", "language", "culture", "digital skills", "safety", "stability", "rights and responsibilities"]
-        description: "The main indicator that this question can be classified into."
+        example_values: ['work', 'education', 'housing', 'health', 'leisure', 'bonds', 'bridges', 'links', 'language', 'culture', 'digital skills', 'safety', 'stability', 'rights and responsibilities', 'onderwijs', 'taal']
+        description: "The main indicator that this question can be classified into"
 
       followed_questionID:
         type: Text
@@ -198,6 +199,12 @@ tables:
         example_value: "Su anda calismiyorum ama daha once Jumbo da 1 ay ucretli olarak calistim."
         description: "The original content of the answer in its original language"
 
+      answer_content_EN:
+        type: Text
+        nullable: true
+        example_value: "I m not currently employed, but I previously worked at Jumbo for a month on a paid basis."
+        description: "The English translation of the answer, if it wasn't in English"
+
       date:
         type: Date
         nullable: true
@@ -209,12 +216,6 @@ tables:
         nullable: true
         example_values: ["expertpool", "survey", "focus group", "diepteinterview", "other"]
         description: "The category that the data source belongs to"
-
-      data_source:
-        type: Text
-        nullable: true
-        example_value: "https://docs.google.com/document/d/1IMC2OpswPRnubdLWqNJStHWEjb9JTGhL/edit"
-        description: "The data source (a google drive url) where the answer content is extracted from"
 
 
 # ── Relationships ──────────────────────────────────────────────────────────────

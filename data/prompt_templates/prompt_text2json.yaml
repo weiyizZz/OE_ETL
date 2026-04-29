@@ -10,15 +10,16 @@ system: |
   - If a field's information is not present in the transcript, return null
   - If the source document uses Dutch field names or headers, recognize and map them to the corresponding keys in the target JSON schema. For example, "Geslacht" → gender, "Gemeente" → municipality
   - If the same record appears multiple times in the transcript, include it only once in the result — do not duplicate entries
+  - Preserve the original language of all transcript content. Do not translate.
 
 user:
   base: |
-    The following transcript contains the note of session(s) of questions and answers with participants, as well as information about the involved participants:
+    The following transcript contains the note of session(s) of questions and answers with participants, possibly also information about the involved participants:
 
     {text_doc}
 
     Task:
-    Extract all information related to {task} in this session from the transcript and structure it as a valid JSON object using the template below:
+    Extract information related to {task} in this session from the transcript and structure it as a valid JSON object using the template below:
     {json_template_task}
 
     Additional information to include in the target JSON object:
@@ -27,7 +28,8 @@ user:
     Schema metadata describing the target JSON object:
     {schema_metadata_task}
 
-    Note: *THE ENTIRE TEXT MUST BE USED — DO NOT OMIT ANY PART.* For each feature, copy the full text up until the next feature begins. {extra_note_task}
+    Note: {extra_note_task}
+    *THE ENTIRE TEXT MUST BE USED — DO NOT OMIT ANY PART.* For each feature, copy the full text up until the next feature begins.
 
   extra_info:
     participants: |
@@ -49,5 +51,7 @@ user:
     questions: |
       If multiple questions are grouped together and answered by participants as a single combined response rather than in separate rounds, do not split them into individual objects. Instead, merge them into a single "question_content" field. Only fill the "main_indicator" field when it can be identified from a section header or label that appears near or above the question in the document. Map the header to the closest matching value from the allowed indicators. Do not infer it solely from the question wording itself. Leave it empty if no relevant header or label is present.
       Strip any session framing text from "question_content" — do not include section headers, time allocations, facilitation instructions, or serial numbers that prefix the question. Extract only the core question text itself.
+
     answers: |
       Extract only the spoken answer content for "answer_content_oriLAN" — do not include any speaker identifier that appears as a prefix before the answer text in the transcript. Extract only the text of the answer itself, starting from the first word after any such prefix.
+      Fill "answer_content_EN" with the English answer text only if the original language isn't English and one translated version appears in the transcript. If no English version exists, leave the field empty. Do not generate a translation. If the original content is in English, also leave the field "answer_content_EN" empty.

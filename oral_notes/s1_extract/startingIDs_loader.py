@@ -1,4 +1,4 @@
-def get_starting_ids(cursor, project_name: str) -> dict:
+def get_starting_ids(cursor, project_name: str, project_starting_date: str = None) -> dict:
     """Loads the last primary keys in the tables from the database, to learn the starting IDs of the new records.
     Also ensures the project exists and returns its projectID."""
 
@@ -9,7 +9,10 @@ def get_starting_ids(cursor, project_name: str) -> dict:
     if existing:
         project_id = existing[0]
     else:
-        cursor.execute("INSERT INTO projects (project_name) VALUES (?)", (project_name,))
+        cursor.execute(
+            "INSERT INTO projects (project_name, start_date) VALUES (?, ?)",
+            (project_name, project_starting_date)
+        )
         project_id = cursor.lastrowid
 
     cursor.execute("SELECT MAX(CAST(participantID AS INTEGER)) FROM participants")
