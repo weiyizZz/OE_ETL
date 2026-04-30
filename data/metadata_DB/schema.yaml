@@ -112,7 +112,7 @@ tables:
       main_indicator:
         type: Text
         nullable: true
-        example_values: ['work', 'education', 'housing', 'health', 'leisure', 'bonds', 'bridges', 'links', 'language', 'culture', 'digital skills', 'safety', 'stability', 'rights and responsibilities', 'onderwijs', 'taal']
+        example_values: ['work', 'education', 'housing', 'health', 'leisure', 'bonds', 'bridges', 'links', 'language', 'culture', 'digital skills', 'safety', 'stability', 'rights and responsibilities', 'werk & inkomen', 'onderwijs', 'huisvesting & opvang', 'zorg & welzijn', 'vrije tijd', 'banden', 'bruggen', 'connecties', 'taal', 'cultuur', 'digitale vaardigheden', 'veiligheid', 'stabilitieit', 'rechten & verantwoordelijkheden']
         description: "The main indicator that this question can be classified into"
 
       followed_questionID:
@@ -214,7 +214,7 @@ tables:
       data_source_category:
         type: Text
         nullable: true
-        example_values: ["expertpool", "survey", "focus group", "diepteinterview", "other"]
+        example_values: ["expertpool", "survey", "focus group", "diepteinterview"]
         description: "The category that the data source belongs to"
 
 

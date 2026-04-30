@@ -2,11 +2,11 @@ from openai import OpenAI
 from openai import InternalServerError
 from utils.html_viewer import show
 from utils.logger import get_logger
+from utils.token_logger import TokenLogger
 from oral_notes.s2_transform.prompt_combiner import PromptCombiner
 from config.config import OPENAI_API_KEY
 import json
 import time
-import datetime
 from pathlib import Path
 
 logger = get_logger(__name__)
@@ -22,8 +22,6 @@ class Text2JsonTransformer:
         file_path_doc: str,
         urls: list[str],
         llm_model: str = "gpt-5.1",
-        token_log_path: str = "logs/token_usage.jsonl",
-        pipeline_type : str = "baseline"
     ):
         self.prompt_path = prompt_path
         self.combined_text = combined_text
@@ -31,9 +29,6 @@ class Text2JsonTransformer:
         self.file_path_doc = file_path_doc
         self.urls = urls
         self.llm_model = llm_model
-        self.token_log_path = Path(token_log_path)
-        self.token_log_path.parent.mkdir(parents=True, exist_ok=True)
-        self.pipeline_type = pipeline_type
 
         self.combiner = PromptCombiner(schema_path=schema_path)
 
@@ -43,56 +38,6 @@ class Text2JsonTransformer:
         self.client = OpenAI(
             api_key=OPENAI_API_KEY,
             base_url="https://llmproxy.uva.nl/v1"
-        )
-
-    # ── Private helpers ───────────────────────────────────────────────────────
-
-    # Pricing per token (USD), keyed by model name.
-    # input_per_1m / output_per_1m match OpenAI's published rates.
-    # Add new models here as needed.
-    _PRICING: dict[str, dict[str, float]] = {
-        "gpt-4.1":  {"input_per_1m": 2.00,  "output_per_1m": 8.00},
-        "gpt-4.1-mini": {"input_per_1m": 0.40, "output_per_1m": 1.60},
-        "gpt-5.1":  {"input_per_1m": 1.25,  "output_per_1m": 10.00},
-    }
-
-    def _calc_cost(self, input_tokens: int, output_tokens: int) -> float | None:
-        """Return USD cost for this call, or None if model is not in pricing table."""
-        pricing = self._PRICING.get(self.llm_model)
-        if pricing is None:
-            return None
-        return (
-                input_tokens * pricing["input_per_1m"] / 1_000_000
-                + output_tokens * pricing["output_per_1m"] / 1_000_000
-        )
-
-    def _append_token_log(
-            self,
-            task: str,
-            attempt: int,
-            input_tokens: int,
-            output_tokens: int,
-            total_tokens: int
-    ) -> None:
-        """Append one token-usage record to the JSONL log file."""
-        record = {
-            "timestamp": datetime.datetime.now(datetime.UTC).isoformat(),
-            "pipeline_type": self.pipeline_type,
-            "llm_model": self.llm_model,
-            "urls": self.urls,
-            "task": task,
-            "attempt": attempt,
-            "input_tokens": input_tokens,
-            "output_tokens": output_tokens,
-            "total_tokens": total_tokens,
-            "cost_usd": self._calc_cost(input_tokens, output_tokens),
-        }
-        with self.token_log_path.open("a", encoding="utf-8") as f:
-            f.write(json.dumps(record, ensure_ascii=False) + "\n")
-
-        logger.info(
-            "Token usage [%s] attempt %d — in: %d, out: %d, total: %d",
-            task, attempt, input_tokens, output_tokens, total_tokens
         )
 
     # ── Core transform ────────────────────────────────────────────────────────
@@ -134,12 +79,17 @@ class Text2JsonTransformer:
 
                 # ── Token tracking ────────────────────────────────────────────
                 usage = response.usage
-                self._append_token_log(
+                cached_tokens = (
+                    getattr(usage.prompt_tokens_details, "cached_tokens", 0) or 0
+                )
+                TokenLogger.append_transformer_baseline(
+                    llm_model=self.llm_model,
+                    urls=self.urls,
                     task=task,
                     attempt=attempt + 1,
                     input_tokens=usage.prompt_tokens,
                     output_tokens=usage.completion_tokens,
-                    total_tokens=usage.total_tokens,
+                    cached_tokens=cached_tokens,
                 )
                 # ─────────────────────────────────────────────────────────────
 

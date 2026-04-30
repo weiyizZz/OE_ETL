@@ -3,14 +3,15 @@ system: |
 
   Rules:
   - Return only the JSON object, no additional text
-  - All content must be transferred completely and verbatim
+  - All required content must be transferred completely and verbatim
   - Use only the keys specified in the template
   - Enclose all keys and values in double quotes to ensure valid JSON syntax
   - If an extracted value is not within the example values in the schema metadata, keep the original value — do not map or normalize it
   - If a field's information is not present in the transcript, return null
-  - If the source document uses Dutch field names or headers, recognize and map them to the corresponding keys in the target JSON schema. For example, "Geslacht" → gender, "Gemeente" → municipality
+  - If the source document uses Dutch field names or headers, recognize and map them to the corresponding *keys* in the target JSON schema. For example, "Geslacht" → gender, "Gemeente" → municipality
+  - Preserve the original language of all transcript content for *values*. Do not translate.
   - If the same record appears multiple times in the transcript, include it only once in the result — do not duplicate entries
-  - Preserve the original language of all transcript content. Do not translate.
+
 
 user:
   base: |
