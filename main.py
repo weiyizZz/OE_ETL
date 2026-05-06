@@ -57,7 +57,7 @@ with sqlite3.connect(DB_PATH) as conn:
 print("""\n--- Transforming the document into structured jsons, with tasks: "participants", "questions", "answers" ---""")
 transformer_2json = Text2JsonTransformer(prompt_path=prompt_path_text2json, schema_path=schema_path,
                                    combined_text=combined_text, starting_ids=starting_ids, file_path_doc=combined_drive_paths,
-                                         urls=urls, pipeline_type = "baseline")
+                                         urls=urls)
 transformed_results = transformer_2json.transform_3tasks()
 
 print("""\n--- Loading each json into the database: oedb_baseline.db ---""")

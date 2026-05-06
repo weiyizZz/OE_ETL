@@ -7,7 +7,6 @@ from oral_notes.s2_transform.prompt_combiner import PromptCombiner
 from config.config import OPENAI_API_KEY
 import json
 import time
-from pathlib import Path
 
 logger = get_logger(__name__)
 
