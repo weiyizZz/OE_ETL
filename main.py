@@ -44,7 +44,9 @@ for label, url in [("QA", note_url_qa), ("PARTICIPANT", note_url_participant)]:
     all_texts[label] = f"[Data source: {result['name']}]\n{text}"
     all_drive_paths[label] = result['drive_path']
 combined_drive_paths = "|".join(all_drive_paths.values())
-combined_text = "\n\n---\n\n".join(all_texts.values())
+combined_text = "---".join(
+    all_texts[label] for label in ["PARTICIPANT", "QA"] if label in all_texts
+)
 
 print("""\n--- Transforming the document into structured jsons, with tasks: "participants", "questions", "answers" ---""")
 transformer_2json = Text2JsonTransformer(prompt_path=prompt_path_text2json, schema_path=schema_path,
