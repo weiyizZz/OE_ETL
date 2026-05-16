@@ -48,7 +48,7 @@ class TokenLogger:
     def append_transformer_baseline(
         cls,
         llm_model: str,
-        urls: list[str],
+        notegroup_id: int,
         task: str,
         attempt: int,
         input_tokens: int,
@@ -65,7 +65,7 @@ class TokenLogger:
             "timestamp":      datetime.datetime.now(datetime.UTC).isoformat(),
             "pipeline_type":  pipeline_type,
             "llm_model":      llm_model,
-            "urls":           urls,
+            "notegroup_id":   notegroup_id,
             "task":           task,
             "attempt":        attempt,
             "input_tokens":   input_tokens,

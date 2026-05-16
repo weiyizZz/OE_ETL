@@ -1,11 +1,11 @@
 """
-Test whether the UVA proxy supports OpenAI prompt caching.
+Test whether caching works on a shared prefix with different tails.
 
 Strategy:
-  - Send the same long prompt twice (cache requires 1024+ tokens)
-  - On the second call, check if prompt_tokens_details.cached_tokens > 0
-  - If yes: caching is active and being reported
-  - If no / attribute missing: proxy does not support or report caching
+  - Call 1: long system prompt + user question A
+  - Call 2: same long system prompt + different user question B
+  - If cached_tokens > 0 on call 2: prefix caching works even with different tails
+  - If cached_tokens == 0: caching only works on fully identical prompts
 
 Run from your project root:
     python test_cache_input.py
@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 client = OpenAI(api_key=OPENAI_API_KEY, base_url="https://llmproxy.uva.nl/v1")
 MODEL = "gpt-5.1"
 
-# ── Build a prompt long enough to be cache-eligible (OpenAI threshold: 1024 tokens)
+# ── Shared prefix — long enough to be cache-eligible (1024+ tokens)
 # ~4 chars per token → need ~4096 chars minimum. We use 5000 to be safe.
 LONG_PREFIX = (
     "You are an expert in Dutch civic integration policy. "
@@ -30,55 +30,55 @@ LONG_PREFIX = (
     + ("The Wet inburgering 2021 requires municipalities to actively support newcomers "
        "in their integration process, including language acquisition (NT2), "
        "participation modules, and the MAP (Module Arbeidsmarkt en Participatie). ") * 40
-    # repeat ~40x to exceed 1024 tokens
 )
 
-USER_QUESTION = "Summarise the above in one sentence."
+# ── Different tails — simulating different tasks sharing the same prefix
+USER_QUESTIONS = {
+    "call_1": "Summarise the above in one sentence.",
+    "call_2": "List the key policy obligations mentioned above.",  # different tail
+}
 
-MESSAGES = [
-    {"role": "system", "content": LONG_PREFIX},
-    {"role": "user",   "content": USER_QUESTION},
-]
 
 def call_and_report(label: str) -> int:
-    """Make one API call and return cached_tokens (0 if not supported)."""
+    """Make one API call with a label-specific tail and return cached_tokens."""
     response = client.chat.completions.create(
         model=MODEL,
         temperature=0,
-        messages=MESSAGES,
+        messages=[
+            {"role": "system", "content": LONG_PREFIX},
+            {"role": "user",   "content": USER_QUESTIONS[label]},
+        ],
     )
     usage = response.usage
     details = getattr(usage, "prompt_tokens_details", None)
     cached  = getattr(details, "cached_tokens", 0) or 0
 
     logger.info(
-        "[%s] input: %d | cached: %d | output: %d | total: %d",
+        "[%s] input: %d | cached: %d | output: %d | tail: %r",
         label,
         usage.prompt_tokens,
         cached,
         usage.completion_tokens,
-        usage.total_tokens,
+        USER_QUESTIONS[label],
     )
     return cached
 
-# ── First call — nothing should be cached yet ─────────────────────────────────
-logger.info("Sending first call (populating cache)...")
+
+# ── First call — warms the cache with LONG_PREFIX ─────────────────────────────
+logger.info("Sending first call (populating cache, tail A)...")
 call_and_report("call_1")
 
-# Small delay — OpenAI recommends a few seconds before the cache is warm
 time.sleep(5)
 
-# ── Second call — identical prompt, cache should kick in ─────────────────────
-logger.info("Sending second call (expecting cache hit)...")
+# ── Second call — same prefix, different tail ─────────────────────────────────
+logger.info("Sending second call (different tail B, expecting prefix cache hit)...")
 cached_tokens = call_and_report("call_2")
 
 # ── Verdict ───────────────────────────────────────────────────────────────────
 print()
 if cached_tokens > 0:
-    print(f"✓ Cache IS supported — {cached_tokens} cached tokens on second call.")
+    print(f"✓ Prefix caching works with different tails — {cached_tokens} cached tokens.")
+    print("  Your 3-task pipeline will benefit from caching on calls 2 and 3.")
 else:
-    print("✗ Cache NOT supported (or not reported) — cached_tokens was 0 on second call.")
-    print("  Possible reasons:")
-    print("  - UVA proxy strips prompt_tokens_details from the response")
-    print("  - Proxy does not forward to an OpenAI endpoint that supports caching")
-    print("  - Prompt was below the 1024-token cache threshold (unlikely here)")
+    print("✗ No cache hit — caching may require fully identical prompts end-to-end.")
+    print("  Cached input pricing will not apply to your pipeline.")

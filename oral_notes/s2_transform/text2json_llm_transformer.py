@@ -19,14 +19,14 @@ class Text2JsonTransformer:
         combined_text: str,
         starting_ids: dict,
         file_path_doc: str,
-        urls: list[str],
+        notegroup_id: int,
         llm_model: str = "gpt-5.1",
     ):
         self.prompt_path = prompt_path
         self.combined_text = combined_text
         self.starting_ids = starting_ids
         self.file_path_doc = file_path_doc
-        self.urls = urls
+        self.notegroup_id = notegroup_id
         self.llm_model = llm_model
 
         self.combiner = PromptCombiner(schema_path=schema_path)
@@ -83,7 +83,7 @@ class Text2JsonTransformer:
                 )
                 TokenLogger.append_transformer_baseline(
                     llm_model=self.llm_model,
-                    urls=self.urls,
+                    notegroup_id=self.notegroup_id,
                     task=task,
                     attempt=attempt + 1,
                     input_tokens=usage.prompt_tokens,
@@ -109,9 +109,7 @@ class Text2JsonTransformer:
 
         # ── participants ───────────────────────────────────────────────────────
         result_participants_raw = self.transform_1task(task="participants")
-        result_participants = self.postprocess_participants(result_participants_raw, self.starting_ids)
-        logger.info("=== Result: participants (from %s) ===\n%s", self.urls, result_participants)
-        reduced_result_participants = self.reduce_participants(result_participants)
+        reduced_result_participants = self.reduce_participants(result_participants_raw)
 
         # ── questions ──────────────────────────────────────────────────────────
         result_questions = self.transform_1task(task="questions")
@@ -123,11 +121,16 @@ class Text2JsonTransformer:
             output_reduced_participants_pasttask=reduced_result_participants,
             output_reduced_questions_pasttask=reduced_result_questions
         )
-        logger.info("=== Result: answers (from %s) ===\n%s", self.urls, result_answers)
+        logger.info("=== Result: answers (from %s) ===\n%s", self.notegroup_id, result_answers)
+
+        # ── postprocess: drop participants with no answers ─────────────────────
+        result_participants = self.postprocess_participants(result_participants_raw, self.starting_ids)
+        result_participants = self.remove_unanswered_participants(result_participants, result_answers)
+        logger.info("=== Result: participants (after removing unanswering, from %s) ===\n%s", self.notegroup_id, result_participants)
 
         # ── postprocess: drop questions with no answers ────────────────────────
         result_questions = self.remove_unanswered_questions(result_questions, result_answers)
-        logger.info("=== Result: questions (after removing unanswered, from %s) ===\n%s", self.urls, result_questions)
+        logger.info("=== Result: questions (after removing unanswered, from %s) ===\n%s", self.notegroup_id, result_questions)
 
 
         return {
@@ -146,6 +149,18 @@ class Text2JsonTransformer:
             age = record.pop("age", None)
             record["projectID_age"] = {project_id: age}
         return json.dumps({"participants": data}, ensure_ascii=False)
+
+    @staticmethod
+    def remove_unanswered_participants(result_participants: str, result_answers: str) -> str:
+        participants = json.loads(result_participants)
+        answers = json.loads(result_answers)
+        participants = next(iter(participants.values()))
+        answers = next(iter(answers.values()))
+
+        answering_ids = {record["participantID"] for record in answers if "participantID" in record}
+        filtered = [p for p in participants if p.get("participantID") in answering_ids]
+
+        return json.dumps({"participants": filtered}, ensure_ascii=False)
 
     @staticmethod
     def remove_unanswered_questions(output_q: str, output_a: str) -> str:

@@ -1,17 +1,18 @@
-def get_starting_ids(cursor, project_name: str, project_starting_date: str = None) -> dict:
+def get_starting_ids(cursor, project_name: str, phase: int) -> dict:
     """Loads the last primary keys in the tables from the database, to learn the starting IDs of the new records.
     Also ensures the project exists and returns its projectID."""
 
     # Insert project if it doesn't exist
-    cursor.execute("SELECT projectID FROM projects WHERE project_name = ?", (project_name,))
+    print("\n--- Loading IDs and calculating starting IDs from the database ---")
+    cursor.execute("SELECT projectID FROM projects WHERE project_name = ? AND phase = ?", (project_name, phase))
     existing = cursor.fetchone()
 
     if existing:
         project_id = existing[0]
     else:
         cursor.execute(
-            "INSERT INTO projects (project_name, start_date) VALUES (?, ?)",
-            (project_name, project_starting_date)
+            "INSERT INTO projects (project_name, phase) VALUES (?, ?)",
+            (project_name, phase)
         )
         project_id = cursor.lastrowid
 
@@ -24,9 +25,9 @@ def get_starting_ids(cursor, project_name: str, project_starting_date: str = Non
 
     starting_ids = {
         "projectID":     project_id,
-        "participantID": int(last_participant) + 1 if last_participant else 0,
-        "questionID":    int(last_question)    + 1 if last_question    else 0,
-        "answerID":      int(last_answer)      + 1 if last_answer      else 0,
+        "participantID": int(last_participant) + 1 if last_participant else 1,
+        "questionID":    int(last_question)    + 1 if last_question    else 1,
+        "answerID":      int(last_answer)      + 1 if last_answer      else 1,
     }
 
     print(f"projectID     : {starting_ids['projectID']}")

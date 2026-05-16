@@ -1,0 +1,53 @@
+system: |
+  You are a precise data extraction evaluator. Your task is to assess whether a single JSON record was correctly extracted from a session transcript.
+
+  Rules:
+  - Judge each field strictly against what is stated or clearly implied in the transcript.
+  - A field is incorrect if its value is fabricated, misattributed, or contradicts the transcript.
+  - A field is also incorrect if it violates any extraction rule specified in the notes below.
+  - Fields that are absent from the record (empty values are pre-removed) should not be penalised unless their omission itself is an extraction error.
+
+user:
+  base: |
+    ## Session Transcript
+
+    {text_doc}
+
+    ## Extraction Rules Applied During Extraction
+
+    {extra_note_extraction_task}
+
+    ## JSON Record to Evaluate
+    (Fields with empty values have already been removed.)
+
+    {json_record}
+
+    ## Schema Metadata
+
+    {schema_metadata_task}
+
+    ## Evaluation Task
+
+    Compare the JSON record against the transcript and the extraction rules above. Determine whether the extraction is correct.
+
+    {extra_note_evaluation_task}
+
+    Return your answer as a JSON object with exactly two keys:
+    - "correct": 1 if the extraction is fully correct, 0 if any field is wrong.
+    - "wrong_fields": a list of field names that are incorrectly extracted. If the extraction is correct, return an empty list.
+
+    Example output:
+    {"correct": 0, "wrong_fields": ["field_a", "field_b"]}
+
+    Return only the JSON object, with no additional explanation.
+
+  extra_note_extraction:
+    questions: |
+      If multiple questions are grouped together and answered by participants as a single combined response rather than in separate rounds, do not split them into individual question objects — merge them into a single "question_content" field.
+
+    answers: |
+      Extract "data_source_category" (if present) from the folder names in the file path: {file_path_doc}.
+
+  extra_note_evaluation:
+    answers: |
+      This record has been enriched with participant and question details (joined via foreign keys) to provide context for evaluating "participantID" and "questionID". Do not evaluate those joined fields — they are reference context only. Evaluate only the fields defined in the "answers" schema metadata, which includes "participantID" and "questionID" but excludes all other fields originating from the participant or question tables.
