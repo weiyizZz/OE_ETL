@@ -59,6 +59,9 @@ class PromptCombiner:
             "Date": "string",
         }
 
+        SINGLE_RECORD_TABLES = {"1recordT"}
+        single_record = table_name in SINGLE_RECORD_TABLES
+
         table_def = self.schema["tables"][table_name]
         columns = table_def["columns"]
 
@@ -69,49 +72,48 @@ class PromptCombiner:
             json_type = col_def.get("json_schema_type") or TYPE_MAP.get(col_def["type"], "string")
             nullable = col_def.get("nullable", True)
 
-            # object types require additionalProperties: false in strict mode
             type_schema = {"type": json_type}
             if json_type == "object":
                 type_schema["additionalProperties"] = False
             elif json_type == "array":
-                items_type = col_def.get("json_schema_items", "string")  # default to string
+                items_type = col_def.get("json_schema_items", "string")
                 type_schema["items"] = {"type": items_type}
 
             if nullable:
-                properties[col_name] = {
-                    "anyOf": [
-                        type_schema,
-                        {"type": "null"}
-                    ]
-                }
+                properties[col_name] = {"anyOf": [type_schema, {"type": "null"}]}
             else:
                 properties[col_name] = type_schema
             required.append(col_name)
 
-        schema = {
+        row_schema = {
             "type": "object",
-            "properties": {
-                table_name: {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": properties,
-                        "required": required,
-                        "additionalProperties": False
-                    }
-                }
-            },
-            "required": [table_name],
-            "additionalProperties": False
+            "properties": properties,
+            "required": required,
+            "additionalProperties": False,
         }
+
+        if single_record:
+            schema = row_schema
+        else:
+            schema = {
+                "type": "object",
+                "properties": {
+                    table_name: {
+                        "type": "array",
+                        "items": row_schema,
+                    }
+                },
+                "required": [table_name],
+                "additionalProperties": False,
+            }
 
         return {
             "type": "json_schema",
             "json_schema": {
                 "name": table_name,
                 "strict": True,
-                "schema": schema
-            }
+                "schema": schema,
+            },
         }
 
     # ── Extra info resolvers ───────────────────────────────────────────────────
@@ -130,12 +132,9 @@ class PromptCombiner:
         self,
         prompts: dict,
         starting_ids: dict,
-        file_path_doc: str,
         output_reduced_participants_pasttask: str,
         output_reduced_questions_pasttask: str
     ) -> str:
-        if file_path_doc is None:
-            raise ValueError("file_path_doc is required for task 'answers'")
         if output_reduced_participants_pasttask is None:
             raise ValueError("output_reduced_participants_pasttask is required for task 'answers'")
         if output_reduced_questions_pasttask is None:
@@ -143,7 +142,6 @@ class PromptCombiner:
 
         return prompts["extra_info"]["answers"].format(
             starting_answerID_DB=starting_ids["answerID"],
-            file_path_doc=file_path_doc,
             output_reduced_participants_pasttask=output_reduced_participants_pasttask,
             output_reduced_questions_pasttask=output_reduced_questions_pasttask
         )
@@ -156,7 +154,6 @@ class PromptCombiner:
         task: str,
         text_doc: str,
         starting_ids: dict,
-        file_path_doc: str = None,
         output_reduced_participants_pasttask: str = None,
         output_reduced_questions_pasttask: str = None
     ) -> str:
@@ -174,7 +171,6 @@ class PromptCombiner:
             extra_info = self._extra_info_answers(
                 prompts,
                 starting_ids,
-                file_path_doc,
                 output_reduced_participants_pasttask,
                 output_reduced_questions_pasttask
             )
@@ -190,3 +186,19 @@ class PromptCombiner:
             extra_note_task=extra_note
         )
 
+
+    def build_prompt_user_1recordT(
+            self,
+            prompt_path: str,
+            file_path_doc: str,
+            text_doc: str
+        ) -> str:
+        prompts = self._load_prompts_user(prompt_path)
+        task = "1recordT"
+
+        return prompts["base"].format(
+            text_doc=text_doc,
+            file_path_doc = file_path_doc,
+            json_template_task=self.extract_json_template(task),
+            schema_metadata_task=self.extract_schema_metadata(task)
+        )

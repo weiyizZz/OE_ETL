@@ -25,11 +25,14 @@ def create_tables(conn):
     cur.execute("""
         CREATE TABLE IF NOT EXISTS notegroups (
             notegroupID          INTEGER PRIMARY KEY,
+            projectID            INTEGER REFERENCES projects(projectID) ON DELETE SET NULL,
             project_name         TEXT,
             phase                INTEGER,
             remark               TEXT,
             note_url_QA          TEXT,
-            note_url_PARTICIPANT TEXT
+            note_url_PARTICIPANT TEXT,
+            date                 DATE,
+            data_source_category TEXT
         )
     """)
 
@@ -79,14 +82,13 @@ def create_tables(conn):
             projectID               INTEGER,
             questionID              INTEGER,
             participantID           INTEGER,
+            notegroupID             INTEGER REFERENCES notegroups(notegroupID) ON DELETE SET NULL,
             answer_content_oriLAN   TEXT    NOT NULL,
             answer_content_EN       TEXT,
             answer_extraction_LLM   TEXT,
             sentiment_score_LLM     INTEGER,
-            date                    DATE,
-            data_source_category    TEXT,   -- data_source_category IN ('expertpool', 'survey', 'focus group', 'diepteinterview', 'other')
-            notegroupID             INTEGER REFERENCES notegroups(notegroupID) ON DELETE SET NULL,
-            FOREIGN KEY (projectID)       REFERENCES projects(projectID)        ON DELETE RESTRICT,
+            
+            FOREIGN KEY (projectID)       REFERENCES projects(projectID)        ON DELETE SET NULL,
             FOREIGN KEY (questionID)      REFERENCES questions(questionID)       ON DELETE SET NULL,
             FOREIGN KEY (participantID)   REFERENCES participants(participantID) ON DELETE SET NULL
         )

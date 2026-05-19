@@ -14,7 +14,8 @@ class Text2JsonTransformer:
 
     def __init__(
         self,
-        prompt_path: str,
+        prompt_path_text2json: str,
+        prompt_path_1recordT: str,
         schema_path: str,
         combined_text: str,
         starting_ids: dict,
@@ -22,7 +23,8 @@ class Text2JsonTransformer:
         notegroup_id: int,
         llm_model: str = "gpt-5.1",
     ):
-        self.prompt_path = prompt_path
+        self.prompt_path_text2json = prompt_path_text2json
+        self.prompt_path_1recordT = prompt_path_1recordT
         self.combined_text = combined_text
         self.starting_ids = starting_ids
         self.file_path_doc = file_path_doc
@@ -30,9 +32,6 @@ class Text2JsonTransformer:
         self.llm_model = llm_model
 
         self.combiner = PromptCombiner(schema_path=schema_path)
-
-        self.system_prompt = self.combiner.load_prompts_system(prompt_path)
-        show(self.system_prompt, title="Prompt for text2json - system")
 
         self.client = OpenAI(
             api_key=OPENAI_API_KEY,
@@ -49,17 +48,26 @@ class Text2JsonTransformer:
             max_retries: int = 3,
             retry_delay: int = 10
     ) -> str:
+        if task == "1recordT":
+            system_prompt = self.combiner.load_prompts_system(self.prompt_path_1recordT)
+            user_prompt = self.combiner.build_prompt_user_1recordT(
+                prompt_path=self.prompt_path_1recordT,
+                file_path_doc=self.file_path_doc,
+                text_doc=self.combined_text
+            )
+            show(user_prompt, title=f"Prompt for task ({task}) - user")
 
-        user_prompt = self.combiner.build_prompt_user_text2json(
-            prompt_path=self.prompt_path,
-            task=task,
-            text_doc=self.combined_text,
-            starting_ids=self.starting_ids,
-            file_path_doc=self.file_path_doc,
-            output_reduced_participants_pasttask=output_reduced_participants_pasttask,
-            output_reduced_questions_pasttask=output_reduced_questions_pasttask
-        )
-        show(user_prompt, title=f"Prompt for text2json task ({task}) - user")
+        else:
+            system_prompt = self.combiner.load_prompts_system(self.prompt_path_text2json)
+            user_prompt = self.combiner.build_prompt_user_text2json(
+                prompt_path=self.prompt_path_text2json,
+                task=task,
+                text_doc=self.combined_text,
+                starting_ids=self.starting_ids,
+                output_reduced_participants_pasttask=output_reduced_participants_pasttask,
+                output_reduced_questions_pasttask=output_reduced_questions_pasttask
+            )
+            show(user_prompt, title=f"Prompt for text2json task ({task}) - user")
 
         json_schema = self.combiner.to_json_schema(task)
 
@@ -71,7 +79,7 @@ class Text2JsonTransformer:
                     seed=42,
                     response_format=json_schema,
                     messages=[
-                        {"role": "system", "content": self.system_prompt},
+                        {"role": "system", "content": system_prompt},
                         {"role": "user", "content": user_prompt}
                     ]
                 )
@@ -105,7 +113,7 @@ class Text2JsonTransformer:
                 else:
                     raise
 
-    def transform_3tasks(self) -> dict:
+    def transform_4tasks(self) -> dict:
 
         # ── participants ───────────────────────────────────────────────────────
         result_participants_raw = self.transform_1task(task="participants")
@@ -132,11 +140,15 @@ class Text2JsonTransformer:
         result_questions = self.remove_unanswered_questions(result_questions, result_answers)
         logger.info("=== Result: questions (after removing unanswered, from %s) ===\n%s", self.notegroup_id, result_questions)
 
+        # ── 1recordT ────────────────────────────────────────────────────────────
+        result_1recordT = self.transform_1task(task="1recordT")
+        logger.info("=== Result: 1recordT (from %s) ===\n%s", self.notegroup_id, result_1recordT)
 
         return {
             "participants": result_participants,
             "questions": result_questions,
-            "answers": result_answers
+            "answers": result_answers,
+            "1recordT": result_1recordT
         }
 
     @staticmethod

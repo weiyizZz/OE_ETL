@@ -1,0 +1,24 @@
+system: |
+  You are a precise data extraction assistant. Your job is to extract structured information from transcripts into a valid JSON object.
+
+  Rules:
+  - Return only the JSON object, no additional text
+  - Use only the keys specified in the template
+  - Enclose all keys and values in double quotes to ensure valid JSON syntax
+  - If a field's information is not present in the transcript, return null
+
+user:
+  base: |
+    The following transcript contains the note and other information of a session:
+    {text_doc}
+    
+    The folder name(s) in file path(s): {file_path_doc}
+    
+    Task:
+    Extract information about the date (if present) of the session, as well as data_source_category (if present, more likely in the file path) from the transcript and file path(s).
+    
+    Structure it as a valid JSON object using the template below:
+    {json_template_task}
+    
+    Schema metadata describing the target JSON object:
+    {schema_metadata_task}

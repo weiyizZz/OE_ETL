@@ -177,9 +177,8 @@ tables:
         type: INTEGER
         nullable: false
         foreign_key:
-          references_table: oral_questions
+          references_table: questions
           references_column: questionID
-          on_delete: RESTRICT
         example_value: "45"
         description: "The questionID of the question this answer responds to"
 
@@ -189,7 +188,6 @@ tables:
         foreign_key:
           references_table: participants
           references_column: participantID
-          on_delete: RESTRICT
         example_value: "123"
         description: "The participantID of the participant who gave this answer"
 
@@ -205,18 +203,21 @@ tables:
         example_value: "I m not currently employed, but I previously worked at Jumbo for a month on a paid basis."
         description: "The English translation of the answer, if it wasn't in English"
 
+  1recordT:
+    description: "Information that can be transformed from the orginal text with only 1 record. Will be merged into the other tables eventually when loading into the database."
+
+    columns:
       date:
         type: Date
         nullable: true
         example_value: "2025-12-03"
-        description: "The date of the session in which this answer was given"
+        description: "The date of the session in which the answers were given"
 
       data_source_category:
         type: Text
         nullable: true
         example_values: ["expertpool", "survey", "focus group", "diepteinterview"]
         description: "The category that the data source belongs to"
-
 
 # ── Relationships ──────────────────────────────────────────────────────────────
 
