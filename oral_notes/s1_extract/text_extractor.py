@@ -3,6 +3,7 @@ import io
 import re
 from docx import Document
 from docx.oxml.ns import qn
+import csv
 
 class TextExtractor:
     """Extracts plain text from in-memory files loaded by GoogleDriveLoader, currently only supports .docx files."""
@@ -16,17 +17,12 @@ class TextExtractor:
         fh = result["fh"]
         name = result["name"]
         if name.endswith(".docx"):
-            return self._extract_ordered_content(fh)
+            return self._extract_docx(fh)
+        elif name.endswith(".csv"):
+            return self._extract_csv(fh)
         raise ValueError(f"Unsupported file type: {name}")
 
     def _extract_docx(self, fh: io.BytesIO) -> str:
-        """*NOT applied anymore* Extracts text from a .docx BytesIO buffer using docx2txt."""
-        text = docx2txt.process(fh)
-        # Replace 2+ consecutive newlines with a single one
-        text = re.sub(r'\n{2,}', '\n', text)
-        return text
-
-    def _extract_ordered_content(self, fh: io.BytesIO) -> str:
         """Extracts text from a .docx file preserving the original order of paragraphs and tables.
         Paragraphs and tables are interleaved in document order.
         Table cells preserve internal line breaks from multiple paragraphs.
@@ -78,3 +74,46 @@ class TextExtractor:
 
         # Join all blocks with newlines to produce the final plain text output
         return '\n'.join(output)
+
+    def _extract_csv(self, fh: io.BytesIO) -> str:
+        """Extracts text from a CSV file as a Markdown table for LLM readability.
+        Excludes columns with privacy-sensitive headers (phone, email, ID numbers).
+        """
+        try:
+            text = fh.read().decode("utf-8")
+        except UnicodeDecodeError:
+            fh.seek(0)
+            text = fh.read().decode("latin-1")
+
+        reader = csv.reader(text.splitlines())
+        rows = list(reader)
+
+        if not rows:
+            return ""
+
+        # identify columns to exclude based on header name
+        sensitive_keywords = {"telefoon", "telephone", "email", "nummer"}
+        header = rows[0]
+        excluded_indices = {
+            i for i, col in enumerate(header)
+            if any(keyword in col.lower() for keyword in sensitive_keywords)
+        }
+
+        def clean(value: str) -> str:
+            # replace | to avoid breaking markdown table structure
+            return value.replace("|", "/").strip()
+
+        def filter_row(row: list) -> list:
+            return [clean(val) for i, val in enumerate(row) if i not in excluded_indices]
+
+        filtered_header = filter_row(header)
+        lines = []
+        lines.append("| " + " | ".join(filtered_header) + " |")
+        lines.append("| " + " | ".join(["---"] * len(filtered_header)) + " |")
+
+        for row in rows[1:]:
+            # pad row to header length in case of missing trailing cells
+            padded = row + [""] * (len(header) - len(row))
+            lines.append("| " + " | ".join(filter_row(padded)) + " |")
+
+        return "\n".join(lines)
