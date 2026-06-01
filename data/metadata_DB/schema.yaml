@@ -15,6 +15,12 @@ tables:
         example_value: 123
         description: "Integer ID, assigned sequentially increasing for each row"
 
+      full_name:
+        type: Text
+        nullable: true
+        example_value: "Zayran Al-Mahif"
+        description: "Full name of the participant"
+
       initials:
         type: Text
         nullable: true

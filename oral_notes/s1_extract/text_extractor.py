@@ -1,9 +1,9 @@
-import docx2txt
 import io
 import re
 from docx import Document
 from docx.oxml.ns import qn
 import csv
+import openpyxl
 
 class TextExtractor:
     """Extracts plain text from in-memory files loaded by GoogleDriveLoader, currently only supports .docx files."""
@@ -18,8 +18,8 @@ class TextExtractor:
         name = result["name"]
         if name.endswith(".docx"):
             return self._extract_docx(fh)
-        elif name.endswith(".csv"):
-            return self._extract_csv(fh)
+        elif name.endswith(".csv") or name.endswith(".xlsx"):
+            return self._extract_tabular(fh, name)
         raise ValueError(f"Unsupported file type: {name}")
 
     def _extract_docx(self, fh: io.BytesIO) -> str:
@@ -75,24 +75,30 @@ class TextExtractor:
         # Join all blocks with newlines to produce the final plain text output
         return '\n'.join(output)
 
-    def _extract_csv(self, fh: io.BytesIO) -> str:
-        """Extracts text from a CSV file as a Markdown table for LLM readability.
+    def _extract_tabular(self, fh: io.BytesIO, name: str) -> str:
+        """Extracts text from CSV or XLSX as a Markdown table for LLM readability.
         Excludes columns with privacy-sensitive headers (phone, email, ID numbers).
         """
-        try:
-            text = fh.read().decode("utf-8")
-        except UnicodeDecodeError:
-            fh.seek(0)
-            text = fh.read().decode("latin-1")
-
-        reader = csv.reader(text.splitlines())
-        rows = list(reader)
+        if name.endswith(".xlsx"):
+            wb = openpyxl.load_workbook(fh, read_only=True, data_only=True)
+            ws = wb.active
+            rows = [
+                [str(cell.value) if cell.value is not None else "" for cell in row]
+                for row in ws.iter_rows()
+            ]
+            wb.close()
+        else:
+            try:
+                text = fh.read().decode("utf-8")
+            except UnicodeDecodeError:
+                fh.seek(0)
+                text = fh.read().decode("latin-1")
+            rows = list(csv.reader(text.splitlines()))
 
         if not rows:
             return ""
 
-        # identify columns to exclude based on header name
-        sensitive_keywords = {"telefoon", "telephone", "email", "nummer"}
+        sensitive_keywords = {"telefoon", "phone", "mail", "nummer", "number", "iban", "bank"}
         header = rows[0]
         excluded_indices = {
             i for i, col in enumerate(header)
@@ -107,13 +113,17 @@ class TextExtractor:
             return [clean(val) for i, val in enumerate(row) if i not in excluded_indices]
 
         filtered_header = filter_row(header)
-        lines = []
-        lines.append("| " + " | ".join(filtered_header) + " |")
-        lines.append("| " + " | ".join(["---"] * len(filtered_header)) + " |")
+        lines = [
+            "| " + " | ".join(filtered_header) + " |",
+            "|" + "|".join(["---"] * len(filtered_header)) + "|"
+        ]
 
         for row in rows[1:]:
             # pad row to header length in case of missing trailing cells
             padded = row + [""] * (len(header) - len(row))
-            lines.append("| " + " | ".join(filter_row(padded)) + " |")
+            filtered = filter_row(padded)
+            if not any(v.strip() for v in filtered):
+                continue
+            lines.append("| " + " | ".join(filtered) + " |")
 
         return "\n".join(lines)

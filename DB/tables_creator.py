@@ -3,6 +3,7 @@ import csv
 
 def create_tables(conn):
     cur = conn.cursor()
+    cur.execute("PRAGMA journal_mode=WAL")
     cur.execute("PRAGMA foreign_keys = ON")
 
     cur.execute("""
@@ -39,6 +40,7 @@ def create_tables(conn):
     cur.execute("""
         CREATE TABLE IF NOT EXISTS participants (
             participantID       INTEGER PRIMARY KEY NOT NULL,
+            full_name           TEXT,
             initials            TEXT,
             gender              TEXT,
             projectID_age       TEXT,   -- JSONB: {projectID: age}

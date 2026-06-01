@@ -11,3 +11,5 @@ venv/
 # Sensitive / secrets
 .env
 config/service_account_key.json
+logs/pipeline.log
+DB/oedb_baseline.db
