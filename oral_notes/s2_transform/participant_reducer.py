@@ -131,4 +131,7 @@ class ParticipantReducer:
             self.notegroup_id, reduced_par
         )
 
-        return "\n---\n".join([reduced_par, self.all_texts.get("QA", "")])
+        return "\n---\n".join([
+            f"## Participants' Information Transcript\n{reduced_par}",
+            f"## Session Transcript\n{self.all_texts.get('QA', '')}"
+        ])

@@ -21,6 +21,7 @@ class Text2JsonTransformer:
         starting_ids: dict,
         file_path_doc: str,
         notegroup_id: int,
+        has_participant: bool = False,
         llm_model: str = "gpt-5.1",
     ):
         self.prompt_path_text2json = prompt_path_text2json
@@ -29,6 +30,7 @@ class Text2JsonTransformer:
         self.starting_ids = starting_ids
         self.file_path_doc = file_path_doc
         self.notegroup_id = notegroup_id
+        self.has_participant = has_participant
         self.llm_model = llm_model
 
         self.combiner = PromptCombiner(schema_path=schema_path)
@@ -65,9 +67,10 @@ class Text2JsonTransformer:
                 text_doc=self.combined_text,
                 starting_ids=self.starting_ids,
                 output_reduced_participants_pasttask=output_reduced_participants_pasttask,
-                output_reduced_questions_pasttask=output_reduced_questions_pasttask
+                output_reduced_questions_pasttask=output_reduced_questions_pasttask,
+                has_participant=self.has_participant
             )
-            show(user_prompt, title=f"Prompt for text2json task ({task}) - user")
+            #show(user_prompt, title=f"Prompt for text2json task ({task}) - user")
 
         json_schema = self.combiner.to_json_schema(task)
 

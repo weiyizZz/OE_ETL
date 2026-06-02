@@ -23,11 +23,11 @@ user:
 
     ## Task
     Work through the following steps internally before producing the final output:
- 
+
     **Step 1 — Identify session participants**: If participant initials or other identifiable attributes are available in the session transcript, list all participants and note their attributes (initials, name, role, demographics, etc.).
- 
+
     **Step 2 — Match to information transcript**: For each participant identified in Step 1, find the corresponding entry in the participants' information transcript using the matching cues above. Note which entries are matched, uncertain, or unmatched.
- 
+
     **Step 3 — Filter**: Retain all matched and uncertain entries. Remove only entries that could not be matched to any session participant across all cues.
- 
-    **Step 4 — Output**: Write a line containing only "###RESULT###", then output the filtered participants' information transcript, preserving every retained entry exactly as it appears in the original.
+
+    **Step 4 — Output**: Write a line containing only "###RESULT###", then output the filtered participants' information transcript. Begin with the "[Data source: ...]" line from the original participants' information transcript if present. For each retained entry, preserve it exactly as it appears in the original and append a new field "session_identifier" whose value is the identifier used for that participant in the session transcript (e.g. their initials or abbreviated name). If no identifier could be determined, set the field value to null.

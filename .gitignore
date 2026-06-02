@@ -13,3 +13,5 @@ venv/
 config/service_account_key.json
 logs/pipeline.log
 DB/oedb_baseline.db
+/testing/logs/pipeline.log
+/utils/html_viewer_outputs/

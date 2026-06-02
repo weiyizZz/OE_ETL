@@ -47,7 +47,9 @@ for label, url in [("QA", note_url_qa), ("PARTICIPANT", note_url_participant)]:
     all_texts[label] = f"[Data source: {result['name']}]\n{text}"
     all_drive_paths[label] = result['drive_path']
 combined_drive_paths = "|".join(all_drive_paths.values())
-if "PARTICIPANT" in all_texts:
+
+has_participant = "PARTICIPANT" in all_texts
+if has_participant:
     print("\n--- Running participant reduction ---")
     reducer = ParticipantReducer(
         prompt_path_ParReducer=prompt_path_ParReducer,
@@ -58,12 +60,12 @@ if "PARTICIPANT" in all_texts:
 else:
     combined_text = all_texts["QA"]
 
-print("""\n--- Transforming the document into structured jsons, with tasks: "participants", "questions", "answers" ---""")
+print("""\n--- Transforming the document into structured jsons, with tasks: "participants", "questions", "answers", "1recordT" ---""")
 transformer_2json = Text2JsonTransformer(prompt_path_text2json=prompt_path_text2json,
                                          prompt_path_1recordT=prompt_path_1recordT,
                                          schema_path=schema_path, combined_text=combined_text,
                                          starting_ids=starting_ids, file_path_doc=combined_drive_paths,
-                                         notegroup_id=notegroup_id)
+                                         notegroup_id=notegroup_id, has_participant=has_participant)
 transformed_results = transformer_2json.transform_4tasks()
 
 print("""\n--- Loading each json into the database: oedb_baseline.db ---""")

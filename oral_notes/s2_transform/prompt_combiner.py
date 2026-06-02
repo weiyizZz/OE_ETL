@@ -155,7 +155,8 @@ class PromptCombiner:
         text_doc: str,
         starting_ids: dict,
         output_reduced_participants_pasttask: str = None,
-        output_reduced_questions_pasttask: str = None
+        output_reduced_questions_pasttask: str = None,
+        has_participant: bool = False
     ) -> str:
 
         prompts = self._load_prompts_user(prompt_path)
@@ -175,7 +176,10 @@ class PromptCombiner:
                 output_reduced_questions_pasttask
             )
 
-        extra_note = prompts["extra_note"].get(task, "")
+        if task == "participants" and not has_participant:
+            extra_note = ""
+        else:
+            extra_note = prompts["extra_note"].get(task, "")
 
         return prompts["base"].format(
             text_doc=text_doc,

@@ -2,10 +2,14 @@ import json
 import sqlite3
 from typing import Literal
 
+from utils.logger import get_logger
+
+logger = get_logger(__name__)
+
 
 class JSON2DBLoader:
 
-    TaskName = Literal["participants", "questions", "answers"]
+    TaskName = Literal["participants", "questions", "answers", "1recordT"]
 
     def __init__(self, db_path: str, project_id: int, notegroup_id: int):
         self.db_path = db_path
@@ -45,8 +49,6 @@ class JSON2DBLoader:
         merged = {**record, **fixed}
         return tuple(JSON2DBLoader._serialize(merged.get(col)) for col in columns)
 
-    TaskName = Literal["participants", "questions", "answers", "1recordT"]
-
     def load(self, json_str: str, task: TaskName) -> None:
         """
         Parse a JSON string and insert/update records in the target table.
@@ -68,7 +70,7 @@ class JSON2DBLoader:
                 sql = f"UPDATE notegroups SET {set_clause} WHERE notegroupID = ?"
                 conn.execute(sql, (*values, self.notegroup_id))
                 conn.commit()
-                print(f"[1recordT] Updated notegroup row for notegroupID={self.notegroup_id}.")
+                logger.info("Updated notegroup row for notegroupID=%s.", self.notegroup_id)
 
         else:
             records = data[task]
@@ -86,10 +88,10 @@ class JSON2DBLoader:
                     conn.executemany(sql, rows)
                     conn.commit()
                     count = conn.execute(f"SELECT COUNT(*) FROM {task}").fetchone()[0]
-                    print(f"[{task}] Inserted {len(rows)} rows. Table now has {count} rows total.")
+                    logger.info("Inserted %d rows into '%s'. Table now has %d rows total.", len(rows), task, count)
                 except sqlite3.IntegrityError as e:
-                    print(f"[{task}] IntegrityError: {e}")
+                    logger.error("IntegrityError on task '%s': %s", task, e)
                     raise
                 except sqlite3.OperationalError as e:
-                    print(f"[{task}] OperationalError: {e}")
+                    logger.error("OperationalError on task '%s': %s", task, e)
                     raise

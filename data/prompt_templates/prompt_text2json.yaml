@@ -15,7 +15,7 @@ system: |
 
 user:
   base: |
-    The following transcript contains the note of a session of questions and answers with participants, possibly also information about the involved participants:
+    The following transcript contains the note of a session of questions and answers with participants:
     {text_doc}
 
     Task:
@@ -29,7 +29,7 @@ user:
     {schema_metadata_task}
 
     Note: {extra_note_task}
-    *THE ENTIRE TEXT MUST BE USED — DO NOT OMIT ANY PART.* For each feature, copy the full text up until the next feature begins.
+    For each feature, copy the full text up until the next feature begins. The entire text must be used, do not omit any.
 
   extra_info:
     participants: |
@@ -48,6 +48,10 @@ user:
       {output_reduced_questions_pasttask}
 
   extra_note:
+    participants: |
+      Preferentially extract participant information from the ## Participants' Information Transcript section. For participants appearing only in the ## Session Transcript section, extract them only if they cannot be mapped to any entry in ## Participants' Information Transcript.
+      If a "session_identifier" field is present in the ## Participants' Information Transcript and its value is an initials or abbreviated name (e.g. "A.B", "John"), extract it into the "initials" field. Do not extract it if it is a full name.
+
     questions: |
       If multiple questions are grouped together and answered by participants as a single combined response rather than in separate rounds, do not split them into individual objects. Instead, merge them into a single "question_content" field. 
       Only fill the "main_indicator" field when it can be identified from a section header or label that appears near or above the question in the document (not an analysed result). 
