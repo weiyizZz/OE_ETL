@@ -37,7 +37,7 @@ class JSON2DBLoader:
 
     @staticmethod
     def _serialize(value):
-        return json.dumps(value) if isinstance(value, (dict, list)) else value
+        return json.dumps(value, ensure_ascii=False) if isinstance(value, (dict, list)) else value
 
     @staticmethod
     def _get_table_columns(conn: sqlite3.Connection, table: str) -> list[str]:

@@ -17,11 +17,13 @@ class ParticipantReducer:
         prompt_path_ParReducer: str,
         all_texts: dict,
         notegroup_id: int,
+        pipeline_type: str,
         llm_model: str = "gpt-5.1",
     ):
         self.prompt_path_ParReducer = prompt_path_ParReducer
         self.all_texts = all_texts
         self.notegroup_id = notegroup_id
+        self.pipeline_type = pipeline_type
         self.llm_model = llm_model
 
         self.client = OpenAI(
@@ -83,15 +85,11 @@ class ParticipantReducer:
                 cached_tokens = (
                     getattr(usage.prompt_tokens_details, "cached_tokens", 0) or 0
                 )
-                TokenLogger.append_transformer_baseline(
-                    llm_model=self.llm_model,
-                    notegroup_id=self.notegroup_id,
-                    task="ParticipantReducer",
-                    attempt=attempt + 1,
-                    input_tokens=usage.prompt_tokens,
-                    output_tokens=usage.completion_tokens,
-                    cached_tokens=cached_tokens,
-                )
+                TokenLogger.append_transformer(pipeline_type=self.pipeline_type, llm_model=self.llm_model,
+                                               notegroup_id=self.notegroup_id,
+                                               task="ParticipantReducer", attempt=attempt + 1,
+                                               input_tokens=usage.prompt_tokens, output_tokens=usage.completion_tokens,
+                                               cached_tokens=cached_tokens)
                 # ──────────────────────────────────────────────────────────────
 
                 raw = response.choices[0].message.content

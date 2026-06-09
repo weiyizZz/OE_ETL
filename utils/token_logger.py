@@ -45,7 +45,7 @@ class TokenLogger:
         )
 
     @classmethod
-    def append_transformer_baseline(
+    def append_transformer(
         cls,
         llm_model: str,
         notegroup_id: int,
@@ -54,7 +54,7 @@ class TokenLogger:
         input_tokens: int,
         output_tokens: int,
         cached_tokens: int = 0,
-        token_log_path: str | Path = "logs/token_usage_transformer_baseline.jsonl",
+        token_log_path: str | Path = "logs/token_usage_transformer.jsonl",
         pipeline_type: str = "baseline",
     ) -> None:
         """Append one token-usage record to the JSONL log file."""

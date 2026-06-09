@@ -1,13 +1,14 @@
 from oral_notes.s1_extract.doc_loader import GoogleDriveLoader
 from oral_notes.s1_extract.text_extractor import TextExtractor
 from oral_notes.s1_extract.startingIDs_loader import get_starting_ids
-from oral_notes.s2_transform.participant_reducer import ParticipantReducer
+from oral_notes.s2_transform.participant_llm_reducer import ParticipantReducer
 from oral_notes.s2_transform.text2json_llm_transformer import Text2JsonTransformer
 from oral_notes.s3_load.json2db_loader import JSON2DBLoader
 from utils.html_viewer import show
 import sqlite3
 
 
+pipeline_type="baseline"
 DB_PATH = "DB/oedb_baseline.db"
 schema_path = "data/metadata_DB/schema.yaml"
 prompt_path_text2json = "data/prompt_templates/prompt_text2json.yaml"
@@ -52,6 +53,7 @@ has_participant = "PARTICIPANT" in all_texts
 if has_participant:
     print("\n--- Running participant reduction ---")
     reducer = ParticipantReducer(
+        pipeline_type=pipeline_type,
         prompt_path_ParReducer=prompt_path_ParReducer,
         all_texts=all_texts,
         notegroup_id=notegroup_id,
@@ -65,7 +67,8 @@ transformer_2json = Text2JsonTransformer(prompt_path_text2json=prompt_path_text2
                                          prompt_path_1recordT=prompt_path_1recordT,
                                          schema_path=schema_path, combined_text=combined_text,
                                          starting_ids=starting_ids, file_path_doc=combined_drive_paths,
-                                         notegroup_id=notegroup_id, has_participant=has_participant)
+                                         notegroup_id=notegroup_id, has_participant=has_participant,
+                                         pipeline_type=pipeline_type)
 transformed_results = transformer_2json.transform_4tasks()
 
 print("""\n--- Loading each json into the database: oedb_baseline.db ---""")

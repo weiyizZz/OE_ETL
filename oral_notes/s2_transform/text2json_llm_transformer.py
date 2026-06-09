@@ -21,6 +21,7 @@ class Text2JsonTransformer:
         starting_ids: dict,
         file_path_doc: str,
         notegroup_id: int,
+        pipeline_type: str,
         has_participant: bool = False,
         llm_model: str = "gpt-5.1",
     ):
@@ -30,6 +31,7 @@ class Text2JsonTransformer:
         self.starting_ids = starting_ids
         self.file_path_doc = file_path_doc
         self.notegroup_id = notegroup_id
+        self.pipeline_type = pipeline_type
         self.has_participant = has_participant
         self.llm_model = llm_model
 
@@ -57,7 +59,7 @@ class Text2JsonTransformer:
                 file_path_doc=self.file_path_doc,
                 text_doc=self.combined_text
             )
-            show(user_prompt, title=f"Prompt for task ({task}) - user")
+            #show(user_prompt, title=f"Prompt for task ({task}) - user")
 
         else:
             system_prompt = self.combiner.load_prompts_system(self.prompt_path_text2json)
@@ -92,15 +94,10 @@ class Text2JsonTransformer:
                 cached_tokens = (
                     getattr(usage.prompt_tokens_details, "cached_tokens", 0) or 0
                 )
-                TokenLogger.append_transformer_baseline(
-                    llm_model=self.llm_model,
-                    notegroup_id=self.notegroup_id,
-                    task=task,
-                    attempt=attempt + 1,
-                    input_tokens=usage.prompt_tokens,
-                    output_tokens=usage.completion_tokens,
-                    cached_tokens=cached_tokens,
-                )
+                TokenLogger.append_transformer(llm_model=self.llm_model, notegroup_id=self.notegroup_id, task=task,
+                                               attempt=attempt + 1, input_tokens=usage.prompt_tokens,
+                                               output_tokens=usage.completion_tokens, cached_tokens=cached_tokens,
+                                               pipeline_type=self.pipeline_type)
                 # ─────────────────────────────────────────────────────────────
 
                 result = response.choices[0].message.content
@@ -179,13 +176,16 @@ class Text2JsonTransformer:
 
     @staticmethod
     def remove_unanswered_questions(output_q: str, output_a: str) -> str:
+        # While keeping the followed questions
         questions = json.loads(output_q)
         answers = json.loads(output_a)
         questions = next(iter(questions.values()))
         answers = next(iter(answers.values()))
 
         answered_ids = {record["questionID"] for record in answers if "questionID" in record}
-        filtered = [q for q in questions if q.get("questionID") in answered_ids]
+        followed_ids = {q["followed_questionID"] for q in questions if q.get("followed_questionID") is not None}
+        keep_ids = answered_ids | followed_ids
+        filtered = [q for q in questions if q.get("questionID") in keep_ids]
 
         return json.dumps({"questions": filtered}, ensure_ascii=False)
 
