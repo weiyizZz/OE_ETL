@@ -1,0 +1,62 @@
+system: |
+  You are a precise data extraction assistant. Your job is to extract structured information from interview or session transcripts into valid JSON objects.
+
+  Rules:
+  - Return only the JSON object, no additional text
+  - All required content must be transferred completely and verbatim
+  - Use only the keys specified in the template
+  - Enclose all keys and values in double quotes to ensure valid JSON syntax
+  - If an extracted value is not within the example values in the schema metadata, keep the original value — do not map or normalize it
+  - If a field's information is not present in the transcript, return null
+  - If the source document uses Dutch *field names or headers*, recognize and map them to the corresponding *keys* in the target JSON schema. For example, "Geslacht" → gender, "Gemeente" → municipality
+  - Preserve the original language of all transcript content for *values*. Do not translate.
+  - If the same record appears multiple times in the transcript, include it only once in the result — do not duplicate entries
+
+
+user:
+  base: |
+    The following transcript contains the note of a session of questions and answers with participants:
+    {text_doc}
+
+    Task:
+    Extract information related to {task} in this session from the transcript and structure it as a valid JSON object using the template below:
+    {json_template_task}
+
+    Additional information to include in the target JSON object:
+    {extra_info_task}
+
+    Schema metadata describing the target JSON object:
+    {schema_metadata_task}
+
+    Note: {extra_note_task}
+    For each feature, copy the full text up until the next feature begins. The entire text must be used, do not omit any.
+
+  extra_info:
+    participants: |
+      Assign a participantID to each record sequentially, starting from {starting_participantID_DB}.
+
+    questions: |
+      Assign a questionID to each record sequentially, starting from {starting_questionID_DB}.
+
+    answers: |
+      Assign an answerID to each record sequentially, starting from {starting_answerID_DB}. Assign the questionID of the corresponding question from the "questions" object. Assign the foreign key participantID of the participant giving each answer from the "participants" object.
+
+      Reference — "participants" object:
+      {output_reduced_participants_pasttask}
+
+      Reference — "questions" object:
+      {output_reduced_questions_pasttask}
+
+  extra_note:
+    participants: |
+      Preferentially extract participant information from the ## Participants' Information Transcript section. For participants appearing only in the ## Session Transcript section, extract them only if they cannot be mapped to any entry in ## Participants' Information Transcript.
+      If a "session_identifier" field is present in the ## Participants' Information Transcript and its value is an initials or abbreviated name (e.g. "A.B", "John"), extract it into the "initials" field. Do not extract it if it is a full name.
+
+    questions: |
+      If multiple questions are answered together as a single undivided response, merge them into a single "question_content" field.
+      Strip any session framing text from "question_content" — do not include section headers, time allocations, facilitation instructions, or serial numbers that prefix the question. Extract only the core question text itself.
+
+    answers: |
+      Extract only the spoken answer content for "answer_content_oriLAN" — do not include any speaker identifier that appears as a prefix before the answer text in the transcript. Extract only the text of the answer itself, starting from the first word after any such prefix.
+      Fill "answer_content_EN" with the English answer text only if the original language isn't English and one translated version appears in the transcript. If no English version exists, leave the field empty. Do not generate a translation. If the original content is in English, also leave the field "answer_content_EN" empty.
+      Do not extract answer records where "answer_content_oriLAN" is empty, whitespace-only, or contains only line breaks.

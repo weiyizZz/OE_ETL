@@ -8,12 +8,13 @@ from utils.html_viewer import show
 import sqlite3
 
 
-DB_PATH = "../DB/oedb_baseline.db"
-schema_path = "data/metadata_DB/schema.yaml"
-prompt_path_text2json = "data/prompt_templates/prompt_text2json.yaml"
+pipeline_type="baseline_v2"
+DB_PATH = "DB/oedb_baseline_v2.db"
+schema_path = "data/metadata_DB/schema_v2.yaml"
+prompt_path_text2json = "data/prompt_templates/prompt_text2json-v2.yaml"
 prompt_path_1recordT = "data/prompt_templates/prompt_1recordT.yaml"
-prompt_path_ParReducer = "../data/prompt_templates/prompt_ParReducer.yaml"
-service_account_file="../config/service_account_key.json"
+prompt_path_ParReducer = "data/prompt_templates/prompt_ParReducer.yaml"
+service_account_file="config/service_account_key.json"
 
 notegroup_id = int(input("Enter notegroupID: ").strip())
 
@@ -47,16 +48,31 @@ for label, url in [("QA", note_url_qa), ("PARTICIPANT", note_url_participant)]:
     all_texts[label] = f"[Data source: {result['name']}]\n{text}"
     all_drive_paths[label] = result['drive_path']
 combined_drive_paths = "|".join(all_drive_paths.values())
-if "PARTICIPANT" in all_texts:
+
+has_participant = "PARTICIPANT" in all_texts
+if has_participant:
     print("\n--- Running participant reduction ---")
     reducer = ParticipantReducer(
+        pipeline_type=pipeline_type,
         prompt_path_ParReducer=prompt_path_ParReducer,
         all_texts=all_texts,
         notegroup_id=notegroup_id,
-        pipeline_type="baseline"
     )
     combined_text = reducer.build_combined_text()
 else:
     combined_text = all_texts["QA"]
 
-show(combined_text, title=f"notegroup: {notegroup_id} | Combine text after participant reducing for ")
+print("""\n--- Transforming the document into structured jsons, with tasks: "participants", "questions", "answers", "1recordT" ---""")
+transformer_2json = Text2JsonTransformer(prompt_path_text2json=prompt_path_text2json,
+                                         prompt_path_1recordT=prompt_path_1recordT,
+                                         schema_path=schema_path, combined_text=combined_text,
+                                         starting_ids=starting_ids, file_path_doc=combined_drive_paths,
+                                         notegroup_id=notegroup_id, has_participant=has_participant,
+                                         pipeline_type=pipeline_type)
+transformed_results = transformer_2json.transform_4tasks()
+
+print("""\n--- Loading each json into the database: oedb_baseline.db ---""")
+loader = JSON2DBLoader(db_path=DB_PATH, project_id=starting_ids['projectID'], notegroup_id=notegroup_id)
+for task in ["participants", "questions", "answers", "1recordT"]:
+    loader.load(transformed_results[task], task)
+

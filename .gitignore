@@ -15,3 +15,6 @@ logs/pipeline.log
 DB/oedb_baseline.db
 /testing/logs/pipeline.log
 /utils/html_viewer_outputs/
+/DB/oedb_baseline.db-shm
+/DB/oedb_baseline.db-wal
+/DB/oedb_baseline_v2.db
