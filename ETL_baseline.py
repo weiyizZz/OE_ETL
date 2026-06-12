@@ -71,7 +71,7 @@ transformer_2json = Text2JsonTransformer(prompt_path_text2json=prompt_path_text2
                                          pipeline_type=pipeline_type)
 transformed_results = transformer_2json.transform_4tasks()
 
-print("""\n--- Loading each json into the database: oedb_baseline.db ---""")
+print(f"""\n--- Loading each json into the database: oedb_{pipeline_type}.db ---""")
 loader = JSON2DBLoader(db_path=DB_PATH, project_id=starting_ids['projectID'], notegroup_id=notegroup_id)
 for task in ["participants", "questions", "answers", "1recordT"]:
     loader.load(transformed_results[task], task)

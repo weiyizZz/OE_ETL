@@ -12,6 +12,6 @@ def clear_all_tables(cursor):
     cursor.execute("PRAGMA foreign_keys = ON")
     print("All tables cleared.")
 
-with sqlite3.connect("oedb_baseline.db") as conn:
+with sqlite3.connect("oedb_baseline_v2.db") as conn:
     cursor = conn.cursor()
     clear_all_tables(cursor)

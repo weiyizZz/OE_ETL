@@ -55,6 +55,7 @@ user:
     questions: |
       If multiple questions are answered together as a single undivided response, merge them into a single "question_content" field.
       Strip any session framing text from "question_content" — do not include section headers, time allocations, facilitation instructions, or serial numbers that prefix the question. Extract only the core question text itself.
+      Only fill the "main_indicator" field when it can be identified from a section header or label that appears somewhere above the question in the document (not an analysed result, not extracted from the question or answer contents).
 
     answers: |
       Extract only the spoken answer content for "answer_content_oriLAN" — do not include any speaker identifier that appears as a prefix before the answer text in the transcript. Extract only the text of the answer itself, starting from the first word after any such prefix.

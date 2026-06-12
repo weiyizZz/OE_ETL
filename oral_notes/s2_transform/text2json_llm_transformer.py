@@ -39,7 +39,8 @@ class Text2JsonTransformer:
 
         self.client = OpenAI(
             api_key=OPENAI_API_KEY,
-            base_url="https://llmproxy.uva.nl/v1"
+            base_url="https://llmproxy.uva.nl/v1",
+            timeout=500.0
         )
 
     # ── Core transform ────────────────────────────────────────────────────────
@@ -127,7 +128,8 @@ class Text2JsonTransformer:
         result_answers = self.transform_1task(
             task="answers",
             output_reduced_participants_pasttask=reduced_result_participants,
-            output_reduced_questions_pasttask=reduced_result_questions
+            output_reduced_questions_pasttask=reduced_result_questions,
+            retry_delay=60
         )
         logger.info("=== Result: answers (from %s) ===\n%s", self.notegroup_id, result_answers)
 
@@ -183,7 +185,11 @@ class Text2JsonTransformer:
         answers = next(iter(answers.values()))
 
         answered_ids = {record["questionID"] for record in answers if "questionID" in record}
-        followed_ids = {q["followed_questionID"] for q in questions if q.get("followed_questionID") is not None}
+        followed_ids = {
+            q["followed_questionID"] for q in questions
+            if q.get("followed_questionID") is not None
+               and q.get("questionID") in answered_ids
+        }
         keep_ids = answered_ids | followed_ids
         filtered = [q for q in questions if q.get("questionID") in keep_ids]
 
