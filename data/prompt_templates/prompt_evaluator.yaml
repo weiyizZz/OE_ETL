@@ -5,7 +5,7 @@ system: |
   - Judge each field strictly against what is stated or clearly implied in the transcript.
   - A field is incorrect if its value is fabricated, misattributed, or contradicts the transcript.
   - A field is also incorrect if it violates any extraction rule specified in the notes below.
-  - Fields that are absent from the record (empty values are pre-removed) should not be penalised unless their omission itself is an extraction error.
+  - Data fields absent from the record were removed because they were extracted as empty. For each such field defined in the Schema Metadata, check whether the transcript contains information for it: if it does, this is an extraction error and the field name must be included in "wrong_fields". Fields with no corresponding information in the transcript can be ignored.
 
 user:
   base: |
@@ -18,7 +18,7 @@ user:
     {extra_note_extraction_task}
 
     ## JSON Record to Evaluate
-    (Fields with empty values have already been removed.)
+    (Fields with empty values and database ID have already been removed.)
 
     {json_record}
 
@@ -29,25 +29,31 @@ user:
     ## Evaluation Task
 
     Compare the JSON record against the transcript and the extraction rules above. Determine whether the extraction is correct.
-
     {extra_note_evaluation_task}
 
     Return your answer as a JSON object with exactly two keys:
     - "correct": 1 if the extraction is fully correct, 0 if any field is wrong.
-    - "wrong_fields": a list of field names that are incorrectly extracted. If the extraction is correct, return an empty list.
-
-    Example output:
-    {"correct": 0, "wrong_fields": ["field_a", "field_b"]}
+    - "wrong_fields": a list of field names that are incorrectly extracted (e.g. ["field_a", "field_b"]). If the extraction is correct, return an empty list.
 
     Return only the JSON object, with no additional explanation.
 
   extra_note_extraction:
+    1recordT: |
+      Possibly extract "data_source_category" (if present) from the folder names in the file path: {file_path_doc}.
+
+    participants: |
+      the "initials" field should be filled with an initials or abbreviated name (e.g. "A.B", "John") as the identifier used for that participant in the session transcript, if present.
+
     questions: |
       If multiple questions are grouped together and answered by participants as a single combined response rather than in separate rounds, do not split them into individual question objects — merge them into a single "question_content" field.
+      Only fill the "main_indicator" field when it can be identified from a section header or label that appears near or above the question in the document (not an analysed result). 
 
     answers: |
-      Extract "data_source_category" (if present) from the folder names in the file path: {file_path_doc}.
+      Fill "answer_content_EN" with the English answer text only if the original language isn't English and one translated version appears in the transcript.
 
   extra_note_evaluation:
+    questions: |
+      The "followed_questionID" foreign key has been replaced in this record with "followed_question_content" (the text of the referenced question, joined for context). Evaluate whether this linkage is correct — i.e., whether "followed_question_content" correctly identifies the question this one follows in the transcript — but do not evaluate the exact wording of "followed_question_content" itself, as it is reference content pulled directly from the database, not extracted by the model. Report any linkage error under "followed_questionID" in "wrong_fields".
+
     answers: |
       This record has been enriched with participant and question details (joined via foreign keys) to provide context for evaluating "participantID" and "questionID". Do not evaluate those joined fields — they are reference context only. Evaluate only the fields defined in the "answers" schema metadata, which includes "participantID" and "questionID" but excludes all other fields originating from the participant or question tables.

@@ -4,7 +4,11 @@ import json
 
 class PromptCombiner:
 
-    VALID_TASKS = ("participants", "questions", "answers")
+    EVALUATOR_PK_EXCLUDE = {
+        "participants": "participantID",
+        "questions": "questionID",
+        "answers": "answerID",
+    }
 
     def __init__(self, schema_path: str):
         self.schema_path = schema_path
@@ -21,8 +25,6 @@ class PromptCombiner:
         with open(prompt_path) as f:
             return yaml.safe_load(f)["user"]
 
-    # ── Public loaders ────────────────────────────────────────────────────────
-
     @staticmethod
     def load_prompts_system(prompt_path: str) -> str:
         with open(prompt_path) as f:
@@ -34,8 +36,10 @@ class PromptCombiner:
         columns = self.schema["tables"][table_name]["columns"]
         return json.dumps({col: "" for col in columns}, indent=2)
 
-    def extract_schema_metadata(self, table_name: str) -> str:
+    def extract_schema_metadata(self, table_name: str, exclude: str | None = None) -> str:
         columns = self.schema["tables"][table_name]["columns"]
+        if exclude:
+            columns = {k: v for k, v in columns.items() if k != exclude}
         # render with indent but compact any list values
         def compact_lists(obj):
             if isinstance(obj, dict):
@@ -161,9 +165,6 @@ class PromptCombiner:
 
         prompts = self._load_prompts_user(prompt_path)
 
-        if task not in self.VALID_TASKS:
-            raise ValueError(f"task must be one of {self.VALID_TASKS}, got '{task}'")
-
         if task == "participants":
             extra_info = self._extra_info_participants(prompts, starting_ids)
         elif task == "questions":
@@ -205,4 +206,29 @@ class PromptCombiner:
             file_path_doc = file_path_doc,
             json_template_task=self.extract_json_template(task),
             schema_metadata_task=self.extract_schema_metadata(task)
+        )
+
+    def build_prompt_user_evaluator(
+            self,
+            prompt_path: str,
+            task: str,
+            file_path_doc: str,
+            text_doc: str,
+            json_record: str
+    ) -> str:
+        prompts = self._load_prompts_user(prompt_path)
+
+        extra_note_extraction_task = prompts.get("extra_note_extraction", {}).get(task, "")
+        extra_note_extraction_task = extra_note_extraction_task.format(file_path_doc=file_path_doc)
+
+        extra_note_evaluation_task = prompts.get("extra_note_evaluation", {}).get(task, "")
+
+        return prompts["base"].format(
+            text_doc=text_doc,
+            extra_note_extraction_task=extra_note_extraction_task,
+            json_record=json_record,
+            schema_metadata_task=self.extract_schema_metadata(
+                task, exclude=self.EVALUATOR_PK_EXCLUDE.get(task)
+            ),
+            extra_note_evaluation_task=extra_note_evaluation_task
         )

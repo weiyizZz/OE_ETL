@@ -82,3 +82,44 @@ class TokenLogger:
             task, attempt, input_tokens, cached_tokens, output_tokens,
             record["cost_usd"] or 0.0
         )
+
+        @classmethod
+        def append_evaluator(
+                cls,
+                llm_model: str,
+                table_name: str,
+                primary_key: int,
+                evaluator_version: str,
+                attempt: int,
+                input_tokens: int,
+                output_tokens: int,
+                cached_tokens: int = 0,
+                token_log_path: str | Path = "logs/token_usage_evaluator.jsonl",
+                pipeline_type: str = "baseline",
+        ) -> None:
+            """Append one token-usage record to the JSONL log file."""
+            token_log_path = Path(token_log_path)
+            token_log_path.parent.mkdir(parents=True, exist_ok=True)
+
+            record = {
+                "timestamp": datetime.datetime.now(datetime.UTC).isoformat(),
+                "pipeline_type": pipeline_type,
+                "llm_model": llm_model,
+                "table_name": table_name,
+                "primary_key": primary_key,
+                "evaluator_version": evaluator_version,
+                "attempt": attempt,
+                "input_tokens": input_tokens,
+                "cached_tokens": cached_tokens,
+                "output_tokens": output_tokens,
+                "cost_usd": cls.calc_cost(llm_model, input_tokens, output_tokens, cached_tokens),
+            }
+
+            with token_log_path.open("a", encoding="utf-8") as f:
+                f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+            logger.info(
+                "Token usage [%s pk=%s] attempt %d — in: %d (cached: %d), out: %d, cost: $%.6f",
+                table_name, primary_key, attempt, input_tokens, cached_tokens, output_tokens,
+                record["cost_usd"] or 0.0
+            )

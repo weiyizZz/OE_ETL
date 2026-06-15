@@ -1,9 +1,8 @@
 from openai import OpenAI
 from openai import InternalServerError
-from utils.html_viewer import show
 from utils.logger import get_logger
 from utils.token_logger import TokenLogger
-from oral_notes.s2_transform.prompt_combiner import PromptCombiner
+from oral_notes.prompt_combiner import PromptCombiner
 from config.config import OPENAI_API_KEY
 import json
 import time
