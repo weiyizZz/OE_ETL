@@ -9,6 +9,7 @@ import sqlite3
 from utils.logger import get_logger
 import datetime
 from pathlib import Path
+from utils.html_viewer import show
 
 logger = get_logger(__name__)
 
@@ -82,7 +83,7 @@ class DB1recordEvaluator:
             row = cursor.fetchone()
 
         if row is None:
-            raise ValueError(f"No record found in '{table}' for {pk_col}={pk_value}")
+            return {col: None for col in columns}
 
         record = {}
         for col, val in zip(columns, row):
@@ -157,17 +158,20 @@ class DB1recordEvaluator:
         elif self.table_name == "answers":
             record = self._remove_empty(record)
 
-            participant = self._remove_empty(
-                self._fetch_record("participants", record["participantID"])
-            )
-            for k in ("notegroupID", "country_staying_in"):
-                participant.pop(k, None)
-            record.update(participant)
+            participant_id = record.get("participantID")
+            if participant_id is not None:
+                participant = self._remove_empty(
+                    self._fetch_record("participants", participant_id)
+                )
+                for k in ("notegroupID", "country_staying_in"):
+                    participant.pop(k, None)
+                record.update(participant)
+                self._merge_age(record)
 
-            self._merge_age(record)
-
-            question = self._fetch_record("questions", record["questionID"])
-            record["question_content"] = question.get("question_content")
+            question_id = record.get("questionID")
+            if question_id is not None:
+                question = self._fetch_record("questions", question_id)
+                record["question_content"] = question.get("question_content")
 
             for k in ("answerID", "notegroupID", "projectID"):
                 record.pop(k, None)
@@ -221,6 +225,7 @@ class DB1recordEvaluator:
             text_doc=self.text_doc,
             json_record=json_record
         )
+        show(user_prompt, title=f"Evaluation {self.table_name} {self.primary_key} prompt -user")
 
         for attempt in range(max_retries):
             try:

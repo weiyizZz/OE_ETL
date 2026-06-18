@@ -2,9 +2,8 @@ system: |
   You are a precise data extraction evaluator. Your task is to assess whether a single JSON record was correctly extracted from a session transcript.
 
   Rules:
-  - Judge each field strictly against what is stated or clearly implied in the transcript.
-  - A field is incorrect if its value is fabricated, misattributed, or contradicts the transcript.
-  - A field is also incorrect if it violates any extraction rule specified in the notes below.
+  - Judge each field strictly against what is stated or reasonably inferable from the transcript.
+  - A field is incorrect if its value is clearly fabricated, misattributed, or directly contradicts the transcript. Minor imprecisions or reasonable interpretations that do not materially misrepresent the transcript should not be penalised.
   - Data fields absent from the record were removed because they were extracted as empty. For each such field defined in the Schema Metadata, check whether the transcript contains information for it: if it does, this is an extraction error and the field name must be included in "wrong_fields". Fields with no corresponding information in the transcript can be ignored.
 
 user:
@@ -14,7 +13,7 @@ user:
     {text_doc}
 
     ## Extraction Rules Applied During Extraction
-
+    If an extracted value is not within the example values in the schema metadata, keep the original value. 
     {extra_note_extraction_task}
 
     ## JSON Record to Evaluate
@@ -39,21 +38,28 @@ user:
 
   extra_note_extraction:
     1recordT: |
-      Possibly extract "data_source_category" (if present) from the folder names in the file path: {file_path_doc}.
+      Extract the date on which this session/interview took place. Look for explicit session date indicators. Do not extract other dates mentioned within participant information, answers or question content.
+      Extract "data_source_category" strictly from the folder names in the file path: {file_path_doc}, or if absent there, from the transcript. Only assign a value if an exact match (or near-exact match) to one of the example values is present — do not infer or map partial words. Leave null if no clear match is found.
 
     participants: |
-      the "initials" field should be filled with an initials or abbreviated name (e.g. "A.B", "John") as the identifier used for that participant in the session transcript, if present.
+      the "initials" field should be filled with an initials or abbreviated name (e.g. "A.B", "John", "Mohamed 1") as the identifier used for that participant in the session transcript, if present.
 
     questions: |
       If multiple questions are grouped together and answered by participants as a single combined response rather than in separate rounds, do not split them into individual question objects — merge them into a single "question_content" field.
       Only fill the "main_indicator" field when it can be identified from a section header or label that appears near or above the question in the document (not an analysed result). 
 
     answers: |
+      For "answer_content_oriLAN": extract only the spoken answer text. Strip any speaker identifier prefix that appears before the answer, and stop before any general note or observation that follows the answer content. The extracted text must be complete — do not truncate or summarise the answer.
       Fill "answer_content_EN" with the English answer text only if the original language isn't English and one translated version appears in the transcript.
 
   extra_note_evaluation:
+    participants: |
+      "full_name" is correct as long as they are precisely extracted from the transcript. 
+
     questions: |
-      The "followed_questionID" foreign key has been replaced in this record with "followed_question_content" (the text of the referenced question, joined for context). Evaluate whether this linkage is correct — i.e., whether "followed_question_content" correctly identifies the question this one follows in the transcript — but do not evaluate the exact wording of "followed_question_content" itself, as it is reference content pulled directly from the database, not extracted by the model. Report any linkage error under "followed_questionID" in "wrong_fields".
+      This record has been enriched with "followed_question_content" (the text of the referenced question, joined via "followed_questionID" for context). Evaluate whether this linkage is correct — i.e., whether "followed_question_content" correctly identifies the question this one follows in the transcript — but do not evaluate the exact wording of "followed_question_content" itself, as it is reference content pulled directly from the database. Report any linkage error under "followed_questionID" in "wrong_fields". 
+      "followed_questionID" and "following_trigger" are correct as long as the linkage logic is consistent with the transcript.
+      "main_indicator" is correct if its meaning matches the transcript, even if expressed in a different language. 
 
     answers: |
       This record has been enriched with participant and question details (joined via foreign keys) to provide context for evaluating "participantID" and "questionID". Do not evaluate those joined fields — they are reference context only. Evaluate only the fields defined in the "answers" schema metadata, which includes "participantID" and "questionID" but excludes all other fields originating from the participant or question tables.
