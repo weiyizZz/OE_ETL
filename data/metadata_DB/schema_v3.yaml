@@ -1,0 +1,264 @@
+# Database Schema Metadata for the first extraction
+# Tables: participants, oral_questions, oral_answers
+# Last updated: 2026-04-29
+
+tables:
+
+  participants:
+    description: "participant information records"
+    columns:
+
+      participantID:
+        type: INTEGER
+        primary_key: true
+        nullable: false
+        example_value: 123
+        description: "Integer ID, assigned sequentially increasing for each row"
+
+      full_name:
+        type: Text
+        nullable: true
+        example_value: "Zayran Al-Mahif"
+        description: "Full name of the participant"
+
+      session_identifier:
+        type: Text
+        nullable: true
+        example_values: ["A.B.", "A", "Mohamed 1", "Eyas"]
+        description: "the identifier used for that participant in the session transcript mentioned before their answers (e.g. their initials or abbreviated name)"
+
+      gender:
+        type: Text
+        nullable: true
+        example_values: ["Male", "Female", "Man", "Woman", "Non-binary", "Unknown", "Vrouw"]
+        description: "Gender of the participant"
+
+      age:
+        type: INTEGER
+        nullable: true
+        example_value: 33
+        description: "Age of the participant at the time of the project"
+
+      learning_route:
+        type: Text
+        nullable: true
+        example_values: ["O-route", "Onderwijsroute", "B1-route", "Z-route", "Unknown", "Unknown yet"]
+        description: >-
+          The learning pathway of the participant. Three options:
+          education pathway (O-route), B1-route, or self-reliance
+          pathway (Z-route)
+
+      participant_group:
+        type: Text
+        nullable: true
+        example_values: [ "Asylum seeker", "Labor migrant", "Permit holder", "Family migrant", "Undocumented", "Ukranian displaced" ]
+        description: >-
+          The group that the participant belongs to. Only extract if explicitly stated in the transcript.
+
+      status:
+        type: Text
+        nullable: true
+        value_range: ["A", "B", ""]
+        description: "The status subject to participant_group. Must be exactly one of the values in value_range."
+
+      place_of_origin:
+        type: Text
+        nullable: true
+        example_values: [ "Turkey", "Turkije" ]
+        description: "The country that the participant comes from"
+
+      language_group:
+        type: JSONB
+        json_schema_type: "array"
+        nullable: true
+        example_values: ['["Turkish", "Arabic"]', '["Turks", "Arabisch"]']
+        description: "The language(s) the participant speaks, including cases where this must be inferred from a language group or cohort label. Extract only the language portion."
+
+      first_arrival_date:
+        type: Date
+        nullable: true
+        example_value: "2013-01-01"
+        description: "The approximate date the participant first arrived in the country they currently stay in. If only year is known, use 01 as placeholder for both month and day (YYYY-01-01). If month is known, use the actual month (YYYY-MM-01)."
+
+      municipality:
+        type: Text
+        nullable: true
+        example_values: ["Amsterdam", "Rotterdam", "Den Haag", "Utrecht", "Groningen"]
+        description: >-
+          The municipality (gemeente) that the participant lives in. (If both
+            living and working municipalities are mentioned, use the living one.)
+            A value from the 342 gemeenten in the Netherlands.
+
+      other_information:
+        type: JSONB
+        nullable: true
+        example_value: '{"Dutch language level": "A2", "education level": "MBO", "years in Netherlands": "3"}'
+        description: >-
+          Any participant details from the transcript's structured participant
+              information section that have no corresponding field elsewhere in the
+              schema. Scan all fields in that section and collect the ones
+              without a matching schema column here.
+
+
+  questions:
+    description: "Questions asked to participants"
+    columns:
+
+      questionID:
+        type: INTEGER
+        primary_key: true
+        nullable: false
+        example_value: 45
+        description: "Integer ID, assigned sequentially increasing for each row"
+
+      question_content:
+        type: Text
+        nullable: false
+        example_values:
+          as_question: "Do you do any paid work or volunteer work?"
+          as_topic: ["Work & income", "Rating inburgeringsprogramma"]
+        description: >- 
+          The question posed to and answered by participants. If no explicit question is present but participant responses still exist, extract the subtheme/topic that those responses are following instead.
+
+      main_indicator:
+        type: JSONB
+        json_schema_type: "array"
+        nullable: true
+        example_values: [['work'],['work', 'language']]
+        reference_values: [ 'work', 'education', 'housing', 'health', 'leisure', 'bonds', 'bridges', 'links', 'language', 'culture', 'digital skills', 'safety', 'stability', 'rights and responsibilities', 'werk & inkomen', 'onderwijs', 'huisvesting & opvang', 'zorg & welzijn', 'vrije tijd', 'banden', 'bruggen', 'connecties', 'taal', 'cultuur', 'digitale vaardigheden', 'veiligheid', 'stabilitieit', 'rechten & verantwoordelijkheden' ]
+        description: >-
+          One (or more) main indicators for this question. Only fill
+          this field if it can be identified from a section header or label
+          appearing above or near the question in the document. Do not infer it
+          by analyzing the content of the question or answer, and do not assign
+          it based on your own judgment of what topic the question relates to.
+          Leave null if no such header or label is present.
+
+      followed_questionID:
+        type: Text
+        nullable: true
+        foreign_key:
+          references_table: oral_questions
+          references_column: questionID
+          on_delete: RESTRICT
+        example:
+          independent_question:
+            questionID: "00134689"
+            question_content: "Do you do any paid work or volunteer work?"
+            followed_questionID: null
+            following_trigger: null
+          following_question:
+            questionID: "00134690"
+            question_content: "How did you get this work?"
+            followed_questionID: "00134689"
+            following_trigger: "yes"
+        description: >-
+          The questionID of the parent question that this question
+          follows up on. For example, "How did you get this work?"
+          (00134690) follows "Do you do any paid work?" (00134689)
+          when the participant answered "yes". Empty if this is an
+          independent question
+
+      following_trigger:
+        type: Text
+        nullable: true
+        example:
+          independent_question:
+            questionID: "00134689"
+            question_content: "Do you do any paid work or volunteer work?"
+            followed_questionID: null
+            following_trigger: null
+          following_question:
+            questionID: "00134690"
+            question_content: "How did you get this work?"
+            followed_questionID: "00134689"
+            following_trigger: "yes"
+        description: >-
+          The answer to the parent question that triggers this
+          follow-up question. For example, a participant answering
+          "yes" to "Do you do any paid work?" triggers the follow-up
+          "How did you get this work?". Empty if this is an
+          independent question
+
+
+  answers:
+    description: "Participant responses to questions, linked to projects"
+    columns:
+
+      answerID:
+        type: INTEGER
+        primary_key: true
+        nullable: false
+        example_value: 6789
+        description: "Integer ID, assigned sequentially increasing for each row"
+
+      questionID:
+        type: INTEGER
+        nullable: false
+        foreign_key:
+          references_table: questions
+          references_column: questionID
+        example_value: "45"
+        description: "The questionID of the question this answer responds to"
+
+      participantID:
+        type: INTEGER
+        nullable: true
+        foreign_key:
+          references_table: participants
+          references_column: participantID
+        example_value: "123"
+        description: "The participantID of the participant who gave this answer. Leave null if the respondent cannot be identified from the transcript."
+
+      answer_content_oriLAN:
+        type: Text
+        nullable: false
+        example_value: "Su anda calismiyorum ama daha once Jumbo da 1 ay ucretli olarak calistim."
+        description: "The original content of the answer in its original language"
+
+      answer_content_EN:
+        type: Text
+        nullable: true
+        example_value: "I m not currently employed, but I previously worked at Jumbo for a month on a paid basis."
+        description: "The English translation of the answer"
+
+  1recordT:
+    description: "Information that can be transformed from the orginal text with only 1 record. Will be merged into the other tables eventually when loading into the database."
+
+    columns:
+      date:
+        type: Date
+        nullable: true
+        example_value: "2025-12-03"
+        description: "The date of the session in which the answers were given. Always return a full YYYY-MM-DD string. Use 01 as placeholder for unknown month and/or day. Use 1111 as placeholder for unknown year. Examples: year only → '2024-01-01'; year and month only → '2024-11-01'; month and day only → '1111-11-22'."
+
+      data_source_category:
+        type: Text
+        nullable: true
+        example_values: ["expertpool", "survey", "focus group", "diepteinterview"]
+        description: "The category that the data source belongs to"
+
+# ── Relationships ──────────────────────────────────────────────────────────────
+
+relationships:
+
+  - from_table: answers
+    from_column: participantID
+    to_table: participants
+    to_column: participantID
+    type: many_to_one
+    description: "Each answer belongs to one participant"
+
+  - from_table: answers
+    from_column: questionID
+    to_table: questions
+    to_column: questionID
+    type: many_to_one
+    description: "Each answer corresponds to one question"
+
+  - from_table: questions
+    from_column: followed_questionID
+    to_table: questions
+    to_column: questionID
+    type: many_to_one
+    description: "A follow-up question references its parent question"

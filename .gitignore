@@ -18,3 +18,8 @@ DB/oedb_baseline.db
 /DB/oedb_baseline.db-shm
 /DB/oedb_baseline.db-wal
 /DB/oedb_baseline_v2.db
+/DB/oedb_baseline_v2.db-shm
+/DB/oedb_baseline_v2.db-wal
+/DB/oedb_baseline_v3.db
+/DB/oedb_baseline_v3.db-shm
+/DB/oedb_baseline_v3.db-wal

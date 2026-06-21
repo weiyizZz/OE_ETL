@@ -2,16 +2,16 @@ from oral_notes.s1_extract.doc_loader import GoogleDriveLoader
 from oral_notes.s1_extract.text_extractor import TextExtractor
 from oral_notes.s1_extract.startingIDs_loader import get_starting_ids
 from oral_notes.s2_transform.participant_llm_reducer import ParticipantReducer
-from oral_notes.s2_transform.text2json_llm_transformer import Text2JsonTransformer
+from oral_notes.s2_transform.text2json_llm_transformer_v3 import Text2JsonTransformer
 from oral_notes.s3_load.json2db_loader import JSON2DBLoader
 from utils.html_viewer import show
 import sqlite3
 
 
-pipeline_type="baseline_v2"
-DB_PATH = "DB/oedb_baseline_v2.db"
-schema_path = "data/metadata_DB/schema_v2.yaml"
-prompt_path_text2json = "data/prompt_templates/prompt_text2json_v2.yaml"
+pipeline_type="baseline_v3"
+DB_PATH = "DB/oedb_baseline_v3.db"
+schema_path = "data/metadata_DB/schema_v3.yaml"
+prompt_path_text2json = "data/prompt_templates/prompt_text2json_v3.yaml"
 prompt_path_1recordT = "data/prompt_templates/prompt_1recordT_v2_3.yaml"
 prompt_path_ParReducer = "data/prompt_templates/prompt_ParReducer.yaml"
 service_account_file="config/service_account_key.json"

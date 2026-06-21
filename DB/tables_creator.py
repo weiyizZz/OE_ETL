@@ -41,7 +41,7 @@ def create_tables(conn):
         CREATE TABLE IF NOT EXISTS participants (
             participantID       INTEGER PRIMARY KEY NOT NULL,
             full_name           TEXT,
-            initials            TEXT,
+            session_identifier  TEXT,
             gender              TEXT,
             projectID_age       TEXT,   -- JSONB: {projectID: age}
             learning_route      TEXT,
@@ -124,7 +124,7 @@ def load_notegroups(conn, csv_path: str):
 
 
 if __name__ == "__main__":
-    db_path  = "oedb_baseline_v2.db"
+    db_path  = "oedb_baseline_v3.db"
     csv_path = "../data/input_data/notegroups.csv"
 
     conn = sqlite3.connect(db_path)

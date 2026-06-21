@@ -12,7 +12,7 @@ pipeline_type = "baseline_v2_1recordT_test"
 DB_PATH = "DB/oedb_baseline_v2.db"
 schema_path = "data/metadata_DB/schema_v2.yaml"
 prompt_path_text2json = "data/prompt_templates/prompt_text2json_v2.yaml"
-prompt_path_1recordT = "data/prompt_templates/prompt_1recordT_v2.yaml"
+prompt_path_1recordT = "data/prompt_templates/prompt_1recordT_v2_3.yaml"
 prompt_path_ParReducer = "data/prompt_templates/prompt_ParReducer.yaml"
 service_account_file = "config/service_account_key.json"
 
