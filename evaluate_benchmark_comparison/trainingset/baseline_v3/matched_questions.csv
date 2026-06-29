@@ -1,0 +1,1026 @@
+notegroupID,etl_questionID,bm_questionID,etl_question_content,bm_question_content,match_score
+1,1,1,How is your inburgering going so far?,How is your inburgering going so far?,100.0
+1,3,3,"Do you work? If yes: is your work paid, or volunteer work?","Do you work? If yes: is your work paid, or volunteer work?",100.0
+1,4,4,How do you feel about your work/volunteer work/not having work?,How do you feel about your work/volunteer work/not having work?,100.0
+1,6,6,"If you are working/doing volunteer work: Do you feel like your work/volunteer work fits with your skills, interests and needs? - Why yes/why not?","If you are working/doing volunteer work: Do you feel like your work/volunteer work fits with your skills, interests and needs? - Why yes/why not?",100.0
+1,7,7,For everyone in the group: What is missing for you when it comes to work/volunteer work? - What do you need to feel happier?,For everyone in the group: What is missing for you when it comes to work/volunteer work? - What do you need to feel happier?,100.0
+1,8,8,For everyone in the group: What blocks you from getting there [to what is missing/would make you happier]?,For everyone in the group: What blocks you from getting there [to what is missing/would make you happier]?,100.0
+1,11,11,What makes it difficult to meet new people?,What makes it difficult to meet new people?,100.0
+1,12,12,Do you actively try to meet new people? - Why yes/why not?,Do you actively try to meet new people? - Why yes/why not?,100.0
+1,13,13,If yes: Where do you try to meet new people? - In what ways do you try to meet new people?,If yes: Where do you try to meet new people? - In what ways do you try to meet new people?,100.0
+1,14,14,If no: what stops you from trying?,If no: what stops you from trying?,100.0
+1,18,18,"Is there anything that we didn’t discuss in this session, that you feel is important to add?","Is there anything that we didn’t discuss in this session, that you feel is important to add?",100.0
+1,19,19,Anything that is big and affects your life and needs attention from the municipality?,Anything that is big and affects your life and needs attention from the municipality?,100.0
+1,10,10,"Warm up: How often do you feel people are around you, vs how often do you feel people are ‘with’ you?","Warm up: How often do you feel people are around you, vs how often do you feel people are ‘with’ you?",99.69
+1,15,15,"When you look at your social connections now, who is missing? What kind of contacts and relationships do you want to have more of?","When you look at your social connections now, who is missing? What kind of contacts and relationships do you want to have more of?",99.69
+1,17,17,"From the survey, we have seen that many people want to improve their Dutch by practicing it with other people. In what ways would you like that to be set-up? What can the municipality do to facilitate this practice?","From the survey, we have seen that many people want to improve their Dutch by practicing it with other people. In what ways would you like that to be set-up? What can the municipality do to facilitate this practice?",99.67
+1,2,2,"Where do you feel pressure in your life, with the inburgering? What feels difficult to handle?","Where do you feel pressure in your life, with the inburgering? What feels difficult to handle?",99.67
+1,5,5,"At the point you are currently in (within the inburgering), do you feel like you want to be working? Is there space in your life to combine work/volunteer work with other responsibilities? - Why yes/why not?","At the point you are currently in (within the inburgering), do you feel like you want to be working? Is there space in your life to combine work/volunteer work with other responsibilities? - Why yes/why not?",99.65
+1,9,9,What’s one thing the municipality can do to make it easier for you to get there?,What’s one thing the municipality can do to make it easier for you to get there?,99.42
+1,16,16,What’s one thing that the municipality can do to make it easier for you to meet new people?,What’s one thing that the municipality can do to make it easier for you to meet new people?,99.38
+2,21,21,Do you feel like you want to be working at this point in your inburgering?,Do you feel like you want to be working at this point in your inburgering?,100.0
+2,22,22,Is there space in your life to combine work/volunteer work with other responsibilities?,Is there space in your life to combine work/volunteer work with other responsibilities?,100.0
+2,23,23,"Does your work/volunteer work fit your skills, interests, and needs?","Does your work/volunteer work fit your skills, interests, and needs?",100.0
+2,24,24,What is missing for you when it comes to work/volunteer work?,What is missing for you when it comes to work/volunteer work?,100.0
+2,25,25,What blocks you from getting there?,What blocks you from getting there?,100.0
+2,26,26,What is one thing the municipality can do to make it easier for you?,What is one thing the municipality can do to make it easier for you?,100.0
+2,27,27,Do you actively try to meet new people? Where do you try to meet new people?,Do you actively try to meet new people? Where do you try to meet new people?,100.0
+2,28,28,In what ways do you try to meet new people?,In what ways do you try to meet new people?,100.0
+2,29,29,"When you look at your social connections now, who is missing? What kind of contacts and relationships do you want more of?","When you look at your social connections now, who is missing? What kind of contacts and relationships do you want more of?",100.0
+2,30,30,Anything that is big and affects your life and needs attention from the municipality?,Anything that is big and affects your life and needs attention from the municipality?,100.0
+2,20,20,"How is your inburgering going so far? Where do you feel pressure in your life, with the inburgering? What feels difficult to handle?","How is your inburgering going so far? Where do you feel pressure in your life, with the inburgering? What feels difficult to handle?",99.58
+3,31,31,"If you previously had a job but are not working now:
+● Where did you work? How long did you work there?","If you previously had a job but are not working now:
+ ● Where did you work? How long did you work there?",100.0
+3,32,32,● How did you find this job? Why did you choose that way of searching?,● How did you find this job? Why did you choose that way of searching?,100.0
+3,33,33,● What did you think of this job? Why did you stop / why did it end?,● What did you think of this job? Why did you stop / why did it end?,100.0
+3,34,34,"If you currently have a job:
+● Where do you work at the moment?
+● How did you find this job (through which method)? Why did you choose that way of searching?","If you currently have a job:
+ ● Where do you work at the moment?
+ ● How did you find this job (through which method)? Why did you choose that way of searching?",100.0
+3,35,35,● What do you think of this job? Do you plan to stay in this job for a longer period? Why or why not?,● What do you think of this job? Do you plan to stay in this job for a longer period? Why or why not?,100.0
+3,36,36,"Part 1: Job-search strategies (60mins)
+A. Own strategy (30mins)
+If you previously had a job but are not working now:
+● Are you currently looking for new work?
+● What kind of work?
+● How are you searching for work now?
+● Are you using the same method as before, or have you changed your search strategy?","Part 1: Job-search strategies (60mins)
+ A. Own strategy (30mins)
+ If you previously had a job but are not working now:
+ ● Are you currently looking for new work?
+ ● What kind of work?
+ ● How are you searching for work now?
+ ● Are you using the same method as before, or have you changed your search strategy?",100.0
+3,37,37,"If you currently have a job:
+● Are you looking for new work?
+If yes:
+○ How do you approach your job search?
+○ Do you still use the same method you used when finding your first job? (Which one?)
+○ Or are you using a different method now? If so, which one?
+If no:
+○ If you were to look for new work, would you use the same strategy? Why or why not?","If you currently have a job:
+ ● Are you looking for new work?
+ If yes:
+ ○ How do you approach your job search?
+ ○ Do you still use the same method you used when finding your first job? (Which one?)
+ ○ Or are you using a different method now? If so, which one?
+ If no:
+ ○ If you were to look for new work, would you use the same strategy? Why or why not?",100.0
+3,38,38,"B. Reflection on “Pathways to Work” (30mins)
+Which of these tools have you used to find a job? Which have you not used? Why or why not?
+Specific to the AZC context (mention the bolded words and see which entity helps them find work, then dive deeper on that)
+● Did the municipal contact person help you find work? If so, how? Provide concrete examples from your own experience. If not, why not? Provide concrete examples from your own experience.
+● Did the Participation Desk (meedoenbalie) personally help you find or search for work? If so, how? If not, why not?
+● Did the COA Residential Counselors (woonbegeleiders) personally help you find or search for work? If so, how?","B. Reflection on “Pathways to Work” (30mins)
+ Which of these tools have you used to find a job? Which have you not used? Why or why not?
+ Specific to the AZC context (mention the bolded words and see which entity helps them find work, then dive deeper on that)
+ ● Did the municipal contact person help you find work? If so, how? Provide concrete examples from your own experience. If not, why not? Provide concrete examples from your own experience.
+ ● Did the Participation Desk (meedoenbalie) personally help you find or search for work? If so, how? If not, why not?
+ ● Did the COA Residential Counselors (woonbegeleiders) personally help you find or search for work? If so, how?",100.0
+3,39,39,"Was it easy or difficult to contact the person or organization that helped you? How did that contact go (in person, by phone, via WhatsApp, etc.)? What made communication easy or difficult?","Was it easy or difficult to contact the person or organization that helped you? How did that contact go (in person, by phone, via WhatsApp, etc.)? What made communication easy or difficult?",100.0
+3,40,40,● Are there other methods that you use/are currently using?,● Are there other methods that you use/are currently using?,100.0
+3,41,41,"● Are there tools you don’t want to use? Why don't you want/can't you use specific tools? (with attention to cultural nuances, historical context,
+accessibility and emotional charge).","● Are there tools you don’t want to use? Why don't you want/can't you use specific tools? (with attention to cultural nuances, historical context,
+ accessibility and emotional charge).",100.0
+3,42,42,"Part 2: Reflection on what is easy/difficult | (personal) circumstances (30mins)
+● What makes searching for work easier for you (specifically tied to AZC context)?","Part 2: Reflection on what is easy/difficult | (personal) circumstances (30mins)
+ ● What makes searching for work easier for you (specifically tied to AZC context)?",100.0
+3,43,43,What makes searching for work more difficult for you (specifically tied to AZC context)? → Space for discussing circumstances / different starting positions in terms of language level/education and positionality.,What makes searching for work more difficult for you (specifically tied to AZC context)? → Space for discussing circumstances / different starting positions in terms of language level/education and positionality.,100.0
+3,44,44,"Cultural mediators give the following examples to clarify the AZC context:
+● Do your living conditions in the asylum seekers' center affect your ability to find work or to work? (e.g., privacy, sharing rooms, whether or not there's a quiet workspace in the center)","Cultural mediators give the following examples to clarify the AZC context:
+ ● Do your living conditions in the asylum seekers' center affect your ability to find work or to work? (e.g., privacy, sharing rooms, whether or not there's a quiet workspace in the center)",100.0
+3,45,45,"● Does the requirement to apply for a work permit (TWV) affect your ability to find work? If so, how?
+● Does the process of obtaining a Citizen Service Number (BSN) affect your ability to find work? If so, how?","● Does the requirement to apply for a work permit (TWV) affect your ability to find work? If so, how?
+ ● Does the process of obtaining a Citizen Service Number (BSN) affect your ability to find work? If so, how?",100.0
+3,46,46,"● Has the uncertainty/waiting period in the asylum seekers' center affected your motivation or chances of finding work? If so, how?","● Has the uncertainty/waiting period in the asylum seekers' center affected your motivation or chances of finding work? If so, how?",100.0
+3,47,47,"Part 3: What works well – what is missing – what did not work well? (45mins)
+● What were the strong elements that helped you (personally) find work?","Part 3: What works well – what is missing – what did not work well? (45mins)
+ ● What were the strong elements that helped you (personally) find work?",100.0
+3,48,48,"○ How can we strengthen these further?
+(examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)","○ How can we strengthen these further?
+ (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)",100.0
+3,49,49,"● What did you miss, what would have helped you find work more easily?","● What did you miss, what would have helped you find work more easily?",100.0
+3,50,50,● When did the support not work well? What was missing in your opinion? What would you have preferred to see done differently?,● When did the support not work well? What was missing in your opinion? What would you have preferred to see done differently?,100.0
+3,51,51,● What is your advice to a person searching for work during their stay in the AZC? Give a tip based on your own experience! (15mins),● What is your advice to a person searching for work during their stay in the AZC? Give a tip based on your own experience! (15mins),100.0
+4,52,52,"If you previously had a job but are not working now:
+● Where did you work? How long did you work there?","If you previously had a job but are not working now:
+ ● Where did you work? How long did you work there?",100.0
+4,53,53,● How did you find this job? Why did you choose that way of searching?,● How did you find this job? Why did you choose that way of searching?,100.0
+4,54,54,● What did you think of this job? Why did you stop / why did it end?,● What did you think of this job? Why did you stop / why did it end?,100.0
+4,55,55,"If you currently have a job:
+● Where do you work at the moment?","If you currently have a job:
+ ● Where do you work at the moment?",100.0
+4,56,56,● How did you find this job (through which method)? Why did you choose that way of searching?,● How did you find this job (through which method)? Why did you choose that way of searching?,100.0
+4,57,57,● What do you think of this job? Do you plan to stay in this job for a longer period? Why or why not?,● What do you think of this job? Do you plan to stay in this job for a longer period? Why or why not?,100.0
+4,58,58,"Part 1: Job-search strategies
+A. Own strategy
+If you previously had a job but are not working now:
+● Are you currently looking for new work?","Part 1: Job-search strategies
+ A. Own strategy
+ If you previously had a job but are not working now:
+ ● Are you currently looking for new work?",100.0
+4,59,59,● What kind of work?,● What kind of work?,100.0
+4,62,62,"If you currently have a job:
+● Are you looking for new work?
+If yes:
+○ How do you approach your job search?","If you currently have a job:
+ ● Are you looking for new work?
+ If yes:
+ ○ How do you approach your job search?",100.0
+4,63,63,○ Do you still use the same method you used when finding your first job? (Which one?),○ Do you still use the same method you used when finding your first job? (Which one?),100.0
+4,64,64,"B. Reflection on “Pathways to Work”
+Which of these tools have you used to find a job? Which have you not used? Why or why not?","B. Reflection on “Pathways to Work”
+ Which of these tools have you used to find a job? Which have you not used? Why or why not?",100.0
+4,65,65,"Specific to the AZC context (mention the bolded words and see which entity helps them find work, then dive deeper on that)
+● Did the municipal contact person help you find work? If so, how? Provide concrete examples from your experience. If not, why not? Provide concrete examples from your own experience.","Specific to the AZC context (mention the bolded words and see which entity helps them find work, then dive deeper on that)
+ ● Did the municipal contact person help you find work? If so, how? Provide concrete examples from your experience. If not, why not? Provide concrete examples from your own experience.",100.0
+4,66,66,"● Did the Participation Desk (meedoenbalie) personally help you find or search for work? If so, how? If not, why not?","● Did the Participation Desk (meedoenbalie) personally help you find or search for work? If so, how? If not, why not?",100.0
+4,67,67,"● Did the COA Residential Counselors (woonbegeleiders) personally help you find or search for work? If so, how?","● Did the COA Residential Counselors (woonbegeleiders) personally help you find or search for work? If so, how?",100.0
+4,68,68,"● Was it easy or difficult to contact the person or organization that helped you? How did that contact go (in person, by phone, via WhatsApp, etc.)? What made communication easy or difficult?","● Was it easy or difficult to contact the person or organization that helped you? How did that contact go (in person, by phone, via WhatsApp, etc.)? What made communication easy or difficult?",100.0
+4,69,69,● Are there other methods that you use/are currently using?,● Are there other methods that you use/are currently using?,100.0
+4,70,70,"● Are there tools you don’t want to use? Why don't you want/can't you use specific tools? (with attention to cultural nuances, historical context,
+accessibility and emotional charge).","● Are there tools you don’t want to use? Why don't you want/can't you use specific tools? (with attention to cultural nuances, historical context,
+ accessibility and emotional charge).",100.0
+4,71,71,"Part 2: Reflection on what is easy/difficult | (personal) circumstances
+● What makes searching for work easier for you (specifically tied to AZC context)?","Part 2: Reflection on what is easy/difficult | (personal) circumstances
+ ● What makes searching for work easier for you (specifically tied to AZC context)?",100.0
+4,72,72,"● What makes searching for work more difficult for you (specifically tied to AZC context)?
+→ Space for discussing circumstances / different starting positions in terms of language level/education and positionality.","● What makes searching for work more difficult for you (specifically tied to AZC context)?
+ → Space for discussing circumstances / different starting positions in terms of language level/education and positionality.",100.0
+4,73,73,"Part 3: What works well – what is missing – what did not work well?
+● What were the strong elements that helped you (personally) find work?","Part 3: What works well – what is missing – what did not work well?
+ ● What were the strong elements that helped you (personally) find work?",100.0
+4,74,74,"○ How can we strengthen these further?
+(examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)","○ How can we strengthen these further?
+ (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)",100.0
+4,75,75,"● What did you miss, what would have helped you find work more easily?","● What did you miss, what would have helped you find work more easily?",100.0
+4,76,76,"○ What is needed to improve this?
+(examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)","○ What is needed to improve this?
+ (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)",100.0
+4,77,77,● When did the support not work well? What was missing in your opinion? What would you have preferred to see done differently?,● When did the support not work well? What was missing in your opinion? What would you have preferred to see done differently?,100.0
+4,78,78,● What is your advice to a person searching for work during their stay in the AZC? Give a tip based on your experience!,● What is your advice to a person searching for work during their stay in the AZC? Give a tip based on your experience!,100.0
+5,79,79,"If you previously had a job but are not working now:
+● Where did you work? How long did you work there?","If you previously had a job but are not working now:
+ ● Where did you work? How long did you work there?",100.0
+5,80,80,"If you previously had a job but are not working now:
+● How did you find this job? Why did you choose that way of searching?","If you previously had a job but are not working now:
+ ● How did you find this job? Why did you choose that way of searching?",100.0
+5,81,81,"If you previously had a job but are not working now:
+● What did you think of this job? Why did you stop / why did it end?","If you previously had a job but are not working now:
+ ● What did you think of this job? Why did you stop / why did it end?",100.0
+5,82,82,"If you currently have a job:
+● Where do you work at the moment?","If you currently have a job:
+ ● Where do you work at the moment?",100.0
+5,83,83,"If you currently have a job:
+● How did you find this job (through which method)? Why did you choose that way of searching?","If you currently have a job:
+ ● How did you find this job (through which method)? Why did you choose that way of searching?",100.0
+5,84,84,"If you currently have a job:
+● What do you think of this job? Do you plan to stay in this job for a longer period? Why or why not?","If you currently have a job:
+ ● What do you think of this job? Do you plan to stay in this job for a longer period? Why or why not?",100.0
+5,86,86,Are you looking for new work?,Are you looking for new work?,100.0
+5,88,88,"If you currently have a job and you are not looking for new work:
+○ If you were to look for new work, would you use the same strategy? Why or why not?","If you currently have a job and you are not looking for new work:
+ ○ If you were to look for new work, would you use the same strategy? Why or why not?",100.0
+5,89,89,Which of these tools have you used to find a job? Which have you not used? Why or why not?,Which of these tools have you used to find a job? Which have you not used? Why or why not?,100.0
+5,99,99,"Does the requirement to apply for a work permit (TWV) affect your ability to find work? If so, how?","Does the requirement to apply for a work permit (TWV) affect your ability to find work? If so, how?",100.0
+5,100,100,"Does the process of obtaining a Citizen Service Number (BSN) affect your ability to find work? If so, how?","Does the process of obtaining a Citizen Service Number (BSN) affect your ability to find work? If so, how?",100.0
+5,102,102,What were the strong elements that helped you (personally) find work?,What were the strong elements that helped you (personally) find work?,100.0
+5,103,103,How can we strengthen these further?,How can we strengthen these further?,100.0
+5,104,104,"What did you miss, what would have helped you find work more easily?","What did you miss, what would have helped you find work more easily?",100.0
+5,105,105,What is needed to improve this?,What is needed to improve this?,100.0
+5,106,106,When did the support not work well? What was missing in your opinion? What would you have preferred to see done differently?,When did the support not work well? What was missing in your opinion? What would you have preferred to see done differently?,100.0
+5,90,90,"Specific to the AZC context:
+● Did the municipal contact person help you find work? If so, how? Provide concrete examples from your own experience. If not, why not? Provide concrete examples from your own experience.","Specific to the AZC context:
+ ● Did the municipal contact person help you find work? If so, how? Provide concrete examples from your own experience. If not, why not? Provide concrete examples from your own experience.",99.67
+5,91,91,"Specific to the AZC context:
+● Did the Participation Desk (meedoenbalie) personally help you find or search for work? If so, how? If not, why not?","Specific to the AZC context:
+ ● Did the Participation Desk (meedoenbalie) personally help you find or search for work? If so, how? If not, why not?",99.67
+5,92,92,"Specific to the AZC context:
+● Did the COA Residential Counselors (woonbegeleiders) personally help you find or search for work? If so, how?","Specific to the AZC context:
+ ● Did the COA Residential Counselors (woonbegeleiders) personally help you find or search for work? If so, how?",99.67
+5,93,93,"Specific to the AZC context:
+● Was it easy or difficult to contact the person or organization that helped you? How did that contact go (in person, by phone, via WhatsApp, etc.)? What made communication easy or difficult?","Specific to the AZC context:
+ ● Was it easy or difficult to contact the person or organization that helped you? How did that contact go (in person, by phone, via WhatsApp, etc.)? What made communication easy or difficult?",99.67
+5,95,95,"Specific to the AZC context:
+● Are there tools you don’t want to use? Why don't you want/can't you use specific tools? (with attention to cultural nuances, historical context, accessibility and emotional charge).","Specific to the AZC context:
+ ● Are there tools you don’t want to use? Why don't you want/can't you use specific tools? (with attention to cultural nuances, historical context, accessibility and emotional charge).",99.67
+5,96,96,What makes searching for work easier for you (specifically tied to AZC context)?,What makes searching for work easier for you (specifically tied to AZC context)?,99.67
+5,97,97,What makes searching for work more difficult for you (specifically tied to AZC context)?,What makes searching for work more difficult for you (specifically tied to AZC context)?,99.67
+5,98,98,"Do your living conditions in the asylum seekers' center affect your ability to find work or to work? (e.g., privacy, sharing rooms, whether or not there's a quiet workspace in the center)","Do your living conditions in the asylum seekers' center affect your ability to find work or to work? (e.g., privacy, sharing rooms, whether or not there's a quiet workspace in the center)",99.67
+5,101,101,"Has the uncertainty/waiting period in the asylum seekers' center affected your motivation or chances of finding work? If so, how?","Has the uncertainty/waiting period in the asylum seekers' center affected your motivation or chances of finding work? If so, how?",99.67
+5,107,107,What is your advice to a person searching for work during their stay in the AZC? Give a tip based on your own experience!,What is your advice to a person searching for work during their stay in the AZC? Give a tip based on your own experience!,99.67
+6,108,108,Where do you work at the moment?,Where do you work at the moment?,100.0
+6,109,109,How did you find this job (through which method)? Why did you choose that way of searching?,How did you find this job (through which method)? Why did you choose that way of searching?,100.0
+6,110,110,What do you think of this job? Do you plan to stay here for a longer period? Why or why not?,What do you think of this job? Do you plan to stay here for a longer period? Why or why not?,100.0
+6,111,111,Are you looking for new work?,Are you looking for new work?,100.0
+6,112,112,If yes: How do you approach your job search?,If yes: How do you approach your job search?,100.0
+6,113,113,If yes: Do you still use the same method you used when finding your first job? (Which one?),If yes: Do you still use the same method you used when finding your first job? (Which one?),100.0
+6,114,114,"If yes: Or are you using a different method now? If so, which one?","If yes: Or are you using a different method now? If so, which one?",100.0
+6,115,115,Which of these tools have you used to find a job? Which have you not used? Why or why not?,Which of these tools have you used to find a job? Which have you not used? Why or why not?,100.0
+6,116,116,"Has the municipal contact person helped you with searching for or finding work? If yes, how? Give concrete examples from your own experience.
+If not, why not? Give concrete examples from your own experience.","Has the municipal contact person helped you with searching for or finding work? If yes, how? Give concrete examples from your own experience.
+ If not, why not? Give concrete examples from your own experience.",100.0
+6,117,117,"Has the MAP training personally helped you in searching for or finding work? If yes, how?
+If not, why not?","Has the MAP training personally helped you in searching for or finding work? If yes, how?
+ If not, why not?",100.0
+6,118,118,"Have the Participation hours within the integration process (volunteer work) personally helped you in searching for or finding work?
+If yes, how?","Have the Participation hours within the integration process (volunteer work) personally helped you in searching for or finding work?
+ If yes, how?",100.0
+6,119,119,Were you able to easily contact the person or organization that supported you?,Were you able to easily contact the person or organization that supported you?,100.0
+6,120,120,"How did that contact take place (in person, by phone, via WhatsApp...)?","How did that contact take place (in person, by phone, via WhatsApp...)?",100.0
+6,121,121,What made communication easy or difficult?,What made communication easy or difficult?,100.0
+6,122,122,Are there any other methods you use or are currently using?,Are there any other methods you use or are currently using?,100.0
+6,123,123,"Why do you not want to or cannot use specific tools? (with attention to cultural nuances, historical context, accessibility, and emotional weight)","Why do you not want to or cannot use specific tools? (with attention to cultural nuances, historical context, accessibility, and emotional weight)",100.0
+6,124,124,What makes searching for work easier for you?,What makes searching for work easier for you?,100.0
+6,125,125,What makes searching for work more difficult for you?,What makes searching for work more difficult for you?,100.0
+6,126,126,"Do your living conditions in the municipality affect your ability to find or do work? (for example: waiting times to start language school, driving licence, communication with your contact person)","Do your living conditions in the municipality affect your ability to find or do work? (for example: waiting times to start language school, driving licence, communication with your contact person)",100.0
+6,127,127,"Do the time requirements and obligations of the integration process affect your ability to search for or have work? If yes, in what way?","Do the time requirements and obligations of the integration process affect your ability to search for or have work? If yes, in what way?",100.0
+6,128,128,"Does the issue of mismatched schedules between language classes and working hours affect your ability to find work? If yes, how?","Does the issue of mismatched schedules between language classes and working hours affect your ability to find work? If yes, how?",100.0
+6,129,129,"Does your knowledge of local rules, systems, and practices (for example, how to find job vacancies or how to prepare for a job interview) affect your chances of finding work? If yes, how?","Does your knowledge of local rules, systems, and practices (for example, how to find job vacancies or how to prepare for a job interview) affect your chances of finding work? If yes, how?",100.0
+6,130,130,"Do you have sufficient access to digital tools (such as a computer, phone, or internet) to search for vacancies and apply for jobs? If not, what makes this difficult?","Do you have sufficient access to digital tools (such as a computer, phone, or internet) to search for vacancies and apply for jobs? If not, what makes this difficult?",100.0
+6,131,131,Are there cultural differences in work habits or expectations that make it harder for you to find or keep a job? Can you give an example?,Are there cultural differences in work habits or expectations that make it harder for you to find or keep a job? Can you give an example?,100.0
+6,132,132,What were the strong elements that helped you (personally) find work?,What were the strong elements that helped you (personally) find work?,100.0
+6,133,133,"How can we strengthen these further? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)","How can we strengthen these further? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)",100.0
+6,134,134,"What did you miss, what would have helped you find work more easily?","What did you miss, what would have helped you find work more easily?",100.0
+6,135,135,"What is needed to improve this? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)","What is needed to improve this? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)",100.0
+6,136,136,When did the support not work well? What was missing in your opinion? What would you have preferred to see done differently?,When did the support not work well? What was missing in your opinion? What would you have preferred to see done differently?,100.0
+6,137,137,What tip would you give to someone who is doing the integration process and wants to (start) look for work? Based on your own experience!,What tip would you give to someone who is doing the integration process and wants to (start) look for work? Based on your own experience!,100.0
+7,138,138,"Start: situational sketch
+➜ Goal: to situate participants in their journey and connect it to their “pathway to work.”
+Note: the questions depend on each person’s current situation.
+● People who have had a job before but are not working now
+● People who currently have a job
+If you previously had a job but are not working now:
+Where did you work? How long did you work there?
+How did you find this job? Why did you choose that way of searching?
+What did you think of this job? Why did you stop / why did it end?
+If you currently have a job:
+Where do you work at the moment?
+How did you find this job (through which method)? Why did you choose that way of searching?
+What do you think of this job? Do you plan to stay here for a longer period? Why or why not?","Start: situational sketch
+ ➜ Goal: to situate participants in their journey and connect it to their “pathway to work.”
+ Note: the questions depend on each person’s current situation.
+ ● People who have had a job before but are not working now
+ ● People who currently have a job
+ If you previously had a job but are not working now:
+ Where did you work? How long did you work there?
+ How did you find this job? Why did you choose that way of searching?
+ What did you think of this job? Why did you stop / why did it end?
+ If you currently have a job:
+ Where do you work at the moment?
+ How did you find this job (through which method)? Why did you choose that way of searching?
+ What do you think of this job? Do you plan to stay here for a longer period? Why or why not?",100.0
+7,139,139,"Part 1: Job-searching strategies
+➜ Goal: to understand how participants search for and find work.
+Own strategy:
+If you previously had a job but are not working now:
+Are you currently looking for new work?
+What kind of work?
+How are you searching for work now?
+Are you using the same method as before, or have you changed your search strategy?
+If you currently have a job:
+Are you looking for new work?
+If yes: How do you approach your job search?
+If yes: Do you still use the same method you used when finding your first job? (Which one?)
+If yes: Or are you using a different method now? If so, which one?
+If no: If you were to look for new work, would you use the same strategy? Why or why not?","Part 1: Job-searching strategies
+ ➜ Goal: to understand how participants search for and find work.
+ Own strategy:
+ If you previously had a job but are not working now:
+ Are you currently looking for new work?
+ What kind of work?
+ How are you searching for work now?
+ Are you using the same method as before, or have you changed your search strategy?
+ If you currently have a job:
+ Are you looking for new work?
+ If yes: How do you approach your job search?
+ If yes: Do you still use the same method you used when finding your first job? (Which one?)
+ If yes: Or are you using a different method now? If so, which one?
+ If no: If you were to look for new work, would you use the same strategy? Why or why not?",100.0
+7,140,140,"Reflection on “Pathways to Work”:
+Which of these tools have you used to find a job? Which have you not used? Why or why not?
+️ With help from the municipality or my case manager
+🧾 Through an employment agency or job coach
+‍ Through school, language class, or education
+🫶 With support from VluchtelingenWerk, UAF, NewBees, or another organisation
+🤝 I contact employers directly
+👐 Through volunteer work or an internship
+👪 Through my social network, friends, or family
+💬 With help from a buddy, mentor, or volunteer
+💻 Through online groups (e.g., Facebook, WhatsApp, Telegram, other)
+📱 Through social media (Facebook, LinkedIn, other)
+🏫 Through the UWV
+🌾 I use job-vacancy websites (Indeed, Werk.nl, RefugeeWork, NationaleVacaturebank)","Reflection on “Pathways to Work”:
+ Which of these tools have you used to find a job? Which have you not used? Why or why not?
+ ️ With help from the municipality or my case manager
+🧾 Through an employment agency or job coach
+‍ Through school, language class, or education
+🫶 With support from VluchtelingenWerk, UAF, NewBees, or another organisation
+🤝 I contact employers directly
+👐 Through volunteer work or an internship
+👪 Through my social network, friends, or family
+💬 With help from a buddy, mentor, or volunteer
+💻 Through online groups (e.g., Facebook, WhatsApp, Telegram, other)
+📱 Through social media (Facebook, LinkedIn, other)
+🏫 Through the UWV
+🌾 I use job-vacancy websites (Indeed, Werk.nl, RefugeeWork, NationaleVacaturebank)",100.0
+7,141,141,"Specific to the context of newcomers who are currently following their inburgering process:
+Has the municipal contact person helped you with searching for or finding work? If yes, how? Give concrete examples from your own experience. If not, why not? Give concrete examples from your own experience.","Specific to the context of newcomers who are currently following their inburgering process:
+ Has the municipal contact person helped you with searching for or finding work? If yes, how? Give concrete examples from your own experience. If not, why not? Give concrete examples from your own experience.",100.0
+7,142,142,"Has the MAP training personally helped you in searching for or finding work? If yes, how? If not, why not?
+→ ask which route.","Has the MAP training personally helped you in searching for or finding work? If yes, how? If not, why not?
+ → ask which route.",100.0
+7,143,143,"Have the Participation hours within the integration process (volunteer work) personally helped you in searching for or finding work? If yes, how?","Have the Participation hours within the integration process (volunteer work) personally helped you in searching for or finding work? If yes, how?",100.0
+7,144,144,"Were you able to easily contact the person or organization that supported you? How did that contact take place (in person, by phone, via WhatsApp...)? What made communication easy or difficult?","Were you able to easily contact the person or organization that supported you? How did that contact take place (in person, by phone, via WhatsApp...)? What made communication easy or difficult?",100.0
+7,145,145,Are there any other methods you use or are currently using?,Are there any other methods you use or are currently using?,100.0
+7,146,146,"Why do you not want to or cannot use specific tools? (with attention to cultural nuances, historical context, accessibility, and emotional weight)","Why do you not want to or cannot use specific tools? (with attention to cultural nuances, historical context, accessibility, and emotional weight)",100.0
+7,147,147,"Part 2: Reflection on what is easy/difficult | (personal) circumstances
+➜ Goal: to gain insight into the (personal) circumstances that make finding work easier or
+more difficult.
+If you previously had a job but are not working now:
+What makes searching for work easier for you?","Part 2: Reflection on what is easy/difficult | (personal) circumstances
+ ➜ Goal: to gain insight into the (personal) circumstances that make finding work easier or
+ more difficult.
+ If you previously had a job but are not working now:
+ What makes searching for work easier for you?",100.0
+7,148,148,What makes searching for work more difficult for you?,What makes searching for work more difficult for you?,100.0
+7,149,149,"→ Space for discussing circumstances / different starting positions in terms of
+language level/education and positionality.
+Possible examples to give:
+● Do your living conditions in the municipality affect your ability to find or do work?
+(for example: waiting times to start language school, driving licence, communication
+with your contact person)
+● Do the time requirements and obligations of the integration process affect your
+ability to search for or have work? If yes, in what way?
+● Does the issue of mismatched schedules between language classes and working
+hours affect your ability to find work? If yes, how?
+● Does your knowledge of local rules, systems, and practices (for example, how to
+find job vacancies or how to prepare for a job interview) affect your chances of
+finding work? If yes, how?
+● Do you have sufficient access to digital tools (such as a computer, phone, or internet)
+to search for vacancies and apply for jobs? If not, what makes this difficult?
+● Are there cultural differences in work habits or expectations that make it harder for
+you to find or keep a job? Can you give an example?","→ Space for discussing circumstances / different starting positions in terms of
+ language level/education and positionality.
+ Possible examples to give:
+ ● Do your living conditions in the municipality affect your ability to find or do work?
+ (for example: waiting times to start language school, driving licence, communication
+ with your contact person)
+ ● Do the time requirements and obligations of the integration process affect your
+ ability to search for or have work? If yes, in what way?
+ ● Does the issue of mismatched schedules between language classes and working
+ hours affect your ability to find work? If yes, how?
+ ● Does your knowledge of local rules, systems, and practices (for example, how to
+ find job vacancies or how to prepare for a job interview) affect your chances of
+ finding work? If yes, how?
+ ● Do you have sufficient access to digital tools (such as a computer, phone, or internet)
+ to search for vacancies and apply for jobs? If not, what makes this difficult?
+ ● Are there cultural differences in work habits or expectations that make it harder for
+ you to find or keep a job? Can you give an example?",100.0
+7,150,150,"Part 3: What works well - what is missing - what did not work well?
+➜ Goal: reflection from participants on their job-search strategies: what worked well and
+how it can be strengthened, and what did not work well or what support was missing.
+What were the strong elements that helped you (personally) find work?","Part 3: What works well - what is missing - what did not work well?
+ ➜ Goal: reflection from participants on their job-search strategies: what worked well and
+ how it can be strengthened, and what did not work well or what support was missing.
+ What were the strong elements that helped you (personally) find work?",100.0
+7,151,151,"How can we strengthen these further? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)","How can we strengthen these further? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)",100.0
+7,152,152,"What did you miss, what would have helped you find work more easily?","What did you miss, what would have helped you find work more easily?",100.0
+7,153,153,"What is needed to improve this? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)","What is needed to improve this? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)",100.0
+7,154,154,When did the support not work well? What was missing in your opinion? What would you have preferred to see done differently?,When did the support not work well? What was missing in your opinion? What would you have preferred to see done differently?,100.0
+7,155,155,"Tip!
+What tip would you give to someone who is doing the integration process and wants to (start) look for work? Based on your own experience!","Tip!
+ What tip would you give to someone who is doing the integration process and wants to (start) look for work? Based on your own experience!",100.0
+8,157,157,If you previously had a job but are not working now: Where did you work? How long did you work there?,If you previously had a job but are not working now: Where did you work? How long did you work there?,100.0
+8,158,158,How did you find this job? Why did you choose that way of searching?,How did you find this job? Why did you choose that way of searching?,100.0
+8,159,159,What did you think of this job? Why did you stop / why did it end?,What did you think of this job? Why did you stop / why did it end?,100.0
+8,160,160,If you currently have a job: Where do you work at the moment?,If you currently have a job: Where do you work at the moment?,100.0
+8,161,161,How did you find this job (through which method)? Why did you choose that way of searching?,How did you find this job (through which method)? Why did you choose that way of searching?,100.0
+8,162,162,What do you think of this job? Do you plan to stay here for a longer period? Why or why not?,What do you think of this job? Do you plan to stay here for a longer period? Why or why not?,100.0
+8,163,163,Part 1: Job-searching strategies ➜ Goal: to understand how participants search for and find work. Own strategy: If you previously had a job but are not working now: Are you currently looking for new work?,Part 1: Job-searching strategies ➜ Goal: to understand how participants search for and find work. Own strategy: If you previously had a job but are not working now: Are you currently looking for new work?,100.0
+8,164,164,What kind of work?,What kind of work?,100.0
+8,165,165,How are you searching for work now?,How are you searching for work now?,100.0
+8,166,166,"Are you using the same method as before, or have you changed your search strategy?","Are you using the same method as before, or have you changed your search strategy?",100.0
+8,167,167,If you currently have a job: Are you looking for new work?,If you currently have a job: Are you looking for new work?,100.0
+8,168,168,If yes: How do you approach your job search?,If yes: How do you approach your job search?,100.0
+8,169,169,If yes: Do you still use the same method you used when finding your first job? (Which one?),If yes: Do you still use the same method you used when finding your first job? (Which one?),100.0
+8,170,170,"If yes: Or are you using a different method now? If so, which one?","If yes: Or are you using a different method now? If so, which one?",100.0
+8,171,171,"If no: If you were to look for new work, would you use the same strategy? Why or why not?","If no: If you were to look for new work, would you use the same strategy? Why or why not?",100.0
+8,172,172,Reflection on “Pathways to Work”: Which of these tools have you used to find a job? Which have you not used? Why or why not?,Reflection on “Pathways to Work”: Which of these tools have you used to find a job? Which have you not used? Why or why not?,100.0
+8,173,173,Specific to the context of newcomers who are currently following their inburgering process: Has the municipal contact person helped you with searching for or finding work?,Specific to the context of newcomers who are currently following their inburgering process: Has the municipal contact person helped you with searching for or finding work?,100.0
+8,174,174,"If yes, how? Give concrete examples from your own experience. If not, why not? Give concrete examples from your own experience.","If yes, how? Give concrete examples from your own experience. If not, why not? Give concrete examples from your own experience.",100.0
+8,175,175,"Has the MAP training personally helped you in searching for or finding work? If yes, how? If not, why not?","Has the MAP training personally helped you in searching for or finding work? If yes, how? If not, why not?",100.0
+8,176,176,"Have the Participation hours within the integration process (volunteer work) personally helped you in searching for or finding work? If yes, how?","Have the Participation hours within the integration process (volunteer work) personally helped you in searching for or finding work? If yes, how?",100.0
+8,177,177,Were you able to easily contact the person or organization that supported you?,Were you able to easily contact the person or organization that supported you?,100.0
+8,178,178,"How did that contact take place (in person, by phone, via WhatsApp...)?","How did that contact take place (in person, by phone, via WhatsApp...)?",100.0
+8,179,179,What made communication easy or difficult?,What made communication easy or difficult?,100.0
+8,180,180,Are there any other methods you use or are currently using?,Are there any other methods you use or are currently using?,100.0
+8,181,181,"Why do you not want to or cannot use specific tools? (with attention to cultural nuances, historical context, accessibility, and emotional weight)","Why do you not want to or cannot use specific tools? (with attention to cultural nuances, historical context, accessibility, and emotional weight)",100.0
+8,182,182,Part 2: Reflection on what is easy/difficult | (personal) circumstances ➜ Goal: to gain insight into the (personal) circumstances that make finding work easier or more difficult. If you previously had a job but are not working now: What makes searching for work easier for you?,Part 2: Reflection on what is easy/difficult | (personal) circumstances ➜ Goal: to gain insight into the (personal) circumstances that make finding work easier or more difficult. If you previously had a job but are not working now: What makes searching for work easier for you?,100.0
+8,183,183,What makes searching for work more difficult for you?,What makes searching for work more difficult for you?,100.0
+8,185,185,"Part 3: What works well - what is missing - what did not work well? ➜ Goal: reflection from participants on their job-search strategies: what worked well and how it can be strengthened, and what did not work well or what support was missing. What were the strong elements that helped you (personally) find work?","Part 3: What works well - what is missing - what did not work well? ➜ Goal: reflection from participants on their job-search strategies: what worked well and how it can be strengthened, and what did not work well or what support was missing. What were the strong elements that helped you (personally) find work?",100.0
+8,186,186,"How can we strengthen these further? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)","How can we strengthen these further? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)",100.0
+8,187,187,"What did you miss, what would have helped you find work more easily?","What did you miss, what would have helped you find work more easily?",100.0
+8,188,188,"What is needed to improve this? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)","What is needed to improve this? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)",100.0
+8,189,189,When did the support not work well? What was missing in your opinion? What would you have preferred to see done differently?,When did the support not work well? What was missing in your opinion? What would you have preferred to see done differently?,100.0
+8,190,190,Tip! What tip would you give to someone who is doing the integration process and wants to (start) look for work? Based on your own experience!,Tip! What tip would you give to someone who is doing the integration process and wants to (start) look for work? Based on your own experience!,100.0
+9,191,191,"If you previously had a job but are not working now:
+Where did you work? How long did you work there?","If you previously had a job but are not working now:
+ Where did you work? How long did you work there?",100.0
+9,192,192,How did you find this job? Why did you choose that way of searching?,How did you find this job? Why did you choose that way of searching?,100.0
+9,193,193,What did you think of this job? Why did you stop / why did it end?,What did you think of this job? Why did you stop / why did it end?,100.0
+9,194,194,"If you currently have a job:
+Where do you work at the moment?","If you currently have a job:
+ Where do you work at the moment?",100.0
+9,195,195,How did you find this job (through which method)? Why did you choose that way of searching?,How did you find this job (through which method)? Why did you choose that way of searching?,100.0
+9,196,196,What do you think of this job? Do you plan to stay here for a longer period? Why or why not?,What do you think of this job? Do you plan to stay here for a longer period? Why or why not?,100.0
+9,197,197,"Part 1: Job-searching strategies
+➜ Goal: to understand how participants search for and find work.
+Own strategy:
+If you previously had a job but are not working now:
+Are you currently looking for new work?","Part 1: Job-searching strategies
+ ➜ Goal: to understand how participants search for and find work.
+ Own strategy:
+ If you previously had a job but are not working now:
+ Are you currently looking for new work?",100.0
+9,198,198,What kind of work?,What kind of work?,100.0
+9,199,199,How are you searching for work now?,How are you searching for work now?,100.0
+9,200,200,"Are you using the same method as before, or have you changed your search strategy?","Are you using the same method as before, or have you changed your search strategy?",100.0
+9,201,201,"If you currently have a job:
+Are you looking for new work?","If you currently have a job:
+ Are you looking for new work?",100.0
+9,202,202,If yes: How do you approach your job search?,If yes: How do you approach your job search?,100.0
+9,203,203,If yes: Do you still use the same method you used when finding your first job? (Which one?),If yes: Do you still use the same method you used when finding your first job? (Which one?),100.0
+9,204,204,"If yes: Or are you using a different method now? If so, which one?","If yes: Or are you using a different method now? If so, which one?",100.0
+9,205,205,"If no: If you were to look for new work, would you use the same strategy? Why or why not?","If no: If you were to look for new work, would you use the same strategy? Why or why not?",100.0
+9,206,206,"Reflection on “Pathways to Work”:
+Which of these tools have you used to find a job? Which have you not used? Why or why not?","Reflection on “Pathways to Work”:
+ Which of these tools have you used to find a job? Which have you not used? Why or why not?",100.0
+9,207,207,"Specific to the context of newcomers who are currently following their inburgering process:
+Has the municipal contact person helped you with searching for or finding work? If yes, how? Give concrete examples from your own experience. If not, why not? Give concrete examples from your own experience.","Specific to the context of newcomers who are currently following their inburgering process:
+ Has the municipal contact person helped you with searching for or finding work? If yes, how? Give concrete examples from your own experience. If not, why not? Give concrete examples from your own experience.",100.0
+9,208,208,"Has the MAP (Module Arbeidsmarkt en Participatie) training personally helped you in searching for or finding work? If yes, how? If not, why not?","Has the MAP (Module Arbeidsmarkt en Participatie) training personally helped you in searching for or finding work? If yes, how? If not, why not?",100.0
+9,209,209,"Have the Participation hours within the integration process (volunteer work) personally helped you in searching for or finding work? If yes, how?","Have the Participation hours within the integration process (volunteer work) personally helped you in searching for or finding work? If yes, how?",100.0
+9,210,210,"Were you able to easily contact the person or organization that supported you? How did that contact take place (in person, by phone, via WhatsApp...)? What made communication easy or difficult?","Were you able to easily contact the person or organization that supported you? How did that contact take place (in person, by phone, via WhatsApp...)? What made communication easy or difficult?",100.0
+9,211,211,Are there any other methods you use or are currently using?,Are there any other methods you use or are currently using?,100.0
+9,212,212,"Why do you not want to or cannot use specific tools? (with attention to cultural nuances, historical context, accessibility, and emotional weight)","Why do you not want to or cannot use specific tools? (with attention to cultural nuances, historical context, accessibility, and emotional weight)",100.0
+9,213,213,"Part 2: Reflection on what is easy/difficult | (personal) circumstances
+➜ Goal: to gain insight into the (personal) circumstances that make finding work easier or more difficult.
+If you previously had a job but are not working now:
+What makes searching for work easier for you?","Part 2: Reflection on what is easy/difficult | (personal) circumstances
+ ➜ Goal: to gain insight into the (personal) circumstances that make finding work easier or more difficult.
+ If you previously had a job but are not working now:
+ What makes searching for work easier for you?",100.0
+9,214,214,What makes searching for work more difficult for you?,What makes searching for work more difficult for you?,100.0
+9,215,215,"→ Space for discussing circumstances / different starting positions in terms of language level/education and positionality.
+Possible examples to give:
+● Do your living conditions in the municipality affect your ability to find or do work? (for example: waiting times to start language school, driving licence, communication with your contact person)
+● Do the time requirements and obligations of the integration process affect your ability to search for or have work? If yes, in what way?
+● Does the issue of mismatched schedules between language classes and working hours affect your ability to find work? If yes, how?
+● Does your knowledge of local rules, systems, and practices (for example, how to find job vacancies or how to prepare for a job interview) affect your chances of finding work? If yes, how?
+● Do you have sufficient access to digital tools (such as a computer, phone, or internet) to search for vacancies and apply for jobs? If not, what makes this difficult?
+● Are there cultural differences in work habits or expectations that make it harder for you to find or keep a job? Can you give an example?","→ Space for discussing circumstances / different starting positions in terms of language level/education and positionality.
+ Possible examples to give:
+ ● Do your living conditions in the municipality affect your ability to find or do work? (for example: waiting times to start language school, driving licence, communication with your contact person)
+ ● Do the time requirements and obligations of the integration process affect your ability to search for or have work? If yes, in what way?
+ ● Does the issue of mismatched schedules between language classes and working hours affect your ability to find work? If yes, how?
+ ● Does your knowledge of local rules, systems, and practices (for example, how to find job vacancies or how to prepare for a job interview) affect your chances of finding work? If yes, how?
+ ● Do you have sufficient access to digital tools (such as a computer, phone, or internet) to search for vacancies and apply for jobs? If not, what makes this difficult?
+ ● Are there cultural differences in work habits or expectations that make it harder for you to find or keep a job? Can you give an example?",100.0
+9,216,216,"Part 3: What works well - what is missing - what did not work well?
+➜ Goal: reflection from participants on their job-search strategies: what worked well and how it can be strengthened, and what did not work well or what support was missing.
+What were the strong elements that helped you (personally) find work?","Part 3: What works well - what is missing - what did not work well?
+ ➜ Goal: reflection from participants on their job-search strategies: what worked well and how it can be strengthened, and what did not work well or what support was missing.
+ What were the strong elements that helped you (personally) find work?",100.0
+9,217,217,"How can we strengthen these further? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)","How can we strengthen these further? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)",100.0
+9,218,218,"What did you miss, what would have helped you find work more easily?","What did you miss, what would have helped you find work more easily?",100.0
+9,219,219,"What is needed to improve this? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)","What is needed to improve this? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)",100.0
+9,220,220,When did the support not work well? What was missing in your opinion? What would you have preferred to see done differently?,When did the support not work well? What was missing in your opinion? What would you have preferred to see done differently?,100.0
+9,221,221,"Tip!
+What tip would you give to someone who is doing the integration process and wants to (start) look for work? Based on your own experience!","Tip!
+ What tip would you give to someone who is doing the integration process and wants to (start) look for work? Based on your own experience!",100.0
+10,222,222,"If you previously had a job but are not working now:
+Where did you work? How long did you work there?","If you previously had a job but are not working now:
+ Where did you work? How long did you work there?",100.0
+10,223,223,How did you find this job? Why did you choose that way of searching?,How did you find this job? Why did you choose that way of searching?,100.0
+10,224,224,What did you think of this job? Why did you stop / why did it end?,What did you think of this job? Why did you stop / why did it end?,100.0
+10,225,225,"If you currently have a job:
+Where do you work at the moment?","If you currently have a job:
+ Where do you work at the moment?",100.0
+10,226,226,How did you find this job (through which method)? Why did you choose that way of searching?,How did you find this job (through which method)? Why did you choose that way of searching?,100.0
+10,227,227,What do you think of this job? Do you plan to stay here for a longer period? Why or why not?,What do you think of this job? Do you plan to stay here for a longer period? Why or why not?,100.0
+10,228,228,"Part 1: Job-searching strategies
+➜ Goal: to understand how participants search for and find work.
+Own strategy:
+If you previously had a job but are not working now:
+Are you currently looking for new work?","Part 1: Job-searching strategies
+ ➜ Goal: to understand how participants search for and find work.
+ Own strategy:
+ If you previously had a job but are not working now:
+ Are you currently looking for new work?",100.0
+10,229,229,What kind of work?,What kind of work?,100.0
+10,230,230,How are you searching for work now?,How are you searching for work now?,100.0
+10,231,231,"Are you using the same method as before, or have you changed your search strategy?","Are you using the same method as before, or have you changed your search strategy?",100.0
+10,232,232,"If you currently have a job:
+Are you looking for new work?","If you currently have a job:
+ Are you looking for new work?",100.0
+10,236,236,"If no: If you were to look for new work, would you use the same strategy? Why or why not?","If no: If you were to look for new work, would you use the same strategy? Why or why not?",100.0
+10,237,237,"Reflection on “Pathways to Work”:
+Which of these tools have you used to find a job? Which have you not used? Why or why not?","Reflection on “Pathways to Work”:
+ Which of these tools have you used to find a job? Which have you not used? Why or why not?",100.0
+10,238,238,"Specific to the context of newcomers who are currently following their inburgering process:
+Has the municipal contact person helped you with searching for or finding work?","Specific to the context of newcomers who are currently following their inburgering process:
+ Has the municipal contact person helped you with searching for or finding work?",100.0
+10,239,239,"If yes, how? Give concrete examples from your own experience.
+If not, why not? Give concrete examples from your own experience.","If yes, how? Give concrete examples from your own experience.
+ If not, why not? Give concrete examples from your own experience.",100.0
+10,240,240,"Has the MAP training personally helped you in searching for or finding work? If yes, how? If not, why not?","Has the MAP training personally helped you in searching for or finding work? If yes, how? If not, why not?",100.0
+10,241,241,"Have the Participation hours within the integration process (volunteer work) personally helped you in searching for or finding work? If yes, how?","Have the Participation hours within the integration process (volunteer work) personally helped you in searching for or finding work? If yes, how?",100.0
+10,242,242,"Were you able to easily contact the person or organization that supported you? How did that contact take place (in person, by phone, via WhatsApp...)? What made communication easy or difficult?","Were you able to easily contact the person or organization that supported you? How did that contact take place (in person, by phone, via WhatsApp...)? What made communication easy or difficult?",100.0
+10,243,243,Are there any other methods you use or are currently using?,Are there any other methods you use or are currently using?,100.0
+10,244,244,"Why do you not want to or cannot use specific tools? (with attention to cultural nuances, historical context, accessibility, and emotional weight)","Why do you not want to or cannot use specific tools? (with attention to cultural nuances, historical context, accessibility, and emotional weight)",100.0
+10,245,245,"Part 2: Reflection on what is easy/difficult | (personal) circumstances
+➜ Goal: to gain insight into the (personal) circumstances that make finding work easier or
+more difficult.
+If you previously had a job but are not working now:
+What makes searching for work easier for you?","Part 2: Reflection on what is easy/difficult | (personal) circumstances
+ ➜ Goal: to gain insight into the (personal) circumstances that make finding work easier or
+ more difficult.
+ If you previously had a job but are not working now:
+ What makes searching for work easier for you?",100.0
+10,246,246,What makes searching for work more difficult for you?,What makes searching for work more difficult for you?,100.0
+10,248,248,"Part 3: What works well - what is missing - what did not work well?
+➜ Goal: reflection from participants on their job-search strategies: what worked well and
+how it can be strengthened, and what did not work well or what support was missing.
+What were the strong elements that helped you (personally) find work?","Part 3: What works well - what is missing - what did not work well?
+ ➜ Goal: reflection from participants on their job-search strategies: what worked well and
+ how it can be strengthened, and what did not work well or what support was missing.
+ What were the strong elements that helped you (personally) find work?",100.0
+10,249,249,"How can we strengthen these further? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)","How can we strengthen these further? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)",100.0
+10,250,250,"What did you miss, what would have helped you find work more easily?","What did you miss, what would have helped you find work more easily?",100.0
+10,251,251,"What is needed to improve this? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)","What is needed to improve this? (examples: motivation, resilience, networks, trust in the person or organisation, communication style, etc.)",100.0
+10,252,252,When did the support not work well? What was missing in your opinion? What would you have preferred to see done differently?,When did the support not work well? What was missing in your opinion? What would you have preferred to see done differently?,100.0
+10,253,253,"Tip!
+What tip would you give to someone who is doing the integration process and wants to (start) look for work? Based on your own experience!","Tip!
+ What tip would you give to someone who is doing the integration process and wants to (start) look for work? Based on your own experience!",100.0
+11,254,254,Choose 3 main indicators regarding your biggest concerns at the moment.,Choose 3 main indicators regarding your biggest concerns at the moment.,100.0
+11,255,255,Waarom heb je deze indicator gekozen? Waarom is deze indicator belangrijk voor jou persoonlijk?,Waarom heb je deze indicator gekozen? Waarom is deze indicator belangrijk voor jou persoonlijk?,100.0
+11,256,256,Wat wil je bereiken op deze indicator? Wat is je gewenste toekomst m.b.t. deze indicator?,Wat wil je bereiken op deze indicator? Wat is je gewenste toekomst m.b.t. deze indicator?,100.0
+11,257,257,Wat gaat er goed en welke obstakels ervaar je?,Wat gaat er goed en welke obstakels ervaar je?,100.0
+11,258,258,Welke acties onderneem je om je doel te bereiken?,Welke acties onderneem je om je doel te bereiken?,100.0
+11,259,259,Wat zou jou helpen om je doel te bereiken?,Wat zou jou helpen om je doel te bereiken?,100.0
+11,261,261,"Inspanningen
+Opvang","Inspanningen
+ Opvang",100.0
+11,262,262,Werk → (What they need to be able to start working (even temporarily),Werk → (What they need to be able to start working (even temporarily),100.0
+11,263,263,What obstacles they face,What obstacles they face,100.0
+11,264,264,What role the municipality or other actors could play in that process,What role the municipality or other actors could play in that process,100.0
+11,265,265,Leisure,Leisure,100.0
+11,266,266,Wat wil je bereiken op deze indicator?,Wat wil je bereiken op deze indicator?,100.0
+11,267,267,Welke acties onderneem je om je doel te bereiken?,Welke acties onderneem je om je doel te bereiken?,100.0
+11,268,268,Wat gaat er goed en welke obstakels ervaar je?,Wat gaat er goed en welke obstakels ervaar je?,100.0
+11,269,269,"Wat zou jou helpen om je doel te bereiken — van jezelf, van anderen, en van de gemeente?","Wat zou jou helpen om je doel te bereiken — van jezelf, van anderen, en van de gemeente?",100.0
+12,278,278,Work and income,Work and income,100.0
+12,279,279,What do you need to find work?,What do you need to find work?,100.0
+12,280,280,How can the municipality help you to find a job?,How can the municipality help you to find a job?,100.0
+12,281,281,"Of the four points (Leisure, Education, Work and income, Safety), where would you like to see more change?","Of the four points (Leisure, Education, Work and income, Safety), where would you like to see more change?",100.0
+12,282,282,"Of the four points (Leisure, Education, Work and income, Safety), which do you think is most important?","Of the four points (Leisure, Education, Work and income, Safety), which do you think is most important?",100.0
+12,270,270,Stability,"Stability
+ Why did you choose this indicator?
+ Achieve?
+ Obstacles?
+ Actions taken?
+ What would help achieve this goal?",85.0
+12,271,271,Leisure,"Leisure
+ Why did you choose this indicator?
+ Achieve?
+ Obstacles?
+ Actions taken?
+ What would help achieve this goal?",85.0
+12,272,272,Health,"Health
+ Why did you choose this indicator?
+ Achieve?
+ Obstacles?
+ Actions taken?
+ What would help achieve this goal?",85.0
+12,273,273,Connections with institutions,"Connections with institutions
+ Why did you choose this indicator?
+ Achieve?
+ Obstacles?
+ Actions taken?
+ What would help achieve this goal?",85.0
+12,274,274,Social bridges,"Social bridges
+ Why did you choose this indicator?
+ Achieve?
+ Obstacles?
+ Actions taken?
+ What would help achieve this goal?",85.0
+12,275,275,Leisure,"Leisure
+ Why did you choose this indicator?
+ Achieve?
+ Obstacles?
+ Actions taken?
+ What would help achieve this goal?",85.0
+13,283,283,"Languages
+Why did you choose this indicator?
+Achieve?
+Obstacles?
+Actions taken?
+What would help achieve this goal?","Languages
+ Why did you choose this indicator?
+ Achieve?
+ Obstacles?
+ Actions taken?
+ What would help achieve this goal?",100.0
+13,284,284,"Housing
+Why did you choose this indicator?
+Achieve?
+Obstacles?
+Actions taken?
+What would help achieve this goal?","Housing
+ Why did you choose this indicator?
+ Achieve?
+ Obstacles?
+ Actions taken?
+ What would help achieve this goal?",100.0
+13,285,285,"Work
+Why did you choose this indicator?
+Achieve?
+Obstacles?
+Actions taken?
+What would help achieve this goal?","Work
+ Why did you choose this indicator?
+ Achieve?
+ Obstacles?
+ Actions taken?
+ What would help achieve this goal?",100.0
+13,286,286,"Health
+Why did you choose this indicator?
+Achieve?
+Obstacles?
+Actions taken?
+What would help achieve this goal?","Health
+ Why did you choose this indicator?
+ Achieve?
+ Obstacles?
+ Actions taken?
+ What would help achieve this goal?",100.0
+13,287,287,"Culture (integration)
+Why did you choose this indicator?
+Achieve?
+Obstacles?
+Actions taken?
+What would help achieve this goal?","Culture (integration)
+ Why did you choose this indicator?
+ Achieve?
+ Obstacles?
+ Actions taken?
+ What would help achieve this goal?",100.0
+13,288,288,"Study
+Why did you choose this indicator?
+Achieve?
+Obstacles?
+Actions taken?
+What would help achieve this goal?","Study
+ Why did you choose this indicator?
+ Achieve?
+ Obstacles?
+ Actions taken?
+ What would help achieve this goal?",100.0
+13,289,289,"Work
+What do you need to start working ?
+What are the obstacles?
+How can the municipality help ?","Work
+ What do you need to start working ?
+ What are the obstacles?
+ How can the municipality help ?",100.0
+13,290,290,"Collecting feedback
+How would you like the municipality to collect feedback from you?",Collecting feedback,85.0
+14,291,291,What are the good things that are happening? Things that can get better? Experience as a volunteer. What is important for you as a volunteer?,What are the good things that are happening? Things that can get better? Experience as a volunteer. What is important for you as a volunteer?,100.0
+14,292,292,What are the repetitive people and problems that you see?,What are the repetitive people and problems that you see?,100.0
+14,293,293,"Knowledge over the healthcare system: what does the zorg cafe do other than the hospitals, huisarts?","Knowledge over the healthcare system: what does the zorg cafe do other than the hospitals, huisarts?",100.0
+14,294,294,What can be better?,What can be better?,100.0
+14,295,295,What would happen if there were no zorgcafe for your position?,What would happen if there were no zorgcafe for your position?,100.0
+14,296,296,"What is, for you, the perfect healthcare situation for Venlo?","What is, for you, the perfect healthcare situation for Venlo?",100.0
+15,297,297,How was it to keep the notebook and write notes. Who did this? For those who did: did it help to be more aware of health?,How was it to keep the notebook and write notes. Who did this? For those who did: did it help to be more aware of health?,100.0
+15,298,298,How are you feeling health-wise? Are you feeling better since Zorgcafé? Why?,How are you feeling health-wise? Are you feeling better since Zorgcafé? Why?,100.0
+15,300,300,Do you have the feeling that improved health has an effect on ability to care for yourself/make independent decisions?,Do you have the feeling that improved health has an effect on ability to care for yourself/make independent decisions?,100.0
+15,301,301,"Do you have the feeling you can be more active in Venlo, for example through work, because of improved health?","Do you have the feeling you can be more active in Venlo, for example through work, because of improved health?",100.0
+15,302,302,Do you have the feeling you are better able to complete inburgering?,Do you have the feeling you are better able to complete inburgering?,100.0
+15,303,303,Do you see that improved health of people has an effect on ability to care for yourself/make independent decisions?,Do you see that improved health of people has an effect on ability to care for yourself/make independent decisions?,100.0
+15,304,304,"Do you see that people can be more active in Venlo, for example through work, because of improved health?","Do you see that people can be more active in Venlo, for example through work, because of improved health?",100.0
+15,305,305,Do you see that people are better able to complete inburgering?,Do you see that people are better able to complete inburgering?,100.0
+16,308,308,What is the added value of the Zorgcafé for you?,What is the added value of the Zorgcafé for you?,100.0
+16,309,309,Did you feel heard and understood? Was this different from other healthcare facilities that you visited in the Netherlands?,Did you feel heard and understood? Was this different from other healthcare facilities that you visited in the Netherlands?,100.0
+16,310,310,What can be improved in the Zorgcafé?,What can be improved in the Zorgcafé?,100.0
+16,311,311,"What would be your situation if there was no Zorgcafé?
+What would be the situation in Venlo if there was no Zorgcafé?
+What would be the ideal healthcare situation in Venlo?","What would be your situation if there was no Zorgcafé?
+ What would be the situation in Venlo if there was no Zorgcafé?
+ What would be the ideal healthcare situation in Venlo?",100.0
+16,312,312,What would be your ideal health situation? What do you need to reach that?,What would be your ideal health situation? What do you need to reach that?,100.0
+16,313,313,"Green/Red card statements
+Reading out a statement and respond.
+I/people would face more problems with my/our physical and mental health.
+Accessing healthcare would be more difficult, especially for asylum seekers or those living in the AZC.
+I/people might feel isolated, unsupported, or unheard when dealing with health issues.
+Without the Zorgcafé, I would not have anyone checking in on my mental health.
+I might have gone longer without medication or follow-up for my psychological issues.
+I would feel less safe and less supported in my daily life.
+Because of the Zorgcafé:
+I/people can get the healthcare I/they need more easily.
+The Zorgcafé provides guidance and support, including follow-up and medication management.
+I/people feel listened to and supported, which helps my/our mental health.
+It serves as a bridge between me/people and other healthcare providers (e.g., huisarts, pharmacy).
+I/people feel safer knowing there is a place I/they can go for help.
+I/people get psychological support when needed, even just for talking.
+Reduction in reliance on other healthcare professionals:
+Some issues can be resolved or guided by the Zorgcafé, reducing unnecessary visits to other facilities.
+Zorgcafé helps me/people navigate the healthcare system, ensuring I/they go to the right place for proper care.
+I/people feel safer and more confident in managing my/our health with the support of the Zorgcafé team.
+Because of the Zorgcafé, I don’t have to rely solely on the huisarts for mental health concerns.
+I feel my situation is monitored, and I get help when needed, which reduces stress","Green/Red card statements
+ Reading out a statement and respond.",85.0
+17,314,314,Wat vond je van het taalcafé van BOOST? Wat denk je dat er beter kan en waarom?,Wat vond je van het taalcafé van BOOST? Wat denk je dat er beter kan en waarom?,100.0
+17,315,315,Over welke thema’s heb je het meeste geleerd bij het taalcafé?,Over welke thema’s heb je het meeste geleerd bij het taalcafé?,100.0
+17,316,316,"Heb je door het volgen van het taalcafé van BOOST meer vertrouwen om de Nederlandse taal te spreken? Zo ja/nee, waarom?","Heb je door het volgen van het taalcafé van BOOST meer vertrouwen om de Nederlandse taal te spreken? Zo ja/nee, waarom?",100.0
+17,317,317,Veel mensen vertellen dat ze door het taalcafé sneller een gesprek durven te voeren in het Nederlands dan eerst? Praat je door het taalcafé vaker Nederlands dan eerst? Waarom wel/niet?,Veel mensen vertellen dat ze door het taalcafé sneller een gesprek durven te voeren in het Nederlands dan eerst? Praat je door het taalcafé vaker Nederlands dan eerst? Waarom wel/niet?,100.0
+17,318,318,Hoe denk je dat BOOST er voor kan zorgen dat mensen nog beter Nederlands gaan spreken in de praktijk?,Hoe denk je dat BOOST er voor kan zorgen dat mensen nog beter Nederlands gaan spreken in de praktijk?,100.0
+17,319,319,"Is het taalcafé genoeg om Nederlands te leren of heb je behoefte aan meer activiteiten? Zo ja, welke activiteiten?","Is het taalcafé genoeg om Nederlands te leren of heb je behoefte aan meer activiteiten? Zo ja, welke activiteiten?",100.0
+17,320,320,"Ga je nog naar BOOST? Zo ja, wat vind je leuk om naar BOOST te gaan?","Ga je nog naar BOOST? Zo ja, wat vind je leuk om naar BOOST te gaan?",100.0
+17,321,321,Veel deelnemers voelen zich meer thuis in Amsterdam sinds ze naar BOOST gaan. Herken je dat? Waarom denk je dat dat zo is?,Veel deelnemers voelen zich meer thuis in Amsterdam sinds ze naar BOOST gaan. Herken je dat? Waarom denk je dat dat zo is?,100.0
+17,322,322,Welke volgende stappen ga je zetten om je leven in Nederland op te bouwen? Heeft het taalcafé daarbij geholpen?,Welke volgende stappen ga je zetten om je leven in Nederland op te bouwen? Heeft het taalcafé daarbij geholpen?,100.0
+17,323,323,Zijn er nog dingen die je wil delen over de inburgering in Amsterdam?,Zijn er nog dingen die je wil delen over de inburgering in Amsterdam?,100.0
+17,324,324,Tijdens het taalcafé hebben we je elke week vragen gestuurd via Whatsapp over het taalcafé? Vond je het fijn om de vragen te krijgen? Wat kunnen wij zelf verbeteren om te zorgen dat mensen de vragen invullen?,Tijdens het taalcafé hebben we je elke week vragen gestuurd via Whatsapp over het taalcafé? Vond je het fijn om de vragen te krijgen? Wat kunnen wij zelf verbeteren om te zorgen dat mensen de vragen invullen?,100.0
+18,325,325,Wat vond je van het taalcafé van BOOST? Wat denk je dat er beter kan en waarom?,Wat vond je van het taalcafé van BOOST? Wat denk je dat er beter kan en waarom?,100.0
+18,326,326,Over welke thema’s heb je het meeste geleerd bij het taalcafé?,Over welke thema’s heb je het meeste geleerd bij het taalcafé?,100.0
+18,327,327,"Heb je door het volgen van het taalcafé van BOOST meer vertrouwen om de Nederlandse taal te spreken? Zo ja/nee, waarom?","Heb je door het volgen van het taalcafé van BOOST meer vertrouwen om de Nederlandse taal te spreken? Zo ja/nee, waarom?",100.0
+18,328,328,Veel mensen vertellen dat ze door het taalcafé sneller een gesprek durven te voeren in het Nederlands dan eerst? Praat je door het taalcafé vaker Nederlands dan eerst? Waarom wel/niet?,Veel mensen vertellen dat ze door het taalcafé sneller een gesprek durven te voeren in het Nederlands dan eerst? Praat je door het taalcafé vaker Nederlands dan eerst? Waarom wel/niet?,100.0
+18,329,329,Hoe denk je dat BOOST er voor kan zorgen dat mensen nog beter Nederlands gaan spreken in de praktijk?,Hoe denk je dat BOOST er voor kan zorgen dat mensen nog beter Nederlands gaan spreken in de praktijk?,100.0
+18,330,330,"Is het taalcafé genoeg om Nederlands te leren of heb je behoefte aan meer activiteiten? Zo ja, welke activiteiten?","Is het taalcafé genoeg om Nederlands te leren of heb je behoefte aan meer activiteiten? Zo ja, welke activiteiten?",100.0
+18,331,331,"Ga je nog naar BOOST? Zo ja, wat vind je leuk om naar BOOST te gaan?","Ga je nog naar BOOST? Zo ja, wat vind je leuk om naar BOOST te gaan?",100.0
+18,332,332,Veel deelnemers voelen zich meer thuis in Amsterdam sinds ze naar BOOST gaan. Herken je dat? Waarom denk je dat dat zo is?,Veel deelnemers voelen zich meer thuis in Amsterdam sinds ze naar BOOST gaan. Herken je dat? Waarom denk je dat dat zo is?,100.0
+18,333,333,Welke volgende stappen ga je zetten om je leven in Nederland op te bouwen? Heeft het taalcafé daarbij geholpen?,Welke volgende stappen ga je zetten om je leven in Nederland op te bouwen? Heeft het taalcafé daarbij geholpen?,100.0
+18,334,334,Zijn er nog dingen die je wil delen over de inburgering in Amsterdam?,Zijn er nog dingen die je wil delen over de inburgering in Amsterdam?,100.0
+18,335,335,Tijdens het taalcafé hebben we je elke week vragen gestuurd via Whatsapp over het taalcafé? Vond je het fijn om de vragen te krijgen? Wat kunnen wij zelf verbeteren om te zorgen dat mensen de vragen invullen?,Tijdens het taalcafé hebben we je elke week vragen gestuurd via Whatsapp over het taalcafé? Vond je het fijn om de vragen te krijgen? Wat kunnen wij zelf verbeteren om te zorgen dat mensen de vragen invullen?,100.0
+19,336,336,Rating inburgeringsprogramma,Rating inburgeringsprogramma,100.0
+19,337,337,STOP/START/REPEAT,STOP/START/REPEAT,100.0
+19,340,340,"Je hebt ook een arbeidscoach, waarvan zou je willen dat je arbeidscoach je daar bij helpt?","Je hebt ook een arbeidscoach, waarvan zou je willen dat je arbeidscoach je daar bij helpt?",100.0
+19,341,341,Nog niet heel veel mensen hebben een werkervaringsplek gevonden na hun traject bij VluchtelingenWerk. Wat denk je dat er nodig is om meer mensen aan het werk te krijgen?,Nog niet heel veel mensen hebben een werkervaringsplek gevonden na hun traject bij VluchtelingenWerk. Wat denk je dat er nodig is om meer mensen aan het werk te krijgen?,100.0
+19,343,343,Inburgeren in Amsterdam,Inburgeren in Amsterdam,100.0
+20,344,344,"How do you experience the integration (inburgering) process as a whole (language, MAP, guidance, activities)? What helps you make progress?","How do you experience the integration (inburgering) process as a whole (language, MAP, guidance, activities)? What helps you make progress?",100.0
+20,346,346,"Hoe vind je het tempo en de sfeer in de lessen? Welke lessen heb je gevolgd?
+Heb je het gevoel dat de manier van lesgeven past bij jouw niveau en persoonlijke situatie?","Hoe vind je het tempo en de sfeer in de lessen? Welke lessen heb je gevolgd?
+ Heb je het gevoel dat de manier van lesgeven past bij jouw niveau en persoonlijke situatie?",100.0
+20,347,347,"Wat zou je graag anders zien aan de inburgering?
+Bijvoorbeeld: meer praktijk, meer contact met Nederlanders, beter verband tussen wat je leert en wat je in het dagelijks leven nodig hebt, of","Wat zou je graag anders zien aan de inburgering?
+ Bijvoorbeeld: meer praktijk, meer contact met Nederlanders, beter verband tussen wat je leert en wat je in het dagelijks leven nodig hebt, of",100.0
+20,348,348,"Kun je een moment beschrijven waarop je hulp nodig had van de gemeente of een organisatie?
+Hoe makkelijk of moeilijk was het om de juiste persoon of organisatie te vinden en hoe heb je het opgelost?","Kun je een moment beschrijven waarop je hulp nodig had van de gemeente of een organisatie?
+ Hoe makkelijk of moeilijk was het om de juiste persoon of organisatie te vinden en hoe heb je het opgelost?",100.0
+20,349,349,"Hoe ervaar je de ondersteuning en informatie van de gemeente tijdens je inburgering?
+Was die informatie duidelijk voor jou en op het juiste moment?
+Kreeg je soms te veel tegelijk, of juist te weinig? Welke vorm van het contact vind je beter? (WhatsApp, e-mail, face-to-face)
+En hoe voelde dat voor jou — hielp het om overzicht te houden, of zorgde het voor stress of verwarring?","Hoe ervaar je de ondersteuning en informatie van de gemeente tijdens je inburgering?
+ Was die informatie duidelijk voor jou en op het juiste moment?
+ Kreeg je soms te veel tegelijk, of juist te weinig? Welke vorm van het contact vind je beter? (WhatsApp, e-mail, face-to-face)
+ En hoe voelde dat voor jou — hielp het om overzicht te houden, of zorgde het voor stress of verwarring?",100.0
+20,350,350,"Wat zou de gemeente volgens jou beter kunnen doen om nieuwkomers te helpen hun weg te vinden?
+(Denk aan communicatie, begeleiding, timing van informatie of persoonlijk contact.)","Wat zou de gemeente volgens jou beter kunnen doen om nieuwkomers te helpen hun weg te vinden?
+ (Denk aan communicatie, begeleiding, timing van informatie of persoonlijk contact.)",100.0
+20,351,351,"Kun je kort vertellen over het werk of vrijwilligerswerk dat je nu doet? Hoe ben je daar terechtgekomen, en wat vind je leuk of juist lastig aan dit werk?","Kun je kort vertellen over het werk of vrijwilligerswerk dat je nu doet? Hoe ben je daar terechtgekomen, en wat vind je leuk of juist lastig aan dit werk?",100.0
+20,352,352,"In hoeverre helpt dit werk jou om Nederlands te oefenen, nieuwe mensen te ontmoeten en beter te begrijpen hoe Nederland werkt? (Wat leer je erdoor over de manier van werken of communiceren in Nederland?)","In hoeverre helpt dit werk jou om Nederlands te oefenen, nieuwe mensen te ontmoeten en beter te begrijpen hoe Nederland werkt? (Wat leer je erdoor over de manier van werken of communiceren in Nederland?)",100.0
+20,353,353,Sluit jouw huidige werk aan bij je? Is het beter om een opleiding te volgen of ervaring op te doen? Wat heb je nodig om werk te vinden dat beter past bij jouw achtergrond of ambities? Krijg je hierbij genoeg hulp van de gemeente of andere organisaties? Van wie?,Sluit jouw huidige werk aan bij je? Is het beter om een opleiding te volgen of ervaring op te doen? Wat heb je nodig om werk te vinden dat beter past bij jouw achtergrond of ambities? Krijg je hierbij genoeg hulp van de gemeente of andere organisaties? Van wie?,100.0
+20,354,354,"Zoek je op dit moment werk of vrijwilligerswerk? Wat voor soort werk spreekt je het meest aan, en waarom juist dat?","Zoek je op dit moment werk of vrijwilligerswerk? Wat voor soort werk spreekt je het meest aan, en waarom juist dat?",100.0
+20,355,355,Wat maakt het moeilijk om passend werk te vinden? Kun je een concreet voorbeeld geven van een situatie waarin het niet lukte — en wat had toen kunnen helpen?,Wat maakt het moeilijk om passend werk te vinden? Kun je een concreet voorbeeld geven van een situatie waarin het niet lukte — en wat had toen kunnen helpen?,100.0
+20,357,357,"Hoe goed lukt het jou om zelf dingen te regelen in Nederland (zoals netwerk opbouwen, afspraken met ziekenhuizen of gemeente, inschrijven scholen en formulieren, brieven)?","Hoe goed lukt het jou om zelf dingen te regelen in Nederland (zoals netwerk opbouwen, afspraken met ziekenhuizen of gemeente, inschrijven scholen en formulieren, brieven)?",100.0
+20,358,358,"Wie helpt jou wanneer iets moeilijk is, gemeente, vrienden, familie of vrijwilliger? En heb je een netwerk dat je ondersteunt bij werk of het begrijpen van Nederlandse systemen?","Wie helpt jou wanneer iets moeilijk is, gemeente, vrienden, familie of vrijwilliger? En heb je een netwerk dat je ondersteunt bij werk of het begrijpen van Nederlandse systemen?",100.0
+20,359,359,"Wat betekent ‘zelfstandig zijn in Nederland’ voor jou persoonlijk? Wat wil je zelf kunnen regelen? (DigiD, afspraak, inschrijven school enz.)","Wat betekent ‘zelfstandig zijn in Nederland’ voor jou persoonlijk? Wat wil je zelf kunnen regelen? (DigiD, afspraak, inschrijven school enz.)",100.0
+20,362,362,"Wanneer voel je je in Nederland echt veilig — en wanneer juist niet?
+Zijn er situaties of plekken waar je je minder op je gemak voelt, of waar je je buitengesloten voelt?","Wanneer voel je je in Nederland echt veilig — en wanneer juist niet?
+ Zijn er situaties of plekken waar je je minder op je gemak voelt, of waar je je buitengesloten voelt?",100.0
+20,363,363,Wat geeft jou vertrouwen of hoop voor de toekomst in Nederland? En wat maakt dat soms moeilijk of onzeker?,Wat geeft jou vertrouwen of hoop voor de toekomst in Nederland? En wat maakt dat soms moeilijk of onzeker?,100.0
+20,361,361,"Heb je het gevoel dat je leven in Nederland op dit moment stabiel is?  Wat helpt jou om stap voor stap een Een stabiel leven op te bouwen is belangrijk, maar wat maakt het soms moeilijk?
+Als je denkt aan een stabiel leven in Nederland, wat hoort daar volgens jou bij? (Bijvoorbeeld: vaste woning, werk, gezondheid, gezin, zekerheid over de toekomst.)","Heb je het gevoel dat je leven in Nederland op dit moment stabiel is? Wat helpt jou om stap voor stap een Een stabiel leven op te bouwen is belangrijk, maar wat maakt het soms moeilijk?
+ Als je denkt aan een stabiel leven in Nederland, wat hoort daar volgens jou bij? (Bijvoorbeeld: vaste woning, werk, gezondheid, gezin, zekerheid over de toekomst.)",99.86
+20,356,356,"Wat heb je nodig om werk te vinden dat echt bij je past (bijv begeleiding, netwerk, taalondersteuning, erkenning  van diploma's of kinderopvang)? Wat zou voor jou een teken van vooruitgang zijn?","Wat heb je nodig om werk te vinden dat echt bij je past (bijv begeleiding, netwerk, taalondersteuning, erkenning van diploma's of kinderopvang)? Wat zou voor jou een teken van vooruitgang zijn?",99.74
+20,360,360,"Tijdens je inburgering, zijn er momenten geweest waarop je stress hebt ervaren?  Waar kwam dat meestal door — bijvoorbeeld administratie, brieven, geldzaken, tijdsdruk of iets anders?
+Wat doet de gemeente volgens jou goed om stress te verminderen, en wat zou beter kunnen?  (Bijvoorbeeld: duidelijkere informatie, meer persoonlijke uitleg, minder brieven tegelijk...)","Tijdens je inburgering, zijn er momenten geweest waarop je stress hebt ervaren? Waar kwam dat meestal door — bijvoorbeeld administratie, brieven, geldzaken, tijdsdruk of iets anders?
+ Wat doet de gemeente volgens jou goed om stress te verminderen, en wat zou beter kunnen? (Bijvoorbeeld: duidelijkere informatie, meer persoonlijke uitleg, minder brieven tegelijk...)",99.73
+20,345,345,Kun je een concreet voorbeeld geven van iets wat je tijdens de inburgering hebt geleerd/gedaan dat je echt  heeft geholpen in dagelijkse leven?,Kun je een concreet voorbeeld geven van iets wat je tijdens de inburgering hebt geleerd/gedaan dat je echt heeft geholpen in dagelijkse leven?,99.65
+21,364,364,"Kun je jezelf kort voorstellen? (Naam, land van herkomst,
+hoelang in Nederland, gezin of alleenstaand?)","Kun je jezelf kort voorstellen? (Naam, land van herkomst,
+ hoelang in Nederland, gezin of alleenstaand?)",100.0
+21,365,365,"Hoe ervaar je het
+inburgeringsproces als geheel (taal, MAP, begeleiding,
+activiteiten)? Wat helpt jou om vooruitgang te boeken?","Hoe ervaar je het
+ inburgeringsproces als geheel (taal, MAP, begeleiding,
+ activiteiten)? Wat helpt jou om vooruitgang te boeken?",100.0
+21,366,366,Kun je een concreet voorbeeld geven van iets wat je tijdens de inburgering hebt geleerd/gedaan dat je echt heeft geholpen in het dagelijkse leven?,Kun je een concreet voorbeeld geven van iets wat je tijdens de inburgering hebt geleerd/gedaan dat je echt heeft geholpen in het dagelijkse leven?,100.0
+21,367,367,Hoe vind je het tempo en de sfeer in de lessen? Welke lessen heb je gevolgd? Heb je het gevoel dat de manier van lesgeven past bij jouw niveau en persoonlijke situatie?,Hoe vind je het tempo en de sfeer in de lessen? Welke lessen heb je gevolgd? Heb je het gevoel dat de manier van lesgeven past bij jouw niveau en persoonlijke situatie?,100.0
+21,368,368,"Wat zou je graag anders zien aan de inburgering?
+Bijvoorbeeld: meer praktijk, meer contact met Nederlanders, beter verband tussen wat je leert en wat je in het dagelijks leven nodig hebt, of meer begeleiding bij werk of MAP?","Wat zou je graag anders zien aan de inburgering?
+ Bijvoorbeeld: meer praktijk, meer contact met Nederlanders, beter verband tussen wat je leert en wat je in het dagelijks leven nodig hebt, of meer begeleiding bij werk of MAP?",100.0
+21,369,369,Kun je een moment beschrijven waarop je hulp nodig had van de gemeente of een organisatie? Hoe makkelijk of moeilijk was het om de juiste persoon of organisatie te vinden en hoe heb je het opgelost?,Kun je een moment beschrijven waarop je hulp nodig had van de gemeente of een organisatie? Hoe makkelijk of moeilijk was het om de juiste persoon of organisatie te vinden en hoe heb je het opgelost?,100.0
+21,370,370,"Hoe ervaar je de ondersteuning en informatie van de gemeente tijdens je inburgering?
+Was die informatie duidelijk voor jou en op het juiste moment?
+Kreeg je soms te veel tegelijk, of juist te weinig? Welke vorm van het contact vind je beter? (WhatsApp, e-mail, face-to-face)
+En hoe voelde dat voor jou — hielp het om overzicht te houden, of zorgde het voor stress of verwarring?","Hoe ervaar je de ondersteuning en informatie van de gemeente tijdens je inburgering?
+ Was die informatie duidelijk voor jou en op het juiste moment?
+ Kreeg je soms te veel tegelijk, of juist te weinig? Welke vorm van het contact vind je beter? (WhatsApp, e-mail, face-to-face)
+ En hoe voelde dat voor jou — hielp het om overzicht te houden, of zorgde het voor stress of verwarring?",100.0
+21,371,371,"Wat zou de gemeente volgens jou beter kunnen doen om nieuwkomers te helpen hun weg te vinden?
+(Denk aan communicatie,
+begeleiding, timing van informatie of persoonlijk contact.)","Wat zou de gemeente volgens jou beter kunnen doen om nieuwkomers te helpen hun weg te vinden?
+ (Denk aan communicatie,
+ begeleiding, timing van informatie of persoonlijk contact.)",100.0
+21,372,372,"Hoe ervaar je de samenwerking tussen de gemeente en
+maatschappelijke organisaties? ( VWN, taalschool enz.)","Hoe ervaar je de samenwerking tussen de gemeente en
+ maatschappelijke organisaties? ( VWN, taalschool enz.)",100.0
+21,373,373,"Kun je kort vertellen over het werk of vrijwilligerswerk dat je nu doet? Hoe ben je daar terechtgekomen, en wat vind je leuk of juist lastig aan dit werk?","Kun je kort vertellen over het werk of vrijwilligerswerk dat je nu doet? Hoe ben je daar terechtgekomen, en wat vind je leuk of juist lastig aan dit werk?",100.0
+21,374,374,"In hoeverre helpt dit werk jou om Nederlands te oefenen, nieuwe mensen te ontmoeten en beter te begrijpen hoe Nederland werkt? (Wat leer je erdoor over de manier van werken of communiceren in
+Nederland?)","In hoeverre helpt dit werk jou om Nederlands te oefenen, nieuwe mensen te ontmoeten en beter te begrijpen hoe Nederland werkt? (Wat leer je erdoor over de manier van werken of communiceren in
+ Nederland?)",100.0
+21,375,375,Sluit jouw huidige werk aan bij je Is het beter om een opleiding te volgen of ervaring op te doen? Wat heb je nodig om werk te vinden dat beter past bij jouw achtergrond of ambities? Krijg je hierbij genoeg hulp van de gemeente of andere organisaties? Van wie?,Sluit jouw huidige werk aan bij je Is het beter om een opleiding te volgen of ervaring op te doen? Wat heb je nodig om werk te vinden dat beter past bij jouw achtergrond of ambities? Krijg je hierbij genoeg hulp van de gemeente of andere organisaties? Van wie?,100.0
+21,376,376,"Hoe goed lukt het jou om zelf dingen te regelen in Nederland (zoals netwerk opbouwen, afspraken met ziekenhuizen of gemeente, inschrijven scholen en formulieren, brieven)?","Hoe goed lukt het jou om zelf dingen te regelen in Nederland (zoals netwerk opbouwen, afspraken met ziekenhuizen of gemeente, inschrijven scholen en formulieren, brieven)?",100.0
+21,377,377,"Wie helpt jou wanneer iets moeilijk is, gemeente, vrienden, familie of vrijwilliger? En heb je een netwerk dat je ondersteunt bij werk of het begrijpen van Nederlandse systemen?","Wie helpt jou wanneer iets moeilijk is, gemeente, vrienden, familie of vrijwilliger? En heb je een netwerk dat je ondersteunt bij werk of het begrijpen van Nederlandse systemen?",100.0
+21,378,378,"Wat betekent ‘zelfstandig zijn in Nederland’ voor jou persoonlijk? Wat wil je zelf kunnen regelen? (DigiD, afspraak, inschrijven school enz.)","Wat betekent ‘zelfstandig zijn in Nederland’ voor jou persoonlijk? Wat wil je zelf kunnen regelen? (DigiD, afspraak, inschrijven school enz.)",100.0
+21,379,379,"Tijdens je inburgering, zijn er
+momenten geweest waarop je stress hebt ervaren?
+Waar kwam dat meestal door —
+bijvoorbeeld administratie, brieven,
+ geldzaken, tijdsdruk of iets anders?
+Wat doet de gemeente volgens jou
+goed om stress te verminderen, en wat zou beter kunnen?
+(Bijvoorbeeld: duidelijkere informatie, meer persoonlijke uitleg, minder
+brieven tegelijk...)","Tijdens je inburgering, zijn er
+ momenten geweest waarop je stress hebt ervaren?
+ Waar kwam dat meestal door —
+ bijvoorbeeld administratie, brieven,
+  geldzaken, tijdsdruk of iets anders?
+ Wat doet de gemeente volgens jou
+ goed om stress te verminderen, en wat zou beter kunnen?
+ (Bijvoorbeeld: duidelijkere informatie, meer persoonlijke uitleg, minder
+ brieven tegelijk...)",100.0
+21,380,380,"Heb je het gevoel dat je leven in
+Nederland op dit moment stabiel is? Wat helpt jou om stap voor stap een Een stabiel leven op te bouwen is
+belangrijk, maar wat maakt het soms moeilijk?
+Als je denkt aan een stabiel leven in Nederland, wat hoort daar volgens jou bij? (Bijvoorbeeld: vaste woning, werk, gezondheid, gezin, zekerheid over de toekomst.)","Heb je het gevoel dat je leven in
+ Nederland op dit moment stabiel is? Wat helpt jou om stap voor stap een Een stabiel leven op te bouwen is
+ belangrijk, maar wat maakt het soms moeilijk?
+ Als je denkt aan een stabiel leven in Nederland, wat hoort daar volgens jou bij? (Bijvoorbeeld: vaste woning, werk, gezondheid, gezin, zekerheid over de toekomst.)",100.0
+21,381,381,"Wanneer voel je je in Nederland echt veilig — en wanneer juist niet?
+Zijn er situaties of plekken waar je je minder op je gemak voelt, of waar je je buitengesloten voelt?","Wanneer voel je je in Nederland echt veilig — en wanneer juist niet?
+ Zijn er situaties of plekken waar je je minder op je gemak voelt, of waar je je buitengesloten voelt?",100.0
+21,382,382,"Wat geeft jou vertrouwen of hoop voor de toekomst in Nederland? En wat maakt dat soms moeilijk of
+onzeker?","Wat geeft jou vertrouwen of hoop voor de toekomst in Nederland? En wat maakt dat soms moeilijk of
+ onzeker?",100.0
+21,383,383,"Als je terugkijkt op dit
+gesprek: wat vond je
+vandaag het
+belangrijkste of meest
+interessante
+onderwerp?
+Waarom juist dat?","Als je terugkijkt op dit
+ gesprek: wat vond je
+ vandaag het
+ belangrijkste of meest
+ interessante
+ onderwerp?
+ Waarom juist dat?",100.0
+21,384,384,"Stel dat jij één ding kon
+veranderen aan de
+inburgering — wat zou
+dat dan zijn?
+(Bijv. in de lessen,
+begeleiding of contact
+met de gemeente.)","Stel dat jij één ding kon
+ veranderen aan de
+ inburgering — wat zou
+ dat dan zijn?
+ (Bijv. in de lessen,
+ begeleiding of contact
+ met de gemeente.)",100.0
+21,385,385,"Wat heb je nodig om
+beter mee te kunnen
+doen in Nederland?
+Denk aan taal, werk,
+netwerk, informatie of
+iets anders wat
+belangrijk voor jou is.","Wat heb je nodig om
+ beter mee te kunnen
+ doen in Nederland?
+ Denk aan taal, werk,
+ netwerk, informatie of
+ iets anders wat
+ belangrijk voor jou is.",100.0
+21,386,386,"Wat zou jij willen dat
+Nederlanders beter
+begrijpen over
+nieuwkomers zoals jij?
+Of wat zou je hen
+willen meegeven vanuit
+jouw ervaring?","Wat zou jij willen dat
+ Nederlanders beter
+ begrijpen over
+ nieuwkomers zoals jij?
+ Of wat zou je hen
+ willen meegeven vanuit
+ jouw ervaring?",100.0
+22,387,387,Wat is je favoriete Nederlandse woord?,Wat is je favoriete Nederlandse woord?,100.0
+22,388,388,"Kun je jezelf kort voorstellen?(Naam, land van herkomst, hoe lang in Nederland, gezin of alleenstaand?)","Kun je jezelf kort voorstellen?(Naam, land van herkomst, hoe lang in Nederland, gezin of alleenstaand?)",100.0
+22,389,389,"Hoe ervaar je het inburgeringsproces als geheel (taal, MAP, begeleiding, activiteiten)? Wat helpt jou om vooruitgang te boeken?","Hoe ervaar je het inburgeringsproces als geheel (taal, MAP, begeleiding, activiteiten)? Wat helpt jou om vooruitgang te boeken?",100.0
+22,390,390,Kun je een concreet voorbeeld geven van iets wat je tijdens de inburgering hebt geleerd dat je echt heeft geholpen in het dagelijks leven?,Kun je een concreet voorbeeld geven van iets wat je tijdens de inburgering hebt geleerd dat je echt heeft geholpen in het dagelijks leven?,100.0
+22,392,392,Wat zou je graag anders zien aan de inburgering?,Wat zou je graag anders zien aan de inburgering?,100.0
+22,395,395,Wat kan de gemeente beter doen?,Wat kan de gemeente beter doen?,100.0
+22,396,396,"Hoe ervaar je de samenwerking tussen gemeente en organisaties (VWN, taalschool, etc.)?","Hoe ervaar je de samenwerking tussen gemeente en organisaties (VWN, taalschool, etc.)?",100.0
+22,397,397,Hoe ben je daar terechtgekomen?,Hoe ben je daar terechtgekomen?,100.0
+22,398,398,Wat vind je leuk of lastig?,Wat vind je leuk of lastig?,100.0
+22,401,401,Wat heb je nodig voor beter passend werk?,Wat heb je nodig voor beter passend werk?,100.0
+22,402,402,Krijg je hulp?,Krijg je hulp?,100.0
+22,403,403,Obstakels,Obstakels,100.0
+22,404,404,Wat had geholpen?,Wat had geholpen?,100.0
+22,405,405,Zelf regelen,Zelf regelen,100.0
+22,406,406,Hulpbronnen,Hulpbronnen,100.0
+22,407,407,Betekenis van zelfstandigheid,Betekenis van zelfstandigheid,100.0
+22,408,408,Stress,Stress,100.0
+22,409,409,Wat doet de gemeente goed?,Wat doet de gemeente goed?,100.0
+22,410,410,Wat kan beter?,Wat kan beter?,100.0
+22,411,411,Stabiliteit,Stabiliteit,100.0
+22,412,412,Wat maakt stabiliteit moeilijk?,Wat maakt stabiliteit moeilijk?,100.0
+22,413,413,Wat hoort bij een stabiel leven?,Wat hoort bij een stabiel leven?,100.0
+22,414,414,Toekomstvertrouwen,Toekomstvertrouwen,100.0
+22,415,415,Terugblik,Terugblik,100.0
+22,416,416,Verbeterideeën,Verbeterideeën,100.0
+22,417,417,Wat is nodig om beter mee te doen?,Wat is nodig om beter mee te doen?,100.0
+22,418,418,Boodschap aan Nederlanders,Boodschap aan Nederlanders,100.0
+22,393,393,"Kun je een moment beschrijven waarop je hulp nodig had van de gemeente of een organisatie?
+Hoe makkelijk of moeilijk was het om de juiste persoon te vinden?
+Hoe heb je het opgelost?","Kun je een moment beschrijven waarop je hulp nodig had van de gemeente of een organisatie?
+ Hoe makkelijk of moeilijk was het om de juiste persoon te vinden?",92.58
+22,391,391,"Hoe vind je het tempo en de sfeer in de lessen? Welke lessen heb je gevolgd?
+Past de manier van lesgeven bij jouw niveau en persoonlijke situatie?",Hoe vind je het tempo en de sfeer in de lessen? Welke lessen heb je gevolgd?,85.0
+22,394,394,"Hoe ervaar je de ondersteuning en informatie van de gemeente?
+Te veel of te weinig informatie?
+Welke contactvorm werkt het best?
+Geeft dit rust of stress?",Hoe ervaar je de ondersteuning en informatie van de gemeente?,85.0
+23,420,420,"Hoe ervaar je het inburgeringsproces als geheel (taal, MAP, begeleiding, activiteiten)? Wat helpt jou om vooruitgang te boeken?","Hoe ervaar je het inburgeringsproces als geheel (taal, MAP, begeleiding, activiteiten)? Wat helpt jou om vooruitgang te boeken?",100.0
+23,422,422,"Hoe vind je het tempo en de sfeer in de lessen? Welke lessen heb je gevolgd?
+Heb je het gevoel dat de manier van lesgeven past bij jouw niveau en persoonlijke situatie?","Hoe vind je het tempo en de sfeer in de lessen? Welke lessen heb je gevolgd?
+ Heb je het gevoel dat de manier van lesgeven past bij jouw niveau en persoonlijke situatie?",100.0
+23,423,423,"Wat zou je graag anders zien aan de inburgering?
+Bijvoorbeeld: meer praktijk, meer contact met Nederlanders, beter verband tussen wat je leert en wat je in het dagelijks leven nodig hebt, of meer begeleiding bij werk of MAP?","Wat zou je graag anders zien aan de inburgering?
+ Bijvoorbeeld: meer praktijk, meer contact met Nederlanders, beter verband tussen wat je leert en wat je in het dagelijks leven nodig hebt, of meer begeleiding bij werk of MAP?",100.0
+23,424,424,"Kun je een moment beschrijven waarop je hulp nodig had van de gemeente of een organisatie?
+Hoe makkelijk of moeilijk was het om de juiste persoon of organisatie te vinden en hoe heb je het opgelost?","Kun je een moment beschrijven waarop je hulp nodig had van de gemeente of een organisatie?
+ Hoe makkelijk of moeilijk was het om de juiste persoon of organisatie te vinden en hoe heb je het opgelost?",100.0
+23,425,425,"Hoe ervaar je de ondersteuning en informatie van de gemeente tijdens je inburgering?
+Was die informatie duidelijk voor jou en op het juiste moment?
+Kreeg je soms te veel tegelijk, of juist te weinig? Welke vorm van het contact vind je beter? (WhatsApp, e-mail, face-to-face)
+En hoe voelde dat voor jou, hielp het om overzicht te houden, of zorgde het voor stress of verwarring?","Hoe ervaar je de ondersteuning en informatie van de gemeente tijdens je inburgering?
+ Was die informatie duidelijk voor jou en op het juiste moment?
+ Kreeg je soms te veel tegelijk, of juist te weinig? Welke vorm van het contact vind je beter? (WhatsApp, e-mail, face-to-face)
+ En hoe voelde dat voor jou, hielp het om overzicht te houden, of zorgde het voor stress of verwarring?",100.0
+23,426,426,"Wat zou de gemeente volgens jou beter kunnen doen om nieuwkomers te helpen hun weg te vinden?
+(Denk aan communicatie, begeleiding, timing van informatie of persoonlijk contact.)","Wat zou de gemeente volgens jou beter kunnen doen om nieuwkomers te helpen hun weg te vinden?
+ (Denk aan communicatie, begeleiding, timing van informatie of persoonlijk contact.)",100.0
+23,427,427,"Hoe ervaar je de samenwerking tussen de gemeente en maatschappelijke organisaties? ( VWN, taalschool enz.)","Hoe ervaar je de samenwerking tussen de gemeente en maatschappelijke organisaties? ( VWN, taalschool enz.)",100.0
+23,428,428,"Kun je kort vertellen over het werk of vrijwilligerswerk dat je nu doet? Hoe ben je daar terechtgekomen, en wat vind je leuk of juist lastig aan dit werk?","Kun je kort vertellen over het werk of vrijwilligerswerk dat je nu doet? Hoe ben je daar terechtgekomen, en wat vind je leuk of juist lastig aan dit werk?",100.0
+23,429,429,"In hoeverre helpt dit werk jou om Nederlands te oefenen, nieuwe mensen te ontmoeten en beter te begrijpen hoe Nederland werkt? (Wat leer je erdoor over de manier van werken of communiceren in Nederland?)","In hoeverre helpt dit werk jou om Nederlands te oefenen, nieuwe mensen te ontmoeten en beter te begrijpen hoe Nederland werkt? (Wat leer je erdoor over de manier van werken of communiceren in Nederland?)",100.0
+23,430,430,Sluit jouw huidige werk aan bij je Is het beter om een opleiding te volgen of ervaring op te doen? Wat heb je nodig om werk te vinden dat beter past bij jouw achtergrond of ambities? Krijg je hierbij genoeg hulp van de gemeente of andere organisaties? Van wie?,Sluit jouw huidige werk aan bij je Is het beter om een opleiding te volgen of ervaring op te doen? Wat heb je nodig om werk te vinden dat beter past bij jouw achtergrond of ambities? Krijg je hierbij genoeg hulp van de gemeente of andere organisaties? Van wie?,100.0
+23,431,431,"Hoe goed lukt het jou om zelf dingen te regelen in Nederland (zoals netwerk opbouwen, afspraken met ziekenhuizen of gemeente, inschrijven scholen en formulieren, brieven)?","Hoe goed lukt het jou om zelf dingen te regelen in Nederland (zoals netwerk opbouwen, afspraken met ziekenhuizen of gemeente, inschrijven scholen en formulieren, brieven)?",100.0
+23,432,432,"Wie helpt jou wanneer iets moeilijk is, gemeente, vrienden, familie of vrijwilliger? En heb je een netwerk dat je ondersteunt bij werk of het begrijpen van Nederlandse systemen?","Wie helpt jou wanneer iets moeilijk is, gemeente, vrienden, familie of vrijwilliger? En heb je een netwerk dat je ondersteunt bij werk of het begrijpen van Nederlandse systemen?",100.0
+23,433,433,"Wat betekent ‘zelfstandig zijn in Nederland’ voor jou persoonlijk? Wat wil je zelf kunnen regelen? (DigiD, afspraak, inschrijven school enz.)","Wat betekent ‘zelfstandig zijn in Nederland’ voor jou persoonlijk? Wat wil je zelf kunnen regelen? (DigiD, afspraak, inschrijven school enz.)",100.0
+23,434,434,"Stress en dagelijks leven
+Tijdens je inburgering, zijn er momenten geweest waarop je stress hebt ervaren? Waar kwam dat meestal door — bijvoorbeeld administratie, brieven, geldzaken, tijdsdruk of iets anders?
+Wat doet de gemeente volgens jou goed om stress te verminderen, en wat zou beter kunnen? (Bijvoorbeeld: duidelijkere informatie, meer persoonlijke uitleg, minder brieven tegelijk...)","Stress en dagelijks leven
+ Tijdens je inburgering, zijn er momenten geweest waarop je stress hebt ervaren? Waar kwam dat meestal door — bijvoorbeeld administratie, brieven, geldzaken, tijdsdruk of iets anders?
+ Wat doet de gemeente volgens jou goed om stress te verminderen, en wat zou beter kunnen? (Bijvoorbeeld: duidelijkere informatie, meer persoonlijke uitleg, minder brieven tegelijk...)",100.0
+23,435,435,"Stabiliteit en gevoel van rust
+Heb je het gevoel dat je leven in Nederland op dit moment stabiel is? Wat helpt jou om stap voor stap een Een stabiel leven op te bouwen is belangrijk, maar wat maakt het soms moeilijk?
+Als je denkt aan een stabiel leven in Nederland, wat hoort daar volgens jou bij? (Bijvoorbeeld: vaste woning, werk, gezondheid, gezin, zekerheid over de toekomst.)","Stabiliteit en gevoel van rust
+ Heb je het gevoel dat je leven in Nederland op dit moment stabiel is? Wat helpt jou om stap voor stap een Een stabiel leven op te bouwen is belangrijk, maar wat maakt het soms moeilijk?
+ Als je denkt aan een stabiel leven in Nederland, wat hoort daar volgens jou bij? (Bijvoorbeeld: vaste woning, werk, gezondheid, gezin, zekerheid over de toekomst.)",100.0
+23,436,436,"Veiligheid en vertrouwen
+Wanneer voel je je in Nederland echt veilig — en wanneer juist niet?
+Zijn er situaties of plekken waar je je minder op je gemak voelt, of waar je je buitengesloten voelt?","Veiligheid en vertrouwen
+ Wanneer voel je je in Nederland echt veilig — en wanneer juist niet?
+ Zijn er situaties of plekken waar je je minder op je gemak voelt, of waar je je buitengesloten voelt?",100.0
+23,437,437,"Toekomstvertrouwen
+Wat geeft jou vertrouwen of hoop voor de toekomst in Nederland? En wat maakt dat soms moeilijk of onzeker?","Toekomstvertrouwen
+ Wat geeft jou vertrouwen of hoop voor de toekomst in Nederland? En wat maakt dat soms moeilijk of onzeker?",100.0
+23,438,438,"Terugkijken op het gesprek
+Als je terugkijkt op dit gesprek: wat vond je vandaag het belangrijkste of meest interessante onderwerp? Waarom juist dat?","Terugkijken op het gesprek
+ Als je terugkijkt op dit gesprek: wat vond je vandaag het belangrijkste of meest interessante onderwerp? Waarom juist dat?",100.0
+23,439,439,"Verbeterideeën
+Stel dat jij één ding kon veranderen aan de inburgering — wat zou dat dan zijn? (Bijv. in de lessen, begeleiding of contact met de gemeente.)","Verbeterideeën
+ Stel dat jij één ding kon veranderen aan de inburgering — wat zou dat dan zijn? (Bijv. in de lessen, begeleiding of contact met de gemeente.)",100.0
+23,440,440,"Toekomst en participatie
+Wat heb je nodig om beter mee te kunnen doen in Nederland? Denk aan taal, werk, netwerk, informatie of iets anders wat belangrijk voor jou is.","Toekomst en participatie
+ Wat heb je nodig om beter mee te kunnen doen in Nederland? Denk aan taal, werk, netwerk, informatie of iets anders wat belangrijk voor jou is.",100.0
+23,441,441,"Blik van nieuwkomers
+Wat zou jij willen dat Nederlanders beter begrijpen over nieuwkomers zoals jij? Of wat zou je hen willen meegeven vanuit jouw ervaring?","Blik van nieuwkomers
+ Wat zou jij willen dat Nederlanders beter begrijpen over nieuwkomers zoals jij? Of wat zou je hen willen meegeven vanuit jouw ervaring?",100.0
+23,421,421,Kun je een concreet voorbeeld geven van iets wat je tijdens de inburgering hebt geleerd/gedaan dat je echt  heeft geholpen in dagelijkse leven?,Kun je een concreet voorbeeld geven van iets wat je tijdens de inburgering hebt geleerd/gedaan dat je echt heeft geholpen in dagelijkse leven?,99.65
