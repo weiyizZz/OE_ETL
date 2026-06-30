@@ -50,7 +50,7 @@ class Text2JsonTransformer:
             task: str,
             output_reduced_participants_pasttask: str = None,
             output_reduced_questions_pasttask: str = None,
-            max_retries: int = 3,
+            max_retries: int = 5,
             retry_delay: int = 10
     ) -> str:
         if task == "1recordT":

@@ -23,3 +23,5 @@ DB/oedb_baseline.db
 /DB/oedb_baseline_v3.db
 /DB/oedb_baseline_v3.db-shm
 /DB/oedb_baseline_v3.db-wal
+/evaluate_benchmark_comparison/trainingset/baseline_v3/matched_participants.csv
+/data/input_data/benchmark_trainingset.xlsx
