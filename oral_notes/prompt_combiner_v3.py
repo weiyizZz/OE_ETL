@@ -232,3 +232,49 @@ class PromptCombiner:
             ),
             extra_note_evaluation_task=extra_note_evaluation_task
         )
+
+    def build_pass_placeholder(self, table_name: str) -> str:
+        """
+        Build a JSON object matching the schema for `table_name` (as produced
+        by to_json_schema), with every field's value set to the literal
+        string "pass". Used by the refiner as a machine-checkable, schema-valid
+        substitute for a bare "pass" response — lets us keep strict JSON schema
+        validation on the LLM call while still supporting a "nothing to change"
+        signal.
+
+        Format mirrors to_json_schema():
+        - Single-record tables (e.g. "1recordT"): flat dict, e.g.
+          {"date": "pass", "data_source_category": "pass"}
+        - All other tables: wrapped in a list under the table name, e.g.
+          {"participants": [{"participantID": "pass", ...}]}
+        """
+        SINGLE_RECORD_TABLES = {"1recordT"}
+        single_record = table_name in SINGLE_RECORD_TABLES
+
+        columns = self.schema["tables"][table_name]["columns"]
+        row_placeholder = {col: "pass" for col in columns}
+
+        if single_record:
+            placeholder = row_placeholder
+        else:
+            placeholder = {table_name: [row_placeholder]}
+
+        return json.dumps(placeholder, ensure_ascii=False)
+
+    def build_prompt_user_refiner_1recordT(
+            self,
+            prompt_path: str,
+            file_path_doc: str,
+            text_doc: str,
+            json_result_lastcall: str
+    ) -> str:
+        prompts = self._load_prompts_user(prompt_path)
+        task = "1recordT"
+
+        return prompts["base"].format(
+            text_doc=text_doc,
+            file_path_doc=file_path_doc,
+            schema_metadata_task=self.extract_schema_metadata(task),
+            json_result_lastcall=json_result_lastcall,
+            json_pass_placeholder=self.build_pass_placeholder(task)
+        )

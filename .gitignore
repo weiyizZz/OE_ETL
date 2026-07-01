@@ -25,3 +25,11 @@ DB/oedb_baseline.db
 /DB/oedb_baseline_v3.db-wal
 /evaluate_benchmark_comparison/trainingset/baseline_v3/matched_participants.csv
 /data/input_data/benchmark_trainingset.xlsx
+/evaluate_benchmark_comparison/trainingset/baseline_v3/.ipynb_checkpoints/evaluate_answers-checkpoint.ipynb
+/evaluate_benchmark_comparison/trainingset/baseline_v3/.ipynb_checkpoints/evaluate_notegroups-checkpoint.ipynb
+/evaluate_benchmark_comparison/trainingset/baseline_v3/.ipynb_checkpoints/evaluate_participants-checkpoint.ipynb
+/evaluate_benchmark_comparison/trainingset/baseline_v3/.ipynb_checkpoints/evaluate_participants_exactmatch-checkpoint.ipynb
+/evaluate_benchmark_comparison/trainingset/baseline_v3/.ipynb_checkpoints/evaluate_questions-checkpoint.ipynb
+/evaluate_benchmark_comparison/trainingset/baseline_v3/.ipynb_checkpoints/map_answers-checkpoint.ipynb
+/evaluate_benchmark_comparison/trainingset/baseline_v3/.ipynb_checkpoints/map_participants-checkpoint.ipynb
+/evaluate_benchmark_comparison/trainingset/baseline_v3/.ipynb_checkpoints/map_questions-checkpoint.ipynb
