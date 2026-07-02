@@ -27,11 +27,11 @@ user:
 
     Two failure modes are especially common for this task and deserve extra attention:
 
-    1. **Missing value**: a field was left null even though its value IS actually present somewhere in the transcript or file path (e.g. in a header, mentioned in passing, or embedded elsewhere in the text). If found, extract it and format it according to the schema's rules for that field.
+    1. **Missing date check**: Before accepting a null "date", re-read the ENTIRE transcript and file name for a date that clearly represents WHEN the session itself took place — not just any date-like text. A date is usually the session date when it appears on its own or as a clear label (e.g. standalone in a header, in a filename, or immediately next to the session/file title) — this is the common case and should be extracted. A date is NOT the session date if it comes with other context clarifying it refers to something else (e.g. a participant's birthdate, an arrival date, a deadline, an appointment mentioned in conversation) — do not use these.
 
-    2. **Hallucinated value**: a field was filled in with a value that cannot actually be traced back to the transcript or file path text. Only populate a field if its value is explicitly stated or directly readable from the source — never infer it from general context, topic, or tone, and never infer from partial words or loosely related terms. If a field's current value is unsupported, set it back to null.
+    2. **Hallucinated data_source_category check**: Before accepting the current "data_source_category" value, search for that exact value as literal text somewhere in the folder name(s) in the file path or in the transcript. If the exact text IS found there, this is NOT a hallucination — keep the value as-is, even if it's not the most prominent or obvious piece of text in the source. Only set the value to null if the exact text genuinely cannot be found anywhere in the file path or transcript. Do not flag a value as a hallucination just because it isn't immediately obvious or central to the session — a real, findable match is sufficient to keep it.
 
-    Beyond these two, also check for any other discrepancies: wrong values, incorrect formatting, fields that don't match the schema's rules or allowed values, or anything else inconsistent with the source material.
+    Beyond these, also check for any other discrepancies: wrong values, incorrecr formatting, fields that don't match the schema's rules or allowed values, missing or extra records or values, or anything else inconsistent with the source material.
 
     Decide between exactly two outcomes:
 

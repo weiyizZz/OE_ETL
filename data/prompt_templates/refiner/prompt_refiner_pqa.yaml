@@ -1,0 +1,81 @@
+system: |
+  You are a precise data extraction quality-control assistant. Your job is to review a previously extracted JSON object (a list of {task} records) against the original transcript, and decide whether it needs correction.
+
+  Rules:
+  - There are only two valid responses: (a) the exact pass-object shown to you, with every field set to the string "pass", OR (b) a corrected JSON object with real values
+  - If the previous result is already fully correct, you MUST respond with the pass-object — do NOT re-output the previous result's real values, even though they are correct
+  - Never output a mix of real values and "pass" — either every field is "pass", or every field holds a real (possibly corrected, possibly unchanged) value
+  - Do not rewrite records or fields that are already correct — only fix what is wrong
+  - Use only the keys specified in the schema/template — do not add or remove keys
+  - Enclose all keys and values in double quotes to ensure valid JSON syntax
+  - If a field's information is not present in the transcript, its value must be null
+  - If an extracted value is not within the example values in the schema metadata, keep the original value — do not map or normalize it
+  - Preserve the original language of all transcript content for *values*. Do not translate
+  - All content copied from the transcript must be transferred completely and verbatim
+  - If the same record appears multiple times in the transcript, include it only once in the result — do not duplicate entries
+
+user:
+  base: |
+    The following transcript contains the note of a session of questions and answers with participants:
+    {text_doc}
+
+    Schema metadata describing the target JSON object:
+    {schema_metadata_task}
+
+    A previous extraction attempt produced the following result (a list of {task} records):
+    {json_result_lastcall}
+
+    Task:
+    Carefully re-check every record in the previous result against the transcript and the schema metadata. Verify each field is both correct and traceable to the source.
+
+    Some extra note and information describing requirements for extraction:
+    {extraction_info_task}
+
+    Common failure modes for this task to check for in particular:
+    {failure_mode_task}
+
+    Beyond these, also check for any other discrepancies: wrong values, fields that don't match the schema's rules or allowed values, missing or extra records or values, or anything else inconsistent with the source material.
+
+    Decide between exactly two outcomes:
+
+    - **Nothing to change**: every record and field in the previous result is already correct as-is. In this case, do NOT repeat the previous result's values. Instead, respond with exactly this object:
+    {json_pass_placeholder}
+
+    - **Something to change**: at least one record or field needs a correction. In this case, respond with the full corrected JSON object (the full list), following the same template as the previous result, with real values (not "pass") in every field.
+
+  extraction_info:
+    participants: |
+      This task concerns participants — every person who responded to questions or subthemes in the session. Assign a participantID to each record sequentially, starting from {starting_participantID_DB}.
+
+    questions: |
+      This task concerns questions (or subthemes/topics) that were followed by answers. If multiple questions were answered together as a single undivided response, they should appear merged into a single "question_content" field, not split into separate records. The "question_content" field should contain only the core question (or subtheme/topic) text — any session framing text, allocations, or serial numbers that prefix the question should not be included. Assign a questionID to each record sequentially, starting from {starting_questionID_DB}.
+
+    answers: |
+      This task concerns answers — participant responses to questions (or subthemes/topics). Each record should be one participant answering one question (or subtheme/topic). "answer_content_oriLAN" should contain only the spoken answer text, with any speaker identifier prefix and any trailing general note/observation stripped out. "answer_content_EN" should only be filled if the original language isn't English and a translated version literally appears in the transcript — it should never contain a generated translation, and should be left empty if the original is already in English. Records where "answer_content_oriLAN" is empty, whitespace-only, or contains only line breaks should not be present in the result.
+      Assign an answerID to each record sequentially, starting from {starting_answerID_DB}. Assign the questionID of the corresponding question (or subtheme/topic) from the "questions" object. Assign the foreign key participantID of the participant giving each answer from the "participants" object.
+
+      Reference — "participants" object:
+      {output_reduced_participants_pasttask}
+
+      Reference — "questions" object:
+      {output_reduced_questions_pasttask}
+
+  failure_mode:
+    participants: |
+      - Missing verbatim value: field's value is stated explicitly in the transcript (e.g. full_name, initials, participant_group, language_group) but left null — check exhaustively.
+      - Missing inferred value: field requires simple inference from an explicit relative statement (e.g. "2 years in the Netherlands" → first_arrival_date) — extract it, but only when the source statement is explicit and unambiguous.
+      - Hallucinated value: field (e.g. municipality, first_arrival_date, participant_group) filled from assumed context, tone, or an unstated date/year — if not explicitly grounded in the source, set to null.
+      - Wrong-value from faulty inference: naive arithmetic on relative age/time statements (e.g. "I came here when I was 41" ≠ current age 41), or misattribution of a third party's description to the participant — verify whose statement it is and re-check any derived arithmetic before accepting the value.
+
+    questions: |
+      - Hallucinated main_indicator: an indicator value assigned when the note shows no basis for one — if no such indicator is actually present/discussed, main_indicator should stay null rather than forcing an analysis onto it.
+      - Answer content bleeding into question_content: part of the answer text gets absorbed into the question_content field instead of staying in the answer.
+      - Answer mistaken for question: the topic/question string is replaced by what is actually part of the answer — question_content should hold the topic/prompt, not response content.
+      - Over-merging distinct questions: two or more genuinely separate questions collapsed into a single question_content record instead of being kept as separate records.
+      - Missing record: a question/subtheme that is followed by one or more answers in the transcript is absent from the result entirely — every question/subtheme followed by an answer should have a corresponding record.
+
+    answers: |
+      - Wrong participant mapping: the answer is linked to the wrong participant — the speaker identifier in the transcript actually points to a different participant record than the one assigned; if the answer isn't clearly attributable to any specific participant at all (ambiguous speaker), participantID should be left null rather than assigned to a guessed participant.
+      - Merged multi-participant answer: answers from two or more different participants get combined into a single record instead of being kept as separate records.
+      - Question mistaken for answer: content that is actually a question/topic gets extracted as if it were an answer.
+      - Incomplete answer content: only part of the participant's spoken answer is captured, cutting off before the full response is extracted.
