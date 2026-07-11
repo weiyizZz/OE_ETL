@@ -64,11 +64,10 @@ user:
     participants: |
       - Missing verbatim value: field's value is stated explicitly in the transcript (e.g. full_name, initials, participant_group, language_group) but left null — check exhaustively.
       - Missing inferred value: field requires simple inference from an explicit relative statement (e.g. "2 years in the Netherlands" → first_arrival_date) — extract it, but only when the source statement is explicit and unambiguous.
-      - Hallucinated value: field (e.g. municipality, first_arrival_date, participant_group) filled from assumed context, tone, or an unstated date/year — if not explicitly grounded in the source, set to null.
+      - Hallucinated value
       - Wrong-value from faulty inference: naive arithmetic on relative age/time statements (e.g. "I came here when I was 41" ≠ current age 41), or misattribution of a third party's description to the participant — verify whose statement it is and re-check any derived arithmetic before accepting the value.
 
     questions: |
-      - Hallucinated main_indicator: an indicator value assigned when the note shows no basis for one — if no such indicator is actually present/discussed, main_indicator should stay null rather than forcing an analysis onto it.
       - Answer content bleeding into question_content: part of the answer text gets absorbed into the question_content field instead of staying in the answer.
       - Answer mistaken for question: the topic/question string is replaced by what is actually part of the answer — question_content should hold the topic/prompt, not response content.
       - Over-merging distinct questions: two or more genuinely separate questions collapsed into a single question_content record instead of being kept as separate records.

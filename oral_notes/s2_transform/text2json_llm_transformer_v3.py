@@ -10,6 +10,8 @@ from utils.html_viewer import show
 
 logger = get_logger(__name__)
 
+REFINABLE_TASKS = ("participants", "questions", "answers", "1recordT")
+
 class Text2JsonTransformer:
 
     def __init__(
@@ -24,6 +26,8 @@ class Text2JsonTransformer:
         pipeline_type: str,
         has_participant: bool = False,
         llm_model: str = "gpt-5.1",
+        prompt_path_refiner_pqa: str = None,
+        prompt_path_refiner_1recordT: str = None,
     ):
         self.prompt_path_text2json = prompt_path_text2json
         self.prompt_path_1recordT = prompt_path_1recordT
@@ -34,6 +38,8 @@ class Text2JsonTransformer:
         self.pipeline_type = pipeline_type
         self.has_participant = has_participant
         self.llm_model = llm_model
+        self.prompt_path_refiner_pqa = prompt_path_refiner_pqa
+        self.prompt_path_refiner_1recordT = prompt_path_refiner_1recordT
 
         self.combiner = PromptCombiner(schema_path=schema_path)
 
@@ -43,40 +49,17 @@ class Text2JsonTransformer:
             timeout=500.0
         )
 
-    # ── Core transform ────────────────────────────────────────────────────────
+    # ── Shared LLM call helper ──────────────────────────────────────────────
 
-    def transform_1task(
+    def _call_llm(
             self,
-            task: str,
-            output_reduced_participants_pasttask: str = None,
-            output_reduced_questions_pasttask: str = None,
+            system_prompt: str,
+            user_prompt: str,
+            json_schema: dict,
+            task_for_logging: str,
             max_retries: int = 5,
-            retry_delay: int = 10
+            retry_delay: int = 10,
     ) -> str:
-        if task == "1recordT":
-            system_prompt = self.combiner.load_prompts_system(self.prompt_path_1recordT)
-            user_prompt = self.combiner.build_prompt_user_1recordT(
-                prompt_path=self.prompt_path_1recordT,
-                file_path_doc=self.file_path_doc,
-                text_doc=self.combined_text
-            )
-            show(user_prompt, title=f"{self.notegroup_id} | text2json: {task} | {self.pipeline_type} | prompt")
-
-        else:
-            system_prompt = self.combiner.load_prompts_system(self.prompt_path_text2json)
-            user_prompt = self.combiner.build_prompt_user_text2json(
-                prompt_path=self.prompt_path_text2json,
-                task=task,
-                text_doc=self.combined_text,
-                starting_ids=self.starting_ids,
-                output_reduced_participants_pasttask=output_reduced_participants_pasttask,
-                output_reduced_questions_pasttask=output_reduced_questions_pasttask,
-                has_participant=self.has_participant
-            )
-            #show(user_prompt, title=f"{self.notegroup_id} | text2json: {task} | {self.pipeline_type} | prompt")
-
-        json_schema = self.combiner.to_json_schema(task)
-
         for attempt in range(max_retries):
             try:
                 response = self.client.chat.completions.create(
@@ -95,24 +78,163 @@ class Text2JsonTransformer:
                 cached_tokens = (
                     getattr(usage.prompt_tokens_details, "cached_tokens", 0) or 0
                 )
-                TokenLogger.append_transformer(llm_model=self.llm_model, notegroup_id=self.notegroup_id, task=task,
-                                               attempt=attempt + 1, input_tokens=usage.prompt_tokens,
+                TokenLogger.append_transformer(llm_model=self.llm_model, notegroup_id=self.notegroup_id,
+                                               task=task_for_logging, attempt=attempt + 1,
+                                               input_tokens=usage.prompt_tokens,
                                                output_tokens=usage.completion_tokens, cached_tokens=cached_tokens,
                                                pipeline_type=self.pipeline_type)
                 # ─────────────────────────────────────────────────────────────
 
-                result = response.choices[0].message.content
-                return result
+                return response.choices[0].message.content
 
-            except InternalServerError as e:
+            except InternalServerError:
                 if attempt < max_retries - 1:
                     logger.warning(
-                        "Server error on attempt %d/%d, retrying in %ds...",
-                        attempt + 1, max_retries, retry_delay
+                        "Server error on attempt %d/%d (task=%s), retrying in %ds...",
+                        attempt + 1, max_retries, task_for_logging, retry_delay
                     )
                     time.sleep(retry_delay)
                 else:
                     raise
+
+    # ── Refiner loop ─────────────────────────────────────────────────────────
+
+    def _get_max_refiner_rounds(self, task: str) -> int:
+        if self.pipeline_type == "refiner_1st" and task == "answers":
+            return 2
+        return 1
+
+    def _refine_result(
+            self,
+            task: str,
+            current_result: str,
+            json_schema: dict,
+            output_reduced_participants_pasttask: str = None,
+            output_reduced_questions_pasttask: str = None,
+    ) -> str:
+        max_rounds = self._get_max_refiner_rounds(task)
+
+        if task == "1recordT":
+            system_prompt = self.combiner.load_prompts_system(self.prompt_path_refiner_1recordT)
+            def build_user_prompt(last_result: str) -> str:
+                return self.combiner.build_prompt_user_refiner_1recordT(
+                    prompt_path=self.prompt_path_refiner_1recordT,
+                    file_path_doc=self.file_path_doc,
+                    text_doc=self.combined_text,
+                    json_result_lastcall=last_result,
+                )
+        else:
+            system_prompt = self.combiner.build_prompt_system_refiner_pqa(
+                prompt_path=self.prompt_path_refiner_pqa,
+                task=task
+            )
+            def build_user_prompt(last_result: str) -> str:
+                return self.combiner.build_prompt_user_refiner_pqa(
+                    prompt_path=self.prompt_path_refiner_pqa,
+                    task=task,
+                    text_doc=self.combined_text,
+                    json_result_lastcall=last_result,
+                    starting_ids=self.starting_ids,
+                    output_reduced_participants_pasttask=output_reduced_participants_pasttask,
+                    output_reduced_questions_pasttask=output_reduced_questions_pasttask,
+                )
+
+        pass_placeholder = self.combiner.build_pass_placeholder(task)
+
+        for round_num in range(1, max_rounds + 1):
+            user_prompt = build_user_prompt(current_result)
+            result = self._call_llm(
+                system_prompt=system_prompt,
+                user_prompt=user_prompt,
+                json_schema=json_schema,
+                task_for_logging=task + "_refiner_round" + str(round_num),
+                retry_delay=60,
+            )
+            logger.info(
+                "=== Result: %s refiner round %d/%d (from %s) ===\n%s",
+                task, round_num, max_rounds, self.notegroup_id, result
+            )
+            try:
+                parsed = json.loads(result)
+            except (json.JSONDecodeError, TypeError):
+                parsed = None
+            if parsed == pass_placeholder:
+                logger.info(
+                    "Passed on round %d, returning previous result. (task=%s, notegroup=%s)",
+                    round_num, task, self.notegroup_id
+                )
+                return current_result
+            try:
+                no_change = parsed == json.loads(current_result)
+            except (json.JSONDecodeError, TypeError):
+                no_change = False
+            current_result = result
+            if no_change:
+                logger.info(
+                    "No change from previous round on round %d, stopping early. (task=%s, notegroup=%s)",
+                    round_num, task, self.notegroup_id
+                )
+                break
+        return current_result
+
+    # ── Core transform ────────────────────────────────────────────────────────
+
+    def transform_1task(
+            self,
+            task: str,
+            output_reduced_participants_pasttask: str = None,
+            output_reduced_questions_pasttask: str = None,
+            max_retries: int = 5,
+            retry_delay: int = 10
+    ) -> str:
+        if task == "1recordT":
+            system_prompt = self.combiner.load_prompts_system(self.prompt_path_1recordT)
+            user_prompt = self.combiner.build_prompt_user_1recordT(
+                prompt_path=self.prompt_path_1recordT,
+                file_path_doc=self.file_path_doc,
+                text_doc=self.combined_text
+            )
+            #show(user_prompt, title=f"{self.notegroup_id} | text2json: {task} | {self.pipeline_type} | prompt")
+
+        else:
+            system_prompt = self.combiner.load_prompts_system(self.prompt_path_text2json)
+            user_prompt = self.combiner.build_prompt_user_text2json(
+                prompt_path=self.prompt_path_text2json,
+                task=task,
+                text_doc=self.combined_text,
+                starting_ids=self.starting_ids,
+                output_reduced_participants_pasttask=output_reduced_participants_pasttask,
+                output_reduced_questions_pasttask=output_reduced_questions_pasttask,
+                has_participant=self.has_participant
+            )
+            #show(user_prompt, title=f"{self.notegroup_id} | text2json: {task} | {self.pipeline_type} | prompt")
+
+        json_schema = self.combiner.to_json_schema(task)
+
+        result = self._call_llm(
+            system_prompt=system_prompt,
+            user_prompt=user_prompt,
+            json_schema=json_schema,
+            task_for_logging=task,
+            max_retries=max_retries,
+            retry_delay=retry_delay,
+        )
+
+        logger.info(
+            "=== Result: %s (initial without refinement, from %s) ===\n%s",
+            task, self.notegroup_id, result
+        )
+
+        # ── Refinement loop ──────────────────────────────────────────────────
+        if self.pipeline_type.startswith("refiner") and task in REFINABLE_TASKS:
+            result = self._refine_result(
+                task=task,
+                current_result=result,
+                output_reduced_participants_pasttask=output_reduced_participants_pasttask,
+                output_reduced_questions_pasttask=output_reduced_questions_pasttask,
+            )
+
+        return result
 
     def transform_4tasks(self) -> dict:
 
@@ -131,7 +253,7 @@ class Text2JsonTransformer:
             output_reduced_questions_pasttask=reduced_result_questions,
             retry_delay=60
         )
-        logger.info("=== Result: answers (from %s) ===\n%s", self.notegroup_id, result_answers)
+        #logger.info("=== Result: answers (from %s) ===\n%s", self.notegroup_id, result_answers)
 
         # ── postprocess: drop participants with no answers ─────────────────────
         result_participants = self.postprocess_participants(result_participants_raw, self.starting_ids)
@@ -144,7 +266,7 @@ class Text2JsonTransformer:
 
         # ── 1recordT ────────────────────────────────────────────────────────────
         result_1recordT = self.transform_1task(task="1recordT")
-        logger.info("=== Result: 1recordT (from %s) ===\n%s", self.notegroup_id, result_1recordT)
+        #logger.info("=== Result: 1recordT (from %s) ===\n%s", self.notegroup_id, result_1recordT)
 
         return {
             "participants": result_participants,

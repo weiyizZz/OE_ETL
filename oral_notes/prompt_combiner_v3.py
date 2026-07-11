@@ -150,6 +150,36 @@ class PromptCombiner:
             output_reduced_questions_pasttask=output_reduced_questions_pasttask
         )
 
+    # ── Extra info resolvers (refiner_pqa) ──────────────────────────────────────
+
+    def _extraction_info_participants(self, prompts: dict, starting_ids: dict) -> str:
+        return prompts["extraction_info"]["participants"].format(
+            starting_participantID_DB=starting_ids["participantID"]
+        )
+
+    def _extraction_info_questions(self, prompts: dict, starting_ids: dict) -> str:
+        return prompts["extraction_info"]["questions"].format(
+            starting_questionID_DB=starting_ids["questionID"]
+        )
+
+    def _extraction_info_answers(
+        self,
+        prompts: dict,
+        starting_ids: dict,
+        output_reduced_participants_pasttask: str,
+        output_reduced_questions_pasttask: str
+    ) -> str:
+        if output_reduced_participants_pasttask is None:
+            raise ValueError("output_reduced_participants_pasttask is required for task 'answers'")
+        if output_reduced_questions_pasttask is None:
+            raise ValueError("output_reduced_questions_pasttask is required for task 'answers'")
+
+        return prompts["extraction_info"]["answers"].format(
+            starting_answerID_DB=starting_ids["answerID"],
+            output_reduced_participants_pasttask=output_reduced_participants_pasttask,
+            output_reduced_questions_pasttask=output_reduced_questions_pasttask
+        )
+
     # ── Main methods ────────────────────────────────────────────────────────────
 
     def build_prompt_user_text2json(
@@ -276,5 +306,47 @@ class PromptCombiner:
             file_path_doc=file_path_doc,
             schema_metadata_task=self.extract_schema_metadata(task),
             json_result_lastcall=json_result_lastcall,
+            json_pass_placeholder=self.build_pass_placeholder(task)
+        )
+
+    def build_prompt_system_refiner_pqa(self, prompt_path: str, task: str) -> str:
+        system = self.load_prompts_system(prompt_path)
+        return system.format(task=task)
+
+    def build_prompt_user_refiner_pqa(
+            self,
+            prompt_path: str,
+            task: str,
+            text_doc: str,
+            json_result_lastcall: str,
+            starting_ids: dict,
+            output_reduced_participants_pasttask: str = None,
+            output_reduced_questions_pasttask: str = None,
+    ) -> str:
+        prompts = self._load_prompts_user(prompt_path)
+
+        if task == "participants":
+            extraction_info = self._extraction_info_participants(prompts, starting_ids)
+        elif task == "questions":
+            extraction_info = self._extraction_info_questions(prompts, starting_ids)
+        elif task == "answers":
+            extraction_info = self._extraction_info_answers(
+                prompts,
+                starting_ids,
+                output_reduced_participants_pasttask,
+                output_reduced_questions_pasttask
+            )
+        else:
+            raise ValueError(f"Unknown task '{task}' for refiner_pqa")
+
+        failure_mode = prompts["failure_mode"].get(task, "")
+
+        return prompts["base"].format(
+            text_doc=text_doc,
+            task=task,
+            schema_metadata_task=self.extract_schema_metadata(task),
+            json_result_lastcall=json_result_lastcall,
+            extraction_info_task=extraction_info,
+            failure_mode_task=failure_mode,
             json_pass_placeholder=self.build_pass_placeholder(task)
         )
