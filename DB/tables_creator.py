@@ -124,7 +124,7 @@ def load_notegroups(conn, csv_path: str):
 
 
 if __name__ == "__main__":
-    db_path  = "oedb_baseline_v3.db"
+    db_path  = "oedb_refiner_2nd.db"
     csv_path = "../data/input_data/notegroups.csv"
 
     conn = sqlite3.connect(db_path)

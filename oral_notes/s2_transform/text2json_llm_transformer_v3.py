@@ -10,7 +10,10 @@ from utils.html_viewer import show
 
 logger = get_logger(__name__)
 
-REFINABLE_TASKS = ("participants", "questions", "answers", "1recordT")
+REFINABLE_TASKS = {
+    "refiner_1st": ("participants", "questions", "answers", "1recordT"),
+    "refiner_2nd": ("participants", "answers"),
+}
 
 class Text2JsonTransformer:
 
@@ -100,7 +103,7 @@ class Text2JsonTransformer:
     # ── Refiner loop ─────────────────────────────────────────────────────────
 
     def _get_max_refiner_rounds(self, task: str) -> int:
-        if self.pipeline_type == "refiner_1st" and task == "answers":
+        if self.pipeline_type in ("refiner_1st", "refiner_2nd") and task == "answers":
             return 2
         return 1
 
@@ -139,7 +142,7 @@ class Text2JsonTransformer:
                     output_reduced_questions_pasttask=output_reduced_questions_pasttask,
                 )
 
-        pass_placeholder = self.combiner.build_pass_placeholder(task)
+        pass_placeholder = json.loads(self.combiner.build_pass_placeholder(task))
 
         for round_num in range(1, max_rounds + 1):
             user_prompt = build_user_prompt(current_result)
@@ -226,10 +229,11 @@ class Text2JsonTransformer:
         )
 
         # ── Refinement loop ──────────────────────────────────────────────────
-        if self.pipeline_type.startswith("refiner") and task in REFINABLE_TASKS:
+        if task in REFINABLE_TASKS.get(self.pipeline_type, ()):
             result = self._refine_result(
                 task=task,
                 current_result=result,
+                json_schema=json_schema,
                 output_reduced_participants_pasttask=output_reduced_participants_pasttask,
                 output_reduced_questions_pasttask=output_reduced_questions_pasttask,
             )

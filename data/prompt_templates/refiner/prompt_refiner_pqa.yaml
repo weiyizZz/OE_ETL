@@ -62,10 +62,11 @@ user:
 
   failure_mode:
     participants: |
-      - Missing verbatim value: field's value is stated explicitly in the transcript (e.g. full_name, initials, participant_group, language_group) but left null — check exhaustively.
-      - Missing inferred value: field requires simple inference from an explicit relative statement (e.g. "2 years in the Netherlands" → first_arrival_date) — extract it, but only when the source statement is explicit and unambiguous.
-      - Hallucinated value
-      - Wrong-value from faulty inference: naive arithmetic on relative age/time statements (e.g. "I came here when I was 41" ≠ current age 41), or misattribution of a third party's description to the participant — verify whose statement it is and re-check any derived arithmetic before accepting the value.
+      - Missing verbatim value: the field's value is stated explicitly in the transcript (e.g. full_name, initials, participant_group, language_group) but was left null — check exhaustively.
+      - Missing inferred value: the field requires a simple inference from an explicit relative statement (e.g. "2 years in the Netherlands" → first_arrival_date) — extract it, but only when the source statement is explicit and unambiguous.
+      - Hallucinated value: a value that does not appear anywhere in the original transcript.
+      - Wrong value from faulty inference: incorrect arithmetic on relative age/time statements (e.g. "I came here when I was 41" does not mean the participant's current age is 41), or a third party's description mistakenly attributed to the participant — verify whose statement it is, and double-check any derived arithmetic before accepting the value.
+      - Missing record: every participant who gave a response should be included — check especially for participants with similar but distinct session identifiers, since these are the ones most likely to be missed.
 
     questions: |
       - Answer content bleeding into question_content: part of the answer text gets absorbed into the question_content field instead of staying in the answer.
@@ -74,7 +75,8 @@ user:
       - Missing record: a question/subtheme that is followed by one or more answers in the transcript is absent from the result entirely — every question/subtheme followed by an answer should have a corresponding record.
 
     answers: |
-      - Wrong participant mapping: the answer is linked to the wrong participant — the speaker identifier in the transcript actually points to a different participant record than the one assigned; if the answer isn't clearly attributable to any specific participant at all (ambiguous speaker), participantID should be left null rather than assigned to a guessed participant.
-      - Merged multi-participant answer: answers from two or more different participants get combined into a single record instead of being kept as separate records.
-      - Question mistaken for answer: content that is actually a question/topic gets extracted as if it were an answer.
+      - Wrong participant mapping: the answer is linked to the wrong participant — the speaker identifier in the transcript actually points to a different participant record than the one assigned. If the answer isn't clearly attributable to any specific participant (ambiguous speaker), participantID should be left null rather than assigned to a guessed participant.
+      - Merged multi-participant answer: answers from two or more different participants are combined into a single record instead of being kept as separate records.
+      - Question mistaken for answer: content that is actually a question or topic prompt is extracted as if it were an answer.
       - Incomplete answer content: only part of the participant's spoken answer is captured, cutting off before the full response is extracted.
+      - Missing records: an answer that was actually given is absent from the extracted output.
