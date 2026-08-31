@@ -125,7 +125,7 @@ tables:
         json_schema_type: "array"
         nullable: true
         example_values: [['work'],['work', 'language']]
-        reference_values: [ 'work', 'education', 'housing', 'health', 'leisure', 'bonds', 'bridges', 'links', 'language', 'culture', 'digital skills', 'safety', 'stability', 'rights and responsibilities', 'werk & inkomen', 'onderwijs', 'huisvesting & opvang', 'zorg & welzijn', 'vrije tijd', 'banden', 'bruggen', 'connecties', 'taal', 'cultuur', 'digitale vaardigheden', 'veiligheid', 'stabilitieit', 'rechten & verantwoordelijkheden' ]
+        reference_values: [ 'work', 'education', 'housing', 'health', 'leisure', 'bonds', 'bridges', 'links', 'language', 'culture', 'digital skills', 'safety', 'stability', 'rights and responsibilities', 'werk & inkomen', 'onderwijs', 'huisvesting & opvang', 'zorg & welzijn', 'vrije tijd', 'banden', 'bruggen', 'connecties', 'taal', 'cultuur', 'digitale vaardigheden', 'veiligheid', 'stabiliteit', 'rechten & verantwoordelijkheden' ]
         description: >-
           One (or more) main indicators for this question. Only fill
           this field if it can be identified from a section header or label

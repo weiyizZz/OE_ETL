@@ -35,3 +35,8 @@ DB/oedb_baseline.db
 /evaluate_benchmark_comparison/trainingset/baseline_v3/.ipynb_checkpoints/map_questions-checkpoint.ipynb
 /information_collection/.ipynb_checkpoints/information_printing-checkpoint.ipynb
 /DB/oedb_refiner_1st.db
+/evaluate_benchmark_comparison/trainingset/baseline_v3/matched_answers.csv
+/evaluate_benchmark_comparison/trainingset/refiner_1st/matched_answers.csv
+/evaluate_benchmark_comparison/trainingset/refiner_1st/matched_participants.csv
+/evaluate_benchmark_comparison/trainingset/refiner_1st/matched_questions.csv
+/DB/oedb_refiner_2nd.db
